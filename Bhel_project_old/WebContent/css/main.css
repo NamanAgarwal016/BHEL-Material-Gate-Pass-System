@@ -1,0 +1,6 @@
+@charset "ISO-8859-1";
+.btn {
+  float:right;
+  margin:6px 6px 0 0;
+  border-shadow:1px 1px 4px black;
+  }
