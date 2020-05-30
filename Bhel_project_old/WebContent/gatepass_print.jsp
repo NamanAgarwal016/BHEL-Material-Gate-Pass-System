@@ -7,6 +7,7 @@
   <head>
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Print</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <style media="screen">
   table {
@@ -22,25 +23,25 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="gatepass_status.html">HOME</a>
+        <a class="nav-link" href="gatepass_status.jsp">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="gatepass_draft.html">RAISE GATE PASS</a>
+        <a class="nav-link" href="gatepass_draft.jsp">RAISE GATE PASS</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           VIEW
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="gatepass_approved.html">Approved</a>
-          <a class="dropdown-item" href="gatepass_closed.html">Closed</a>
-          <a class="dropdown-item" href="gatepass_pending.html">Pending</a>
-          <a class="dropdown-item" href="#">Cancelled</a>
-          <a class="dropdown-item" href="#">In Draft</a>
+          <a class="dropdown-item" href="gatepass_approved.jsp">Approved</a>
+          <a class="dropdown-item" href="gatepass_closed.jsp">Closed</a>
+          <a class="dropdown-item" href="gatepass_pending.jsp">Pending</a>
+          <a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
+          <a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
         </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">PRINT <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="gatepass_print.jsp">PRINT <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="gatepass_help.html">HELP</a>
