@@ -26,50 +26,50 @@ return true;
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <style media="screen">
-  .blankSpace{
-    width:100%;
-    margin-bottom:150px;
-  }
-  .btn-primary{
-    background-color:#993399;
+ .btn-outline-primary{
+    background-color:white;
     border-color:#993399;
+    color:#993399
   }
-  .btn-primary:hover{
-    background-color:violet;
+  .btn-outline-primary:hover{
+    background-color:#993399;
     border-color:violet;
+    color:white;
+  }
+  .loginField {
+    outline: 0;
+  border-width: 0 0 2px;
+  border-color: #993399;
   }
 </style>
   </head>
   <body>
-  <div class="jumbotron-fluid" style="background-color:#993399;">
-    <div class="container-fluid">
-    <img src="img_src\login_logo.jpg" id="loginLogo" height="72px" align="left" style="margin-right:20px;">
-    <h6 class="text-white">Bharat Heavy Electricals Limited</h6>
-    <h7 class="text-white">Heavy Plates and Vessels Plant</h7>
-      <br>
-    <h8 class="text-white">Vishakhapatnam</h4>
+  <script type="text/javascript" src="js\angular.js"></script>
+    <div class="container-fluid" style="background-color:#993399;width:100%;height:110px;border:solid 5px violet;">
+    <img src="img_src\login_logo.jpg" alt="" height="90px" align="left"  style="margin-top:5px;margin-right:20px;">
+    <img src="img_src\gandhi-logo.png" alt="" align="right" height="90px" style="margin-top:5px;">
+     <p class="text-white" style="margin-top:10px;">Bharat Heavy Electricals Limited
+     <br>Heavy Plates and Vessels Plant
+     <br>Visakhapatnam</p>
     </div>
-  </div>
-  <div class="blankSpace"></div>
-<div class="row">
-  <div class="col"></div>
-  <div class="col">
-      <div class="container-fluid border-bottom-0 text-white" style="background-color:#993399;padding:10px 0px 10px 20px;border:solid 2px black;">Please Login</div>
-  
-  
+    <div class="jumbotron text-center" style="width:100%;background-color:white;">
+      <div class="container-fluid">
+      <img src="img_src\landing3.jpg" align="left" width="60%" style="padding:10px;outline:solid 4px violet;">
   <form name="login_form" class="" action="<%=request.getContextPath()%>/login" method="post" onsubmit="javascript:return validate();" align="center" style="border:solid 2px;">
     <label for="uName">Username:</label>
-    <input type="text" name="username" placeholder="Enter Username" style="margin:20px;padding:4px 4px;" ng-model="user.name" ng-required="true">
-    <br>
-    <label for="uPassw">Password:</label>
-    <input type="password" name="password" placeholder="Enter Password" style="margin:20px;padding:4px 4px;" ng-model="user.pass" ng-required="true">
-    <br>
-    <input class="btn btn-primary" type="submit" value="Submit" style="margin:10px;">
-  </form>
-  
-  
+      <img src="img_src\8-512.webp" width="20px" height="20xp">
+      <input class="loginField" type="text" name="uName" placeholder="Enter Username" style="margin:20px;padding:4px 4px;" ng-model="user.name" ng-required="true" required>
+      <br>
+      <label for="uPassw">Password:</label>
+      <img src="img_src\computer-icons-password-login-user-padlock.jpg" alt="" width="20px" height="20xp">
+      <input class="loginField" type="password" name="uPassw" placeholder="Enter Password" style="margin:20px;padding:4px 4px;" ng-model="user.pass" ng-required="true" required>
+      <br>
+      <input class="btn btn-outline-primary" type="button" value="Sign In" style="margin:10px;">
+    </form>
   </div>
-  <div class="col"></div>
+  </div>
+  <div class="container-fluid align-bottom" style="background-color:#993399;width:100%;height:60px;margin-top:30px;display:inline-block;border:solid 5px violet">
+  </div>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
