@@ -78,7 +78,7 @@ ResultSet resultSet = null;
     <div class="container" style="margin-top:8%;">
     
 
-     <h1 style="text-align:center;"><b>Hello Full_Name !!</b></h1>
+     <h3 class="text-center"><b>Hello Full_Name !!</b></h3>
  
  	<div class="container" style="margin-top:4%;">
       <table align="center" class="table table-striped">
