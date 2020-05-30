@@ -5,14 +5,30 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Raise</title>
+
+
     <!--Importing Bootstrap css files from the cdn server,4.0.0-alpha.6 being the release Version-->
+    
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    
+    
     <!--Importing custom css used for applying a theme to the page-->
+    
+    
     <link rel="stylesheet" href="css/raise.css">
+    
+    <!--Importing AngularJS-->
+    
+    
 <script type="text/javascript" src="js\angular.min.js"></script>
 </head>
 <body>
+
+
 <!--Importing the Bootstrap Navigation Bar-->
+
+
     <nav class="navbar navbar-toggleable navbar-inverse">
          <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
          <span class="navbar-toggler-icon"></span>
@@ -50,16 +66,28 @@
         </ul>
   </div>
     </nav>
+    
+    
     <!--Creating the logout Button-->
+    
+    
     <button class="btn btn-danger" onclick="">Logout</button>
+    
+    
     <!--Creating Container Block Element for creating a Table -->
+    
+    
     <div class="container">
       <form class="" action="#" method="post" id="gatepassMainForm">
+      
+      
         <!--Input table for Material Information-->
+        
+        
       <table align="center" class="table table-bordered">
         <thead>
           <tr>
-            <td colspan="5" class="text-center text-white form-group-header">RETURNABLE GATE PASS</td>
+            <th colspan="5" class="text-center text-white form-group-header">RETURNABLE GATE PASS</th>
           </tr>
         </thead>
         <tbody>
@@ -278,12 +306,20 @@
     </div>
     </div>
   </form>
+  
+  
   <!--Importing jQuery,tether,Bootstrap JavaScripts, as bootstrap requires jQuery and tether-->
+  
+  
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
+  
+  
   <!--JavaScript for dynamic content based on type of person BHEL/NON-BHEL -->
+  
+  
   <script type="text/javascript" src="js\raise.js"></script>
 
 </html>

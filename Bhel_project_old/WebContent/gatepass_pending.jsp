@@ -15,7 +15,7 @@
     
     <!-- Adding Custom CSS -->
     
-    <link rel="stylesheet" href="css/pending.css">
+    <link rel="stylesheet" href="css/main.css">
     
   </head>
   <body>
@@ -73,28 +73,73 @@
       
       <thead class="thead-dark">
         <tr>
-        <th scope="col" colspan="2">LIST OF PENDING GATE PASSES</th>
+        <th scope="col" colspan="7">LIST OF PENDING GATE PASSES</th>
       </tr>
       </thead>
       
       
 <tbody>
     <tr>
+    <th>Gp. No.</th>
+    <th>Initiator</th>
+    <th>Date Issued</th>
+    <th>Purpose</th>
+    <th>Custodian</th>
+    <th>Issuing Officer</th>
+    <th>Due Date</th>
+    </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td></td>
     </tr>
     <tr>
     <td></td>
-    </tr>
-    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td></td>
     </tr>
     <tr>
     <td></td>
-    </tr>
-    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td></td>
     </tr>
     <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td></td>
     </tr>
   </tbody>

@@ -39,6 +39,7 @@ ResultSet resultSet = null;
     <!-- Importing the custom External CSS -->
     
     <link rel="stylesheet" href="css/status.css">
+    
   </head>
   <body>
   

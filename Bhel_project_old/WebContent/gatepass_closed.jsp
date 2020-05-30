@@ -15,7 +15,7 @@
     
     <!-- Adding Custom CSS -->
     
-    <link rel="stylesheet" href="css/closed.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
   

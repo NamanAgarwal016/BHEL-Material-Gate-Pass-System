@@ -1,5 +1,5 @@
 @charset "ISO-8859-1";
-  table {
+   table {
     border:1px solid black;
   }
   th {
@@ -7,13 +7,13 @@
   color:white;
   background-color:#993399;
   }
-  .navbar {
-  background-color:#993399;
-  }
-  .btn {
+.btn-danger {
   float:right;
   margin:6px 6px 0 0;
   border-shadow:1px 1px 4px black;
+  }
+  .navbar {
+  background-color:#993399;
   }
   .welcome-message{
    margin-top:8%;
@@ -21,4 +21,7 @@
   }
   .table-holder{
    margin-top:8%;
+  }
+  td {
+  text-align:center;
   }

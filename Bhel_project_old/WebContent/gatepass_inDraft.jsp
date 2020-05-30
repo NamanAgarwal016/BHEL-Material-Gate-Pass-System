@@ -14,7 +14,7 @@
     
     <!-- Adding Custom CSS -->
     
-    <link rel="stylesheet" href="css/inDraft.css">
+    <link rel="stylesheet" href="css/main.css">
   
   </head>
   <body>

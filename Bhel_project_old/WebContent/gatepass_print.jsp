@@ -17,6 +17,7 @@
     <!-- Adding External CSS -->
     
     <link rel="stylesheet" href="css/print.css">
+    <link rel="stylesheet" href="css/main.css">
     
   </head>
   <body>
@@ -81,7 +82,7 @@
       </tr>
 
       <tr class="text-center">
-      <td colspan="2" ><button class="btn text-white btn-print">Submit</button></td>
+      <td colspan="2" ><button class="btn btn-outline-primary">Submit</button></td>
       </tr>
 
       </tbody>

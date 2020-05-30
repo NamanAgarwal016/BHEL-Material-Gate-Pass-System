@@ -12,7 +12,7 @@
 
     <!-- Adding Custom CSS -->
     
-<link rel="stylesheet" href="css/cancelled.css"> 
+<link rel="stylesheet" href="css/main.css"> 
   </head>
   <body>
      

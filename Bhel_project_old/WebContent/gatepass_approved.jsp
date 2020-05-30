@@ -14,7 +14,7 @@
     
     <!-- Adding Custom CSS -->
     
-    <link rel="stylesheet" href="css/approved.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
   
@@ -66,7 +66,7 @@
       
       <thead class="thead-dark">
         <tr>
-        <th scope="col" colspan="7" style="text-align:center;color:white;background-color:#993399;">LIST OF APPROVED GATE PASSES</th>
+        <th scope="col" colspan="7">LIST OF APPROVED GATE PASSES</th>
         </tr>
       </thead>
       
