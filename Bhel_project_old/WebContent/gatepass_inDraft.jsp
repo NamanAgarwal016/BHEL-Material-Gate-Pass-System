@@ -1,19 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>In Draft </title>
+
+    <!-- Adding Bootstrap CSS -->
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<style media="screen">
-  table {
-    border:1px solid black;
-  }
-</style>
+    
+    <!-- Adding Custom CSS -->
+    
+    <link rel="stylesheet" href="css/inDraft.css">
+  
   </head>
   <body>
-    <nav class="navbar navbar-toggleable navbar-inverse" style="background-color:#993399;">
+    <nav class="navbar navbar-toggleable navbar-inverse">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
          <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,14 +51,24 @@
     </ul>
   </div>
     </nav>
-    <button class="btn btn-danger" style="float:right;margin:6px 6px 0 0;border-shadow:1px 1px 4px black;">Logout</button>
-    <div class="container" style="margin-top:12%;">
+    
+    <!-- Creating the Logout Button -->
+    
+    <button class="btn btn-danger">Logout</button>
+    
+    <!-- Creating the table for in Draft Gatepasses -->
+    
+    <div class="container">
       <table align="center" class="table table-striped">
+      
+      
       <thead class="thead-dark">
         <tr>
-        <th scope="col" colspan="5" style="text-align:center;color:white;background-color:#993399;">LIST OF GATE PASSES CURRENTLY IN DRAFT</th>
+        <th scope="col" colspan="5">LIST OF GATE PASSES CURRENTLY IN DRAFT</th>
       </tr>
       </thead>
+      
+      
 <tbody>
     <tr>
     <th>Gp. No.</th>
@@ -135,8 +150,12 @@
   </tbody>
   </table>
 </div>
+
+    <!-- Importing tether,jQuery,Bootstrap javaScripts -->
+    
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  
   </body>
 </html>
