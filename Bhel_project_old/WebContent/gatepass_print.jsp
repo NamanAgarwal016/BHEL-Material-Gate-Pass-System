@@ -26,7 +26,7 @@
         <a class="nav-link" href="gatepass_status.jsp">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="gatepass_draft.jsp">RAISE GATE PASS</a>
+        <a class="nav-link" href="gatepass_raise.jsp">RAISE GATE PASS</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
