@@ -44,7 +44,7 @@
         <a class="nav-link" href="gatepass_print.jsp">PRINT <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="gatepass_help.html">HELP</a>
+        <a class="nav-link" href="gatepass_help.jsp">HELP</a>
       </li>
     </ul>
   </div>
