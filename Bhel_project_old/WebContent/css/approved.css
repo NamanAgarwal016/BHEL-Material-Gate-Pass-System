@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+  table {
+    border:1px solid black;
+  }
+  .navbar {
+  background-color:#993399;
+  }
+  .btn {
+  float:right;
+  margin:6px 6px 0 0;
+  border-shadow:1px 1px 4px black;
+  }
+  .container {
+   margin-top:12%;
+  }

@@ -8,14 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Approved List</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<style media="screen">
-  table {
-    border:1px solid black;
-  }
-</style>
+    <link rel="stylesheet" href="css/approved.css">
   </head>
   <body>
-    <nav class="navbar navbar-toggleable navbar-inverse" style="background-color:#993399;">
+  
+    <!-- Adding the Navigation Bar -->
+    
+    <nav class="navbar navbar-toggleable navbar-inverse">
         <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
          <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,7 +24,7 @@
         <a class="nav-link" href="gatepass_status.jsp">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="gatepass_draft.jsp">RAISE GATE PASS</a>
+        <a class="nav-link" href="gatepass_raise.jsp">RAISE GATE PASS</a>
       </li>
       <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,14 +47,24 @@
     </ul>
   </div>
     </nav>
-    <button class="btn btn-danger" style="float:right;margin:6px 6px 0 0;border-shadow:1px 1px 4px black;">Logout</button>
-    <div class="container" style="margin-top:12%;">
-      <table align="center" class="table table-striped">
+    
+    <!-- Creating the Logout Button -->
+    
+    <button class="btn btn-danger">Logout</button>
+    
+    <!-- Creating the table for Approved Gatepasses -->
+    
+<div class="container">
+<table align="center" class="table table-striped">
+      
+      
       <thead class="thead-dark">
         <tr>
         <th scope="col" colspan="7" style="text-align:center;color:white;background-color:#993399;">LIST OF APPROVED GATE PASSES</th>
-      </tr>
+        </tr>
       </thead>
+      
+      
 <tbody>
     <tr>
     <th>Gp. No.</th>
@@ -123,8 +132,12 @@
   </tbody>
   </table>
 </div>
+    
+    <!-- Importing tether,jQuery,Bootstrap javaScripts -->
+
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  
   </body>
 </html>
