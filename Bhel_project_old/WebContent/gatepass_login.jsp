@@ -55,9 +55,9 @@ return true;
     <div class="jumbotron text-center" style="width:100%;background-color:white;">
       <div class="container-fluid">
       <img src="img_src\landing3.jpg" align="left" width="60%" style="padding:10px;outline:solid 4px violet;">
-  <form name="login_form" class="" action="<%=request.getContextPath()%>/login" method="post" onsubmit="javascript:return validate();" align="center" style="border:solid 2px;">
+  <form name="login_form" class="" action="<%=request.getContextPath()%>/login" method="post" onsubmit="javascript:return validate();" align="center">
     <label for="uName">Username:</label>
-      <img src="img_src\8-512.webp" width="20px" height="20xp">
+      <img src="img_src\useLogo.png" width="20px" height="20xp">
       <input class="loginField" type="text" name="uName" placeholder="Enter Username" style="margin:20px;padding:4px 4px;" ng-model="user.name" ng-required="true" required>
       <br>
       <label for="uPassw">Password:</label>
