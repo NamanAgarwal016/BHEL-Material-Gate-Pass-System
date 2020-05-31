@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+table {
+    border:1px solid black;
+  }
+  thead {
+  color:white;
+  background-color:#993399;
+  }
+  th {
+  text-align:center;
+  }
+  td {
+  text-align:center;
+  }
+.btn-danger {
+  float:right;
+  margin:6px 6px 0 0;
+  border-shadow:1px 1px 4px black;
+  }
+  .navbar {
+  background-color:#993399;
+  }
+  .container {
+   margin-top:12%;
+  }
+  
+  

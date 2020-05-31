@@ -1,0 +1,11 @@
+@charset "ISO-8859-1";
+.btn-outline-primary{
+    background-color:white;
+    border-color:#993399;
+    color:#993399
+  }
+  .btn-outline-primary:hover{
+    background-color:#993399;
+    border-color:violet;
+    color:white;
+  }
