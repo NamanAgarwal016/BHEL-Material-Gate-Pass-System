@@ -10,14 +10,6 @@ import login.bean.LoginBean;
 
 public class LoginDao {
 
-//	String driver = "com.mysql.jdbc.Driver";
-//	String connectionUrl = "jdbc:mysql://localhost:3306/";
-//	String database = "bhel_project";
-//	String userid = "root";
-//	String password = "naman";
-
-	String fullConnectionString = "mysql://pjyaoyeilkkbtjg8:ejzn69wchxp2bv6j@dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/zvp0njb2yauy3fgk";
-
 	String driver = "com.mysql.jdbc.Driver";
 	String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
 	String database = "zvp0njb2yauy3fgk";
