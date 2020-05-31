@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-//import javax.servlet.*;
 import login.bean.LoginBean;
 import login.database.LoginDao;
 
@@ -31,12 +30,11 @@ public class LoginServlet extends HttpServlet {
 
 		try {
 			if (loginDao.validate(loginBean)) {
-				// HttpSession session = request.getSession();
-				// session.setAttribute("username",username);
+				HttpSession session = request.getSession();
+				session.setAttribute("username",username);
+				session.setAttribute("password",password);
 				response.sendRedirect("gatepass_status.jsp");
 			} else {
-				HttpSession session = request.getSession();
-				// session.setAttribute("user", username);
 				response.sendRedirect("gatepass_login.jsp");
 			}
 		} catch (ClassNotFoundException e) {
