@@ -1,0 +1,71 @@
+label {
+  width:180px;
+}
+td {
+  padding:0;
+  text-align: center;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:violet;
+}
+textarea {
+  margin-top:10px;
+  width:100%;
+}
+table{
+  margin-top:6%;
+}
+th {
+  text-align:center;
+  color:white;
+  background-color:#993399;
+  }
+.btn-danger {
+  float:right;
+  margin:6px 6px 0 0;
+  border-shadow:1px 1px 4px black;
+  }
+  .navbar {
+  background-color:#993399;
+  }
+  .btn-primary{
+    background-color:#993399;
+    border-color:#993399;
+  }
+  .btn-primary:hover{
+    background-color:violet;
+    border-color:violet;
+  }
+  .tableEntry {
+    border:none;
+    background-color:transparent;
+    height:100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin:0px;
+    text-align: center;
+  }
+  .form-group-label{
+    margin-top:10px;
+  }
+  .button-leaf{
+    margin-top:8%;
+    margin-bottom:8%;
+  }
+  .form-group-header{
+    background-color:#993399;
+    margin-top:4%;
+  }
+  #bhelInfo,#nonBhelInfo{
+    display: none;
+  }
+  #personRadioGroup {
+    margin-top:15px;
+  }
+  #receiverForm {
+    margin-top:3%;
+  }
+#gatepassMainForm {
+	margin-top:6%;
+	}
+}
