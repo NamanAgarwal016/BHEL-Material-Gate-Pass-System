@@ -4,8 +4,10 @@
   }
   th {
   text-align:center;
-  color:white;
+  }
+  thead {
   background-color:#993399;
+  color:white;
   }
 .btn-danger {
   float:right;

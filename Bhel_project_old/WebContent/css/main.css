@@ -2,10 +2,12 @@
 table {
     border:1px solid black;
   }
-  th {
-  text-align:center;
+  thead {
   color:white;
   background-color:#993399;
+  }
+  th {
+  text-align:center;
   }
   td {
   text-align:center;
