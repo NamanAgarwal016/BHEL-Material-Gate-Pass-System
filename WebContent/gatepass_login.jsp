@@ -43,17 +43,17 @@
      <form name="login_form" class="" action="<%=request.getContextPath()%>/login" method="post" onsubmit="javascript:return validate();" align="center">
            <label for="uName">Username:</label>
            <img src="img_src\useLogo.png" class="icon" width="20" height="20">
-           <input class="loginField" type="text" name="uName" placeholder="Enter Username" ng-model="user.name" ng-required="true" required>
+           <input class="loginField" type="text" name="username" placeholder="Enter Username" ng-model="user.name" ng-required="true" required>
            
            <br>
            
            <label for="uPassw">Password:</label>
            <img src="img_src\computer-icons-password-login-user-padlock.jpg" width="20" height="20">
-           <input class="loginField" type="password" name="uPassw" placeholder="Enter Password" ng-model="user.pass" ng-required="true" required>
+           <input class="loginField" type="password" name="password" placeholder="Enter Password" ng-model="user.pass" ng-required="true" required>
            
            <br>
            
-           <input class="btn btn-outline-primary" type="button" value="Sign In">
+           <input class="btn btn-outline-primary" type="submit" value="Sign In">
      </form>
   </div>
   </div>
