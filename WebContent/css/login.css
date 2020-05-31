@@ -1,0 +1,53 @@
+@charset "ISO-8859-1";
+ .btn-outline-primary{
+    background-color:white;
+    border-color:#993399;
+    color:#993399
+  }
+  .btn-outline-primary:hover{
+    background-color:#993399;
+    border-color:violet;
+    color:white;
+  }
+  .loginField {
+    outline: 0;
+  border-width: 0 0 2px;
+  border-color: #993399;
+  }
+  .header-leaf {
+  background-color:#993399;
+  width:100%;
+  height:110px;
+  border:solid 5px violet;
+  }
+  .logo-top{
+  margin-top:5px;
+  margin-right:20px;
+  }
+  p {
+  margin-top:10px;
+  }
+  .login-main{
+  width:100%;background-color:white;
+  }
+  .img-main{
+  width:60%;
+  padding:10px;
+  outline:solid 4px violet;
+  }
+  input {
+  margin:20px;
+  padding:4px 4px;
+  }
+  btn{
+  margin:20px;
+  padding:4px 4px;
+  }
+  .floor-leaf{
+  background-color:#993399;
+  width:100%;
+  height:60px;
+  margin-top:30px;
+  display:inline-block;
+  border:solid 5px violet;
+  }
