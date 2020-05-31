@@ -10,25 +10,23 @@
 
 
 <%
-
-
-String driver = "com.mysql.jdbc.Driver";
+	String driver = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
 String database = "zvp0njb2yauy3fgk";
 String userid = "pjyaoyeilkkbtjg8";
 String password = "ejzn69wchxp2bv6j";
 
 try {
-Class.forName(driver);
+	Class.forName(driver);
 } catch (ClassNotFoundException e) {
-e.printStackTrace();
+	e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
 
-try{
-connection = DriverManager.getConnection(connectionUrl+database, userid, password);
-statement=connection.createStatement();
+try {
+	connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+	statement = connection.createStatement();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,28 +79,38 @@ statement=connection.createStatement();
 					href="gatepass_print.jsp">PRINT</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_help.jsp">HELP</a></li>
+			
 			</ul>
 		</div>
+		
+		<form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get" align="right">
+    <input class="btn btn-danger" type="submit" value="Sign Out">
+    </form>
 	</nav>
-	<button class="btn btn-danger">Logout</button>
+	
+	
 
 	<!-- Displaying the Welcome Message -->
 
 	<div class="container welcome-message">
 
-		<% 
-	String user= (String)session.getAttribute("username");
-	String pass= (String)session.getAttribute("password");
-	String loggedInUser ="select * from login where username='"+user+"' and password='"+pass+"'";
-	ResultSet rs1 = statement.executeQuery(loggedInUser);
-	while(rs1.next()){
-         %>
+		<%
+			String user = (String) session.getAttribute("username");
+		String pass = (String) session.getAttribute("password");
+		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
+		ResultSet rs1 = statement.executeQuery(loggedInUser);
+		while (rs1.next()) {
+		%>
 
 		<h3 class="text-center">
-			<b>Hello <%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%> !!</b>
+			<b>Hello <%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%>
+				!!
+			</b>
 		</h3>
-		
-		<% } %>
+
+		<%
+			}
+		%>
 
 	</div>
 
@@ -119,36 +127,36 @@ statement=connection.createStatement();
 			<tbody>
 
 				<%
-String status ="select * from gatepass_status";
-ResultSet rs2 = statement.executeQuery(status);
-while(rs2.next()){
-%>
+					String status = "select * from gatepass_status";
+				ResultSet rs2 = statement.executeQuery(status);
+				while (rs2.next()) {
+				%>
 				<tr>
 					<th>In Draft Mode</th>
-					<td><%=rs2.getString("In Draft Mode") %></td>
+					<td><%=rs2.getString("In Draft Mode")%></td>
 					<th>Pending Approval</th>
-					<td><%=rs2.getString("Pending Approval") %></td>
+					<td><%=rs2.getString("Pending Approval")%></td>
 				</tr>
 				<tr>
 					<th>Approved</th>
-					<td><%=rs2.getString("Approved") %></td>
+					<td><%=rs2.getString("Approved")%></td>
 					<th>Permitted</th>
-					<td><%=rs2.getString("Permitted") %></td>
+					<td><%=rs2.getString("Permitted")%></td>
 				</tr>
 				<tr>
 					<th>Closed</th>
-					<td><%=rs2.getString("Closed") %></td>
+					<td><%=rs2.getString("Closed")%></td>
 					<th>Cancelled</th>
-					<td><%=rs2.getString("Cancelled") %></td>
+					<td><%=rs2.getString("Cancelled")%></td>
 				</tr>
 
 				<%
-}
-connection.close();
-} catch (Exception e) {
-e.printStackTrace();
-}
-%>
+					}
+				connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				%>
 
 			</tbody>
 

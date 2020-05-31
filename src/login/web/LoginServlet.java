@@ -31,8 +31,8 @@ public class LoginServlet extends HttpServlet {
 		try {
 			if (loginDao.validate(loginBean)) {
 				HttpSession session = request.getSession();
-				session.setAttribute("username",username);
-				session.setAttribute("password",password);
+				session.setAttribute("username", username);
+				session.setAttribute("password", password);
 				response.sendRedirect("gatepass_status.jsp");
 			} else {
 				response.sendRedirect("gatepass_login.jsp");
