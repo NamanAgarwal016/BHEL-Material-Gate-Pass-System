@@ -65,20 +65,17 @@
         </li>
         </ul>
   </div>
+  
+  <form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get" align="right">
+    <input class="btn btn-sign-out" type="submit" value="Sign Out">
+    </form>
     </nav>
-    
-    
-    <!--Creating the logout Button-->
-    
-    
-    <button class="btn btn-danger" onclick="">Logout</button>
-    
     
     <!--Creating Container Block Element for creating a Table -->
     
     
     <div class="container">
-      <form class="" action="#" method="post" id="gatepassMainForm">
+      <form class="" action="#" method="post" id="agatepassMainForm">
       
       
         <!--Input table for Material Information-->

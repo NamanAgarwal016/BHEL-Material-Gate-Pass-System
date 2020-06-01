@@ -9,6 +9,18 @@
     border-color:violet;
     color:white;
   }
+  
+  .btn-sign-out{
+  background-color:#993399;
+    border-color:white;
+    color:white
+  }
+ .btn-sign-out:hover{
+    background-color:#ff0000;
+    border-color:white;
+    color:white;
+  }
+  
   .loginField {
     outline: 0;
   border-width: 0 0 2px;

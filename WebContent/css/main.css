@@ -15,6 +15,18 @@ table {
   margin:6px 6px 0 0;
   border-shadow:1px 1px 4px black;
   }
+  
+  .btn-sign-out{
+  background-color:#993399;
+    border-color:white;
+    color:white
+  }
+ .btn-sign-out:hover{
+    background-color:#ff0000;
+    border-color:white;
+    color:white;
+  }
+  
   .navbar {
   background-color:#993399;
   }

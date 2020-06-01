@@ -84,7 +84,7 @@ try {
 		</div>
 		
 		<form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get" align="right">
-    <input class="btn btn-danger" type="submit" value="Sign Out">
+    <input class="btn btn-sign-out" type="submit" value="Sign Out">
     </form>
 	</nav>
 	

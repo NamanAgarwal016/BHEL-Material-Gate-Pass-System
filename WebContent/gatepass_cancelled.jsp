@@ -50,10 +50,13 @@
       </li>
     </ul>
   </div>
+  
+  <form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get" align="right">
+    <input class="btn btn-sign-out" type="submit" value="Sign Out">
+    </form>
+  
     </nav>
-    <button class="btn btn-danger">Logout</button>
     
-    <!-- Creating the table for Cancelled Gatepasses -->
     
     <div class="container">
       <table align="center" class="table table-striped">
