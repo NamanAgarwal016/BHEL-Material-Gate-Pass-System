@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
 <meta charset="ISO-8859-1">
 <title>Raise</title>
@@ -78,7 +78,7 @@
     
     
     <div class="container">
-      <form class="" action="#" method="post" id="gatepassMainForm">
+      <form class="" action="gatepassProcess.jsp" method="post" id="gatepassMainForm">
       
       
         <!--Input table for Material Information-->
@@ -244,33 +244,33 @@
     </div>
     <div class="container" id="receiverForm" align="center">
          <div class="form-row">
-           <label for="personName" >Name :</label>
+           <label for="rcvrName" >Name :</label>
            <input type="text" name="personName" ng-required="true"/>
-           <label  for="personAdd">Address :</label>
+           <label  for="rcvrAdd">Address :</label>
            <input type="text" name="personAdd"/>
          </div>
          <div class="form-row text-center">
-           <label for="personDesg">Designation :</label>
+           <label for="rcvrDesg">Designation :</label>
            <input type="text" name="personDesg"/>
-           <label for="personCity">City :</label>
+           <label for="rcvrCity">City :</label>
            <input type="text" name="personCity"/>
          </div>
          <div class="form-row text-center">
-           <label for="personDept">Department :</label>
+           <label for="rcvrDept">Department :</label>
            <input type="text" name="personDept"ng-required="true"/>
-           <label for="personState">State :</label>
+           <label for="rcvrState">State :</label>
            <input type="text" name="personState"/>
          </div>
          <div class="form-row text-center">
-           <label for="personCName">Company Name :</label>
+           <label for="rcvrCompany">Company Name :</label>
            <input type="text" name="personCName"/>
-           <label for="personPin">Pincode :</label>
+           <label for="rcvrPin">Pincode :</label>
            <input type="text" name="personPin"/>
          </div>
          <div class="form-row text-center">
-           <label for="personPhone">Tele/Mobile No. :</label>
+           <label for="rcvrPhone">Tele/Mobile No. :</label>
            <input type="tel" name="personPhone" ng-required="true"/>
-           <label for="personMail">Email :</label>
+           <label for="rcvrMail">Email :</label>
            <input type="email" name="personMail" ng-required="true"/>
          </div>
     </div>
