@@ -1,14 +1,8 @@
 label {
 	width: 180px;
 }
-
-td {
-	padding: 0;
-	text-align: center;
-}
-
-input:focus, select:focus, textarea:focus {
-	border-color: violet;
+input:focus,select:focus,textarea:focus {
+	border-color: #342a5a;
 }
 
 textarea {
@@ -17,17 +11,15 @@ textarea {
 }
 
 table {
-	margin-top: 6%;
+	margin-top: 7%;
 }
 
-th {
+th,td {
 	text-align: center;
-	color: white;
-	background-color: #993399;
 }
 
 .btn-sign-out {
-	background-color: #993399;
+	background-color:#342a5a;
 	border-color: white;
 	color: white
 }
@@ -38,24 +30,18 @@ th {
 	color: white;
 }
 
-.btn-danger {
-	float: right;
-	margin: 6px 6px 0 0;
-	border-shadow: 1px 1px 4px black;
-}
-
 .navbar {
-	background-color: #993399;
+	background-color: #6648b0;
 }
 
 .btn-primary {
-	background-color: #993399;
-	border-color: #993399;
+	background-color: #6648b0;
+	border-color: #6648b0;
 }
 
 .btn-primary:hover {
-	background-color: violet;
-	border-color: violet;
+	background-color: #342a5a;
+	border-color: #342a5a;
 }
 
 .tableEntry {
@@ -78,8 +64,9 @@ th {
 }
 
 .form-group-header {
-	background-color: #993399;
-	margin-top: 4%;
+	background-color: #6648b0;
+	color:white;
+	margin-top:5%;
 }
 
 #bhelInfo, #nonBhelInfo {
@@ -95,6 +82,5 @@ th {
 }
 
 #gatepassMainForm {
-	margin-top: 6%;
-}
+	margin-top: 10%;
 }

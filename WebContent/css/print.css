@@ -1,17 +1,17 @@
 @charset "ISO-8859-1";
-.btn-outline-primary{
-    background-color:white;
-    border-color:#993399;
-    color:#993399
+.btn-primary{
+    background-color:#6648b0;
+    border-color:#342a5a;
+    color:white;
   }
-  .btn-outline-primary:hover{
-    background-color:#993399;
-    border-color:violet;
+  .btn-primary:hover{
+    background-color:#342a5a;
+    border-color:#342a5a;
     color:white;
   }
   
   .btn-sign-out{
-  background-color:#993399;
+  background-color:#342a5a;
     border-color:white;
     color:white
   }
@@ -20,4 +20,22 @@
     border-color:white;
     color:white;
   }
+  th,td,tr{
+  border:none;
+  }
+  #tableHeader {
+  color:white;
+  background-color:#6648b0;
+  text-align:center;
+  }
+  table {
+    border:1px solid black;
+  }
+  .navbar {
+  background-color:#6648b0;
+  }
+  .container {
+   margin-top:12%;
+  }
+  
   

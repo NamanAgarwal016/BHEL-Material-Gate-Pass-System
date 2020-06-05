@@ -70,10 +70,13 @@ try {
 					aria-haspopup="true" aria-expanded="false"> VIEW </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a class="dropdown-item" href="gatepass_approved.jsp">Approved</a>
-						<a class="dropdown-item" href="gatepass_closed.jsp">Closed</a> <a
-							class="dropdown-item" href="gatepass_pending.jsp">Pending</a> <a
-							class="dropdown-item" href="gatepass_cancelled.js[]">Cancelled</a>
+						<a class="dropdown-item" href="gatepass_closed.jsp">Closed</a> 
+						<a class="dropdown-item" href="gatepass_pending.jsp">Pending</a> 
+						 <div class="dropdown-divider"></div>
+					    <a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
 						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
+						 <div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve Pending Requests</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_print.jsp">PRINT</a></li>
@@ -120,7 +123,7 @@ try {
 		<table align="center" class="table table-striped">
 			<thead class="thead-dark">
 				<tr>
-					<th scope="col" colspan="4">WELCOME TO MATERIAL GATE PASS
+					<th scope="col" colspan="4" id="tableTitle">WELCOME TO MATERIAL GATE PASS
 						SYSTEM</th>
 				</tr>
 			</thead>

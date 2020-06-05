@@ -17,7 +17,6 @@
     <!-- Adding External CSS -->
     
     <link rel="stylesheet" href="css/print.css">
-    <link rel="stylesheet" href="css/main.css">
     
   </head>
   <body>
@@ -26,64 +25,64 @@
     <!-- Adding the Navigation Bar -->
     
     
-    <nav class="navbar navbar-toggleable navbar-inverse" style="background-color:#993399;">
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
-         <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="gatepass_status.jsp">HOME</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="gatepass_raise.jsp">RAISE GATE PASS</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          VIEW
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="gatepass_approved.jsp">Approved</a>
-          <a class="dropdown-item" href="gatepass_closed.jsp">Closed</a>
-          <a class="dropdown-item" href="gatepass_pending.jsp">Pending</a>
-          <a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
-          <a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
-        </div>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="gatepass_print.jsp">PRINT <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="gatepass_help.jsp">HELP</a>
-      </li>
-    </ul>
-  </div>
-  
-  <form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get" align="right">
+    <nav class="navbar navbar-toggleable navbar-inverse">
+		<button class="navbar-toggler" data-toggle="collapse"
+			data-target="#mainNav">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					href="gatepass_status.jsp">HOME <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="gatepass_raise.jsp">RAISE GATE PASS</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#"
+					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> VIEW </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="gatepass_approved.jsp">Approved</a>
+						<a class="dropdown-item" href="gatepass_closed.jsp">Closed</a> 
+						<a class="dropdown-item" href="gatepass_pending.jsp">Pending</a> 
+						 <div class="dropdown-divider"></div>
+					    <a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
+						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
+						 <div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve Pending Requests</a>
+					</div></li>
+				<li class="nav-item active"><a class="nav-link"
+					href="gatepass_print.jsp">PRINT</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="gatepass_help.jsp">HELP</a></li>
+			
+			</ul>
+		</div>
+		
+		<form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get" align="right">
     <input class="btn btn-sign-out" type="submit" value="Sign Out">
     </form>
-    </nav>
+	</nav>
      
     <div class="container">
-      <table align="center" class="table table-borderless">
+      <table align="center" class="table">
       <thead class="thead-dark">
         <tr>
-        <th scope="col" colspan="2">PRINT GATE PASS RETURNABLE</th>
+        <th scope="col" colspan="2" id="tableHeader">PRINT GATE PASS RETURNABLE</th>
 
       </tr>
       </thead>
       <tbody>
       <tr>
-      <th>Select Gate Pass Number:</th>
-      <th>
-        <form action="/action_page.php">
-        <input type="number" value="Submit">
+      <td class="text-right">Select Gate Pass Number:</td>
+      <td class="text-left">
+        <form action="preview.php">
+        <input type="number">
         </form>
-      </th>
+      </td>
       </tr>
-
       <tr class="text-center">
-      <td colspan="2" ><button class="btn btn-outline-primary">Submit</button></td>
+      <td colspan="2" ><button class="btn btn-primary">Submit</button></td>
       </tr>
 
       </tbody>

@@ -2,13 +2,11 @@
    table {
     border:1px solid black;
   }
-  th {
+  th,td {
   text-align:center;
-  color:white;
-  background-color:#993399;
   }
 .btn-sign-out{
-  background-color:#993399;
+  background-color:#342a5a;
     border-color:white;
     color:white
   }
@@ -18,15 +16,16 @@
     color:white;
   }
   .navbar {
-  background-color:#993399;
+  background-color:#6648b0;
   }
   .welcome-message{
    margin-top:8%;
-   color:#993399;
+   color:#6648b0;
   }
   .table-holder{
    margin-top:8%;
   }
-  td {
-  text-align:center;
+  #tableTitle{
+  background-color:#6648b0;
+    color:white;
   }

@@ -1,17 +1,17 @@
 @charset "ISO-8859-1";
  .btn-outline-primary{
     background-color:white;
-    border-color:#993399;
-    color:#993399
+    border-color:#6648b0;
+    color:#6648b0
   }
   .btn-outline-primary:hover{
-    background-color:#993399;
-    border-color:violet;
+    background-color:#6648b0;
+    border-color:#342a5a;
     color:white;
   }
   
   .btn-sign-out{
-  background-color:#993399;
+  background-color:#6648b0;
     border-color:white;
     color:white
   }
@@ -24,13 +24,13 @@
   .loginField {
     outline: 0;
   border-width: 0 0 2px;
-  border-color: #993399;
+  border-color: #6648b0;
   }
   .header-leaf {
-  background-color:#993399;
+  background-color:#6648b0;
   width:100%;
   height:110px;
-  border:solid 5px violet;
+  border:solid 5px #342a5a;
   }
   .logo-top{
   margin-top:5px;
@@ -45,7 +45,7 @@
   .img-main{
   width:60%;
   padding:10px;
-  outline:solid 4px violet;
+  outline:solid 4px #342a5a;
   }
   input {
   margin:20px;
@@ -56,10 +56,10 @@
   padding:4px 4px;
   }
   .floor-leaf{
-  background-color:#993399;
+  background-color:#6648b0;
   width:100%;
   height:60px;
   margin-top:30px;
   display:inline-block;
-  border:solid 5px violet;
+  border:solid 5px #342a5a;
   }
