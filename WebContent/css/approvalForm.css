@@ -1,0 +1,50 @@
+@charset "ISO-8859-1";
+.btn-sign-out {
+	background-color:#342a5a;
+	border-color: white;
+	color: white
+}
+
+.btn-sign-out:hover {
+	background-color: #ff0000;
+	border-color: white;
+	color: white;
+}
+  
+  .navbar {
+  background-color:#6648b0;
+  }
+  .btn-primary{
+  background-color:#6648b0;
+  border-color:#342a5a;
+  }
+  .btn-primary:hover{
+  background-color:#342a5a;
+  border-color:#6648b0;
+  }
+  th,td{
+  text-align:center;
+  }
+  .table th, .table td { 
+     border: none;
+ }
+  table{
+  border:solid 1px black;
+  }
+  .splitter{
+  background-color:#6648b0;
+  }
+  .headerLeaf{
+  background-color:#6648b0;
+  color:white;
+  }
+.gatepassDetails{
+	margin-top:5%;
+	margin-bottom:8%;
+}
+#gatepassFinder{
+	margin-top:5%
+}
+.button-leaf{
+margin-bottom:6%;
+}
