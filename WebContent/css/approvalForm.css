@@ -48,3 +48,21 @@
 .button-leaf{
 margin-bottom:6%;
 }
+#reasonForCancellation{
+	display:none;
+	margin-top:5%;
+	margin-bottom:5%;
+}
+textarea{
+	margin-top:0;
+	width:100%;
+}
+.button-leaf-2{
+	margin-top:20px;
+	margin-bottom:20px;
+	
+}
+.cancel-header{
+	background-color:#6648b0;
+	color:white;
+}

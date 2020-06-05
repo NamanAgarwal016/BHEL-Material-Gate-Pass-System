@@ -95,9 +95,11 @@
           </thead>
           <tbody>
                   <tr>
-                     <th colspan="2">Gateapass Number:</th>
+                     <th>Gateapass Number:</th>
                      <td></td>
-                     <td colspan="2"></td>
+                     <td class="blank"></td>
+                     <th>Initiated:</th>
+                     <td></td>
                   </tr>
                   <tr>
                      <th>Sl. No</th>
@@ -225,15 +227,32 @@
         
 	  <div class="container-fluid button-leaf">
       <div class="row">
-      <div class="col">
-      <input class="btn btn-primary" type="submit" value="Approve" onclick="approve()">
+      <div class="col text-center">
+      <button class="btn btn-primary" onclick="approve()" id="approve">Approve</button>
       </div>
-      <div class="col-2 text-center">
+      <div class="col-2">
       </div>
-      <div class="col text-right">
-      <input class="btn btn-primary" type="reset" value="Cancel" onclick="portalCancel()">
+      <div class="col text-center">
+      <button class="btn btn-primary" onclick="cancel()" id="cancel">Cancel</button>
       </div>
       </div>
+      </div>
+      
+      <div class="container" id="reasonForCancellation">
+         <div class="container-fluid cancel-header">
+         Please Enter a Valid Reason for cancellation:
+         </div>
+         <textarea rows="6"></textarea>
+         <div class="container button-leaf-2">
+         <div class="row">
+           <div class="col text-center">
+             <button class="btn btn-primary">Submit</button>
+           </div>
+           <div class="col text-center">
+             <button class="btn btn-primary" onclick="undo()">Clear</button>
+           </div>
+         </div>
+         </div>
       </div>
      
     
@@ -245,4 +264,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   
   </body>
+  
+  <script src="js/portal.js"></script>
 </html>
