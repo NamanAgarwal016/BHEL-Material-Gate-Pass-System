@@ -106,8 +106,8 @@ try {
 		%>
 
 		<h3 class="text-center">
-			<b>Hello <%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%>
-				!!
+			<b>Welcome, <%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%>
+				!
 			</b>
 		</h3>
 

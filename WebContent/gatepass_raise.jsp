@@ -1,26 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@page import="login.database.*"%>
+<%@page import="login.web.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+
+
+<%
+	String driver = "com.mysql.jdbc.Driver";
+String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
+String database = "zvp0njb2yauy3fgk";
+String userid = "pjyaoyeilkkbtjg8";
+String password = "ejzn69wchxp2bv6j";
+
+try {
+	Class.forName(driver);
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+}
+Connection connection = null;
+Statement statement = null;
+
+try {
+	connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+	statement = connection.createStatement();
+%>
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
 <meta charset="ISO-8859-1">
 <title>Raise</title>
 
 
     <!--Importing Bootstrap css files from the cdn server,4.0.0-alpha.6 being the release Version-->
-    
-    
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    
-    
+
+
     <!--Importing custom css used for applying a theme to the page-->
-    
-    
+
+
     <link rel="stylesheet" href="css/raise.css">
-    
+
     <!--Importing AngularJS-->
-    
-    
+
+
 <script type="text/javascript" src="js\angular.min.js"></script>
 </head>
 <body>
@@ -47,8 +75,8 @@
 					aria-haspopup="true" aria-expanded="false"> VIEW </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a class="dropdown-item" href="gatepass_approved.jsp">Approved</a>
-						<a class="dropdown-item" href="gatepass_closed.jsp">Closed</a> 
-						<a class="dropdown-item" href="gatepass_pending.jsp">Pending</a> 
+						<a class="dropdown-item" href="gatepass_closed.jsp">Closed</a>
+						<a class="dropdown-item" href="gatepass_pending.jsp">Pending</a>
 						 <div class="dropdown-divider"></div>
 					    <a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
 						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
@@ -59,134 +87,42 @@
 					href="gatepass_print.jsp">PRINT</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_help.jsp">HELP</a></li>
-			
+
 			</ul>
 		</div>
-		
+
 		<form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get" align="right">
     <input class="btn btn-sign-out" type="submit" value="Sign Out">
     </form>
 	</nav>
-    
-    <!--Creating Container Block Element for creating a Table -->
-    
-    
-    <div class="container">
-      <form class="" action="#" method="post" id="gatepassMainForm">
-      
-      
-        <!--Input table for Material Information-->
-        
-        
-      <table align="center" class="table table-bordered">
-        <thead>
-          <tr>
-            <th colspan="5" class="form-group-header">RETURNABLE GATE PASS</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>S.No.</th>
-            <th>Description of Material</th>
-            <th>Unit</th>
-            <th>Quantity</th>
-            <th>
-              Date of Return
-            </th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td><input class="tableEntry" type="text" name="materialInfo"></td>
-            <td>
-             <select name="materialUnit" class="tableEntry">
-               <option></option>
-               <option>No.</option>
-               <option>Kgs</option>
-               <option>Mtr.</option>
-               <option>Set</option>
-               <option>Ltr.</option>
-            </td>
-            <td> <input type="number" class="tableEntry" name="materialQuantity" value=""> </td>
-            <td> <input name="materialDate" type="text" class="tableEntry" onfocus="(this.type='date')" onfocusout="(this.type='text')">   </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td><input class="tableEntry" type="text"></td>
-            <td>
-             <select name="materialUnit" class="tableEntry">
-               <option></option>
-               <option>No.</option>
-               <option>Kgs</option>
-               <option>Mtr.</option>
-               <option>Set</option>
-               <option>Ltr.</option>
-            </td>
-            <td> <input name="materialQuantity"  type="number" class="tableEntry" value=""> </td>
-            <td> <input name="materialDate"  type="text" class="tableEntry" onfocus="(this.type='date')" onfocusout="(this.type='text')">   </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td><input name="materialUnit"  class="tableEntry" type="text"></td>
-            <td>
-             <select class="tableEntry">
-               <option></option>
-               <option>No.</option>
-               <option>Kgs</option>
-               <option>Mtr.</option>
-               <option>Set</option>
-               <option>Ltr.</option>
-            </td>
-            <td> <input type="number" class="tableEntry" name="materialQuantity" value=""> </td>
-            <td> <input name="materialDate"  type="text" class="tableEntry" onfocus="(this.type='date')" onfocusout="(this.type='text')">   </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td><input name="materialUnit"  class="tableEntry" type="text"></td>
-            <td>
-             <select class="tableEntry">
-               <option></option>
-               <option>No.</option>
-               <option>Kgs</option>
-               <option>Mtr.</option>
-               <option>Set</option>
-               <option>Ltr.</option>
-            </td>
-            <td> <input type="number" class="tableEntry" name="materialQuantity" value=""> </td>
-            <td> <input name="materialDate" type="text" class="tableEntry" onfocus="(this.type='date')" onfocusout="(this.type='text')">   </td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td><input name="materialUnit" class="tableEntry" type="text"></td>
-            <td>
-             <select class="tableEntry">
-               <option></option>
-               <option>No.</option>
-               <option>Kgs</option>
-               <option>Mtr.</option>
-               <option>Set</option>
-               <option>Ltr.</option>
-            </td>
-            <td> <input type="number" class="tableEntry" name="materialQuantity" value=""> </td>
-            <td> <input name="materialDate" type="text" class="tableEntry" onfocus="(this.type='date')" onfocusout="(this.type='text')">   </td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td><input name="materialUnit" class="tableEntry" type="text"></td>
-            <td>
-             <select class="tableEntry">
-               <option></option>
-               <option>No.</option>
-               <option>Kgs</option>
-               <option>Mtr.</option>
-               <option>Set</option>
-               <option>Ltr.</option>
-            </td>
-            <td> <input type="number" class="tableEntry" name="materialQuantity" value=""> </td>
-            <td> <input name="materialDate" type="text" class="tableEntry" onfocus="(this.type='date')" onfocusout="(this.type='text')">   </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+     <div class="container-fluid">
+       <div class="row">
+       <%
+		String user = (String) session.getAttribute("username");
+		String pass = (String) session.getAttribute("password");
+		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
+		ResultSet rs1 = statement.executeQuery(loggedInUser);
+		while (rs1.next()) {
+		%>
+         <div class="col text-left welcomeMessage">
+            <b>Welcome, <%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%> ! </b>
+     
+         </div>
+         <div class="col text-right">
+             <b>Staff ID:<%=rs1.getString("staff_id")%> </b>
+               <%
+					}
+				connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				%>
+         </div>
+       </div>
+     </div>
+
+
+    <form class="" action="<%=request.getContextPath()%>/raisegatepass" method="post" id="gatepassMainForm">
     <div class="container form-group-header">
       PERSON TAKING THE MATERIAL
     </div>
@@ -207,7 +143,7 @@
     <!--Extra Internal Form for a BHEL Person-->
 
     <div class="container" id="bhelInfo">
-      <label for="bhelStaffNo">Satff No:</label>
+      <label for="bhelStaffNo">Staff No:</label>
       <input type="text" name="bhelStaffNo" value=""/>
       <br>
       <label for="bhelName">Name:</label>
@@ -224,13 +160,24 @@
 
     <div class="container" id="nonBhelInfo">
       <label for="nonBhelName">Name:</label>
-      <input type="text" name="bhelName" value=""/>
+      <input type="text" name="NbhelName" value=""/>
       <br>
       <label for="nonBhelCompany">Company Name:</label>
       <input type="text" name="bhelCompany" value=""/>
       <br>
       <label for="nonBhelAddress">Address:</label>
       <input type="text" name="bhelAddress" value=""/>
+    </div>
+
+    <div class="container form-group-header">
+      MATERIAL DETAILS
+    </div>
+    <div class="materialForm text-center">
+           <label for="noOfItems">Number of Items:</label>
+           <input type="number" name="noOfItems" id="noOfItems"/>
+           <input type="button" value="Generate Form" onclick="generate()">
+           <div id="wrapper" class="text-center">
+           </div>
     </div>
 
     <div class="container text-white form-group-header">
@@ -300,20 +247,20 @@
     </div>
     </div>
   </form>
-  
-  
+
+
   <!--Importing jQuery,tether,Bootstrap JavaScripts, as bootstrap requires jQuery and tether-->
-  
-  
+
+
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
-  
-  
+
+
   <!--JavaScript for dynamic content based on type of person BHEL/NON-BHEL -->
-  
-  
+
+
   <script type="text/javascript" src="js\raise.js"></script>
 
 </html>

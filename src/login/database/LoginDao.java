@@ -18,6 +18,9 @@ public class LoginDao {
 
 	public boolean validate(LoginBean loginBean) throws ClassNotFoundException {
 		boolean status = false;
+		int UserID;
+		String Name;
+		int staffid;
 
 		Class.forName(driver);
 
@@ -32,9 +35,18 @@ public class LoginDao {
 			preparedStatement.setString(1, loginBean.getUsername());
 			preparedStatement.setString(2, loginBean.getPassword());
 
-			System.out.println(preparedStatement);
+			//System.out.println(preparedStatement);
 			ResultSet rs = preparedStatement.executeQuery();
 			status = rs.next();
+			UserID = rs.getInt("role_code");
+			Name = rs.getString("firstname") + rs.getString("lastname");
+			System.out.println("Name " +Name);
+			staffid = rs.getInt("staff_id");
+			loginBean.setstaffid(staffid);
+		    loginBean.setUserID(UserID);
+		    loginBean.setName(Name);
+		    System.out.println("Name: " + Name);
+		    System.out.println("UserID " +UserID);
 
 		} catch (SQLException e) {
 			// process sql exception

@@ -27,13 +27,27 @@ public class LoginServlet extends HttpServlet {
 		LoginBean loginBean = new LoginBean();
 		loginBean.setUsername(username);
 		loginBean.setPassword(password);
+		int staffid;
+		int userID;
 
 		try {
 			if (loginDao.validate(loginBean)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("username", username);
 				session.setAttribute("password", password);
-				response.sendRedirect("gatepass_status.jsp");
+				String Name = loginBean.getName();
+				session.setAttribute("Name", Name);
+				int ID = loginBean.getstaffid();
+				session.setAttribute("ID", ID);
+				staffid = loginBean.getUserID();
+				userID = loginBean.getstaffid();
+				session.setAttribute("ID",userID);
+				if(staffid == 100)
+					response.sendRedirect("gatepass_statusAdmin.jsp");
+				if (staffid == 101)
+				    response.sendRedirect("gatepass_status.jsp");
+				if (staffid == 102)
+					response.sendRedirect("gatepass_statusApprover.jsp");
 			} else {
 				response.sendRedirect("gatepass_login.jsp");
 			}

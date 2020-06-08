@@ -1,8 +1,8 @@
 label {
 	width: 180px;
 }
-input:focus,select:focus,textarea:focus {
-	border-color: #342a5a;
+input:focus,select:focus,textarea:focus{
+	outline-color: #6648b0;
 }
 
 textarea {
@@ -11,13 +11,15 @@ textarea {
 }
 
 table {
-	margin-top: 7%;
+	margin-top: 5%;
 }
 
 th,td {
 	text-align: center;
 }
-
+.materialForm{
+	margin-top:20px;
+}
 .btn-sign-out {
 	background-color:#342a5a;
 	border-color: white;
@@ -55,12 +57,16 @@ th,td {
 }
 
 .form-group-label {
-	margin-top: 10px;
+	margin-top:20px;
 }
 .form-group-header {
 	background-color: #6648b0;
 	color:white;
+	margin-top:20px;
+}
+.button-leaf{
 	margin-top:5%;
+	margin-bottom:5%;
 }
 
 #bhelInfo, #nonBhelInfo {
