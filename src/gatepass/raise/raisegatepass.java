@@ -31,7 +31,7 @@ public class raisegatepass extends HttpServlet {
 		  int numberofmaterials = Integer.parseInt(request.getParameter("noOfItems"));
 		  int staff_id = (Integer) session.getAttribute("ID");   // Staff ID
 		  int RecPincode= Integer.parseInt(request.getParameter("personPin")); //Receiver Pin Code
-		  int RecPhone= Integer.parseInt(request.getParameter("personPhone")); //Receiver Phone
+		  long RecPhone= Long.parseLong(request.getParameter("personPhone")); //Receiver Phone
 		  
 		  //Receiver Details
 		  
@@ -109,7 +109,7 @@ public class raisegatepass extends HttpServlet {
   		     st2.setString(3, RecDesig);
   	         st2.setString(4, RecDept);	  		 
   		     st2.setString(5, RecCompany);	  		 
-  		     st2.setInt(6, RecPhone);	  		 
+  		     st2.setLong(6, RecPhone);	  		 
   		     st2.setString(7, RecMail);
   		     st2.setString(8, RecAdd);
   		     st2.setString(9, RecCity);
