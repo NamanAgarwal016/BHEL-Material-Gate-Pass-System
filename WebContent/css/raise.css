@@ -59,7 +59,7 @@ th,td {
 .form-group-label {
 	margin-top:20px;
 }
-.form-group-header {
+.form-group-header{
 	background-color: #6648b0;
 	color:white;
 	margin-top:20px;
@@ -82,5 +82,5 @@ th,td {
 }
 
 #gatepassMainForm {
-	margin-top: 10%;
+	margin-top: 5%;
 }

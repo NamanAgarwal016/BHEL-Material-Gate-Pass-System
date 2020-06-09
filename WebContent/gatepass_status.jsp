@@ -123,8 +123,7 @@ try {
 		<table align="center" class="table table-striped">
 			<thead class="thead-dark">
 				<tr>
-					<th scope="col" colspan="4" id="tableTitle">WELCOME TO MATERIAL GATE PASS
-						SYSTEM</th>
+					<th scope="col" colspan="4" id="tableTitle">MATERIAL GATE PASS SYSTEM</th>
 				</tr>
 			</thead>
 			<tbody>

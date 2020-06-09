@@ -105,7 +105,7 @@ try {
 		while (rs1.next()) {
 		%>
          <div class="col text-left welcomeMessage">
-            <b>Welcome, <%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%> ! </b>
+            <b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%></b>
      
          </div>
          <div class="col text-right">
@@ -121,6 +121,7 @@ try {
        </div>
      </div>
 
+<h3 class="text-center"><b>GATE PASS FORM</b></h3>
 
     <form class="" action="<%=request.getContextPath()%>/raisegatepass" method="post" id="gatepassMainForm">
     <div class="container form-group-header">
