@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
+<%
+    // avoiding URL bypass
+    
+       String validUser= (String) session.getAttribute("username");
+         
+           if(validUser==null)
+           response.sendRedirect("gatepass_login.jsp");
 
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -32,7 +32,7 @@ try {
 <%
     // avoiding URL bypass
     
-       String validUser= (String) session.getAttribute("userName");
+       String validUser= (String) session.getAttribute("username");
          
            if(validUser==null)
            response.sendRedirect("gatepass_login.jsp");
