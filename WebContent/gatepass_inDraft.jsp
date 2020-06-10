@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>In Draft </title>
+<title>Material Gate Pass - In Draft</title>
 
     <!-- Adding Bootstrap CSS -->
     

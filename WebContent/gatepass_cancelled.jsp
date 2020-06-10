@@ -1,10 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%
+    // avoiding URL bypass
+    
+       String validUser= (String) session.getAttribute("userName");
+         
+           if(validUser==null)
+           response.sendRedirect("gatepass_login.jsp");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cancelled List</title>
+<title>Material Gate Pass - Cancelled</title>
 
     <!-- Adding Bootstrap CSS -->
     

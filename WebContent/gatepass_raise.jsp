@@ -28,11 +28,21 @@ try {
 	connection = DriverManager.getConnection(connectionUrl + database, userid, password);
 	statement = connection.createStatement();
 %>
+
+<%
+    // avoiding URL bypass
+    
+       String validUser= (String) session.getAttribute("userName");
+         
+           if(validUser==null)
+           response.sendRedirect("gatepass_login.jsp");
+
+%>
 <!DOCTYPE html>
 <html ng-app>
 <head>
 <meta charset="ISO-8859-1">
-<title>Raise</title>
+<title>Material Gate Pass</title>
 
 
 <!--Importing Bootstrap css files from the cdn server,4.0.0-alpha.6 being the release Version-->
