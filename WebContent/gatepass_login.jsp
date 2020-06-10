@@ -47,8 +47,7 @@
 			<!-- Login Form -->
 
 			<form name="login_form" class=""
-				action="<%=request.getContextPath()%>/login" method="post"
-				onsubmit="javascript:return validate();" align="center">
+				action="<%=request.getContextPath()%>/login" method="post" align="center">
 				<label for="uName">Username:</label> <img src="img_src\useLogo.png"
 					class="icon" width="20" height="20"> <input
 					class="loginField" type="text" name="username"
@@ -79,8 +78,4 @@
 		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
 		crossorigin="anonymous"></script>
 </body>
-
-<!-- Importing Custom Scripts for validation -->
-
-<script src="login_validate.js"></script>
 </html>
