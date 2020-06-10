@@ -1,6 +1,7 @@
 package login.web;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,7 @@ import login.database.LoginDao;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private LoginDao loginDao;
+	
 
 	public void init() {
 		loginDao = new LoginDao();
@@ -23,7 +25,8 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String realPassword = request.getParameter("password");
+		String password = MD5.getMd5(username.concat(realPassword)) ; 
 		LoginBean loginBean = new LoginBean();
 		loginBean.setUsername(username);
 		loginBean.setPassword(password);
