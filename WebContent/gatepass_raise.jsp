@@ -8,6 +8,14 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
+<%
+	// avoiding URL bypass
+
+String validUser = (String) session.getAttribute("username");
+
+if (validUser == null)
+	response.sendRedirect("gatepass_login.jsp");
+%>
 
 <%
 	String driver = "com.mysql.jdbc.Driver";
@@ -29,15 +37,6 @@ try {
 	statement = connection.createStatement();
 %>
 
-<%
-    // avoiding URL bypass
-    
-       String validUser= (String) session.getAttribute("userName");
-         
-           if(validUser==null)
-           response.sendRedirect("gatepass_login.jsp");
-
-%>
 <!DOCTYPE html>
 <html ng-app>
 <head>
@@ -246,22 +245,25 @@ try {
 				<div class="col text-right">
 
 					<!--This button clears the current form and the gatepass will be cancelled-->
-						<script type="text/javascript">
-							function confirmClear() {
-								var answer = confirm("Confirm to clear whole form ??")
-								if (answer) {
-									var form = document.getElementById("gatepassMainForm");
-									form.reset();
-									var hide_1 = document.getElementById("bhelInfo");
-									var hide_2 = document.getElementById("nonBhelInfo");
-									hide_1.style.display = "none";
-									hide_2.style.display = "none";
-								} else {
-									return false;
-								}
+					<script type="text/javascript">
+						function confirmClear() {
+							var answer = confirm("Confirm to clear whole form ??")
+							if (answer) {
+								var form = document
+										.getElementById("gatepassMainForm");
+								form.reset();
+								var hide_1 = document
+										.getElementById("bhelInfo");
+								var hide_2 = document
+										.getElementById("nonBhelInfo");
+								hide_1.style.display = "none";
+								hide_2.style.display = "none";
+							} else {
+								return false;
 							}
-						</script>
-						
+						}
+					</script>
+
 					<input class="btn btn-primary" type="button" value="Cancel"
 						onclick="return confirmClear();">
 				</div>

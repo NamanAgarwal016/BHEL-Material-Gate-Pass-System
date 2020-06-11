@@ -7,7 +7,15 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%
+    // avoiding URL bypass
+    
+       String validUser= (String) session.getAttribute("username");
+         
+           if(validUser==null)
+           response.sendRedirect("gatepass_login.jsp");
 
+%>
 
 <%
 	String driver = "com.mysql.jdbc.Driver";
@@ -27,16 +35,6 @@ Statement statement = null;
 try {
 	connection = DriverManager.getConnection(connectionUrl + database, userid, password);
 	statement = connection.createStatement();
-%>
-
-<%
-    // avoiding URL bypass
-    
-       String validUser= (String) session.getAttribute("username");
-         
-           if(validUser==null)
-           response.sendRedirect("gatepass_login.jsp");
-
 %>
 
 <!DOCTYPE html>
