@@ -7,14 +7,10 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%
-    // avoiding URL bypass
-    
-       String validUser= (String) session.getAttribute("username");
-         
-           if(validUser==null)
-           response.sendRedirect("gatepass_login.jsp");
 
+<%
+Security security = new Security();
+security.enable(session, response);
 %>
 
 <%
@@ -79,28 +75,31 @@ try {
 					aria-haspopup="true" aria-expanded="false"> VIEW </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a class="dropdown-item" href="gatepass_approved.jsp">Approved</a>
-						<a class="dropdown-item" href="gatepass_closed.jsp">Closed</a> 
-						<a class="dropdown-item" href="gatepass_pending.jsp">Pending</a> 
-						 <div class="dropdown-divider"></div>
-					    <a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
+						<a class="dropdown-item" href="gatepass_closed.jsp">Closed</a> <a
+							class="dropdown-item" href="gatepass_pending.jsp">Pending</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
 						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
-						 <div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve Pending Requests</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve
+							Pending Requests</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_print.jsp">PRINT</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_help.jsp">HELP</a></li>
-			
+
 			</ul>
 		</div>
-		
-		<form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get" align="right">
-    <input class="btn btn-sign-out" type="submit" value="Sign Out">
-    </form>
+
+		<form name="logout_button"
+			action="<%=request.getContextPath()%>/logout" method="get"
+			align="right">
+			<input class="btn btn-sign-out" type="submit" value="Sign Out">
+		</form>
 	</nav>
-	
-	
+
+
 
 	<!-- Displaying the Welcome Message -->
 
@@ -132,7 +131,8 @@ try {
 		<table align="center" class="table table-striped">
 			<thead class="thead-dark">
 				<tr>
-					<th scope="col" colspan="4" id="tableTitle">MATERIAL GATE PASS SYSTEM</th>
+					<th scope="col" colspan="4" id="tableTitle">MATERIAL GATE PASS
+						SYSTEM</th>
 				</tr>
 			</thead>
 			<tbody>

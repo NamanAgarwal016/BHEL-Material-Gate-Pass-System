@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+	
+<%@page import="login.web.Security"%>
 <%
-    // avoiding URL bypass
-    
-       String validUser= (String) session.getAttribute("username");
-         
-           if(validUser==null)
-           response.sendRedirect("gatepass_login.jsp");
-
+Security security = new Security();
+security.enable(session, response);
 %>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -9,13 +9,10 @@
 <%@page import="java.sql.Connection"%>
 
 <%
-	// avoiding URL bypass
-
-String validUser = (String) session.getAttribute("username");
-
-if (validUser == null)
-	response.sendRedirect("gatepass_login.jsp");
+Security security = new Security();
+security.enable(session, response);
 %>
+
 
 <%
 	String driver = "com.mysql.jdbc.Driver";
