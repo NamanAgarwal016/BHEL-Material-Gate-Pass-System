@@ -9,7 +9,7 @@
 <%@page import="java.sql.Connection"%>
 
 <%
-Security security = new Security();
+	Security security = new Security();
 security.enable(session, response);
 %>
 
@@ -226,22 +226,42 @@ try {
 
 		<div class="container-fluid button-leaf">
 			<div class="row">
-				<div class="col">
+			
+			
+			
+				<div class="col ">
+
+					<!--This button will save the gatepass as a draft-->
+					
+					<script type="text/javascript">
+						function confirmSave() {
+							var answer = confirm("The form is not complete. You can fill it later and then Register again")
+							if (answer) {
+								
+							} else {
+								return false;
+							}
+						}
+					</script>
+					
+					<input class="btn btn-primary" type="button" value="Save as Draft"
+						onclick="return confirmSave();">
+				</div>
+				
+				
+				
+				
+				<div class="col text-center">
 
 					<!--This button will Register the gatepass provided none of the feilds are invalid-->
 
-					<input class="btn btn-primary" type="submit" value="Register"
-						onclick="regForm()">
+					<input class="btn btn-primary" type="submit" value="Register">
 				</div>
-				<div class="col text-center">
-
-					<!--This button will save the gatepass as a draft-->
-					<input class="btn btn-primary" type="button" value="Save as Draft"
-						onclick="">
-				</div>
+				
 				<div class="col text-right">
-
+				
 					<!--This button clears the current form and the gatepass will be cancelled-->
+					
 					<script type="text/javascript">
 						function confirmClear() {
 							var answer = confirm("Confirm to clear whole form ??")
