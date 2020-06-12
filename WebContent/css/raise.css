@@ -39,11 +39,13 @@ th,td {
 .btn-primary {
 	background-color: #6648b0;
 	border-color: #6648b0;
+	padding:4px;
 }
 
 .btn-primary:hover {
 	background-color: #342a5a;
 	border-color: #342a5a;
+	padding:4px;
 }
 
 .tableEntry {
@@ -68,7 +70,6 @@ th,td {
 	margin-top:5%;
 	margin-bottom:5%;
 }
-
 #bhelInfo, #nonBhelInfo {
 	display: none;
 }

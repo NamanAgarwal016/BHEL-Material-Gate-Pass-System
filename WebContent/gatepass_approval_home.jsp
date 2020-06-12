@@ -75,19 +75,19 @@ security.enable(session, response);
       
       <thead class="thead-dark">
         <tr>
-        <th scope="col" colspan="7" id="tableTitle">LIST OF CLOSED GATE PASSES</th>
+        <th scope="col" colspan="7" id="tableTitle">APPROVALS TO BE MADE</th>
       </tr>
       </thead>
       
       
 <tbody>
     <tr>
-    <th>Gp. No.</th>
-    <th>Initiator</th>
-    <th>Date</th>
-    <th>Custodian</th>
-    <th>Issuing Officer</th>
-    <th>Closed on</th>
+    <th>Name of the Indentor</th>
+    <th>Gate Pass No.</th>
+    <th>Gate Pass Type</th>
+    <th>Description</th>
+    <th>Date of Request</th>
+    <th>Take Action</th>
     </tr>
     <tr>
     <td>1</td>
@@ -95,7 +95,7 @@ security.enable(session, response);
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
     </tr>
     <tr>
     <td>2</td>
@@ -103,7 +103,7 @@ security.enable(session, response);
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
     </tr>
     <tr>
     <td>3</td>
@@ -111,7 +111,7 @@ security.enable(session, response);
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
     </tr>
     <tr>
     <td>4</td>
@@ -119,7 +119,7 @@ security.enable(session, response);
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
     </tr>
     <tr>
     <td>5</td>
@@ -127,7 +127,7 @@ security.enable(session, response);
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
     </tr>
     <tr>
     <td>6</td>
@@ -135,7 +135,7 @@ security.enable(session, response);
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
     </tr>
   </tbody>
   </table>

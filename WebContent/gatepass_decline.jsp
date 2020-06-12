@@ -7,24 +7,29 @@ Security security = new Security();
 security.enable(session, response);
 %>
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Material Gate Pass - Closed</title>
+    <title>Material Gate Pass - Print</title>
+    
     
     <!-- Adding Bootstrap CSS -->
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- Adding External CSS -->
     
-    <!-- Adding Custom CSS -->
+    <link rel="stylesheet" href="css/approvalForm.css">
     
-    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
   
+  
     <!-- Adding the Navigation Bar -->
+    
     
     <nav class="navbar navbar-toggleable navbar-inverse">
 		<button class="navbar-toggler" data-toggle="collapse"
@@ -38,7 +43,7 @@ security.enable(session, response);
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_raise.jsp">RAISE GATE PASS</a></li>
-				<li class="nav-item dropdown active"><a
+				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#"
 					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false"> VIEW </a>
@@ -52,7 +57,7 @@ security.enable(session, response);
 						 <div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="gatepass_approval_home.jsp">Approve Pending Requests</a>
 					</div></li>
-				<li class="nav-item"><a class="nav-link"
+				<li class="nav-item active"><a class="nav-link"
 					href="gatepass_print.jsp">PRINT</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_help.jsp">HELP</a></li>
@@ -64,88 +69,33 @@ security.enable(session, response);
     <input class="btn btn-sign-out" type="submit" value="Sign Out">
     </form>
 	</nav>
+	
+	
+<form method="post" action="" id="reason">
+<div class="container" id="reasonForCancellation">
+		<div class="container-fluid cancel-header">Please Enter a Valid
+			Reason</div>
+		<textarea rows="6" name="reason"></textarea>
+		<div class="container button-leaf-2">
+			<div class="row">
+				<div class="col text-center">
+					<button class="btn btn-primary">Submit</button>
+				</div>
+				<div class="col text-center">
+					<button class="btn btn-primary" onclick="clear()">Clear</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+	 
     
-   
-    
-    <!-- Creating the table for Closed Gatepasses -->
-    
-    <div class="container">
-      <table align="center" class="table table-striped">
-      
-      
-      <thead class="thead-dark">
-        <tr>
-        <th scope="col" colspan="7" id="tableTitle">LIST OF CLOSED GATE PASSES</th>
-      </tr>
-      </thead>
-      
-      
-<tbody>
-    <tr>
-    <th>Gp. No.</th>
-    <th>Initiator</th>
-    <th>Date</th>
-    <th>Custodian</th>
-    <th>Issuing Officer</th>
-    <th>Closed on</th>
-    </tr>
-    <tr>
-    <td>1</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>2</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>3</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>4</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>5</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>6</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-  </tbody>
-  </table>
-</div>
-
     <!-- Importing tether,jQuery,Bootstrap javaScripts -->
-
+    
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   
-  </body>
+</body>
+<script src="js/main.js"></script>
 </html>

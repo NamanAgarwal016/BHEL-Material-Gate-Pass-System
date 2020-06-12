@@ -56,8 +56,7 @@ security.enable(session, response);
 						<a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
 						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve
-							Pending Requests</a>
+						<a class="dropdown-item" href="gatepass_approval_home.jsp">Approve Pending Requests</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_print.jsp">PRINT</a></li>
@@ -72,31 +71,6 @@ security.enable(session, response);
 			<input class="btn btn-sign-out" type="submit" value="Sign Out">
 		</form>
 	</nav>
-	<div class="container" id="gatepassFinder">
-		<table align="center" class="table">
-			<thead>
-				<tr>
-					<th scope="col" colspan="2" class="headerLeaf">GATE PASS
-						APPROVAL</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="text-right">Select Gate Pass Number:</td>
-					<td class="text-left">
-						<form action="preview.php">
-							<input type="number" name="gatePassNo">
-						</form>
-					</td>
-				</tr>
-				<tr class="text-center">
-					<td colspan="2"><button class="btn btn-primary">Submit</button></td>
-				</tr>
-
-			</tbody>
-		</table>
-	</div>
 
 
 	<div class="container gatepassDetails">
@@ -245,23 +219,7 @@ security.enable(session, response);
 			</div>
 			<div class="col-2"></div>
 			<div class="col text-center">
-				<button class="btn btn-primary" onclick="cancel()" id="cancel">Cancel</button>
-			</div>
-		</div>
-	</div>
-
-	<div class="container" id="reasonForCancellation">
-		<div class="container-fluid cancel-header">Please Enter a Valid
-			Reason for cancellation:</div>
-		<textarea rows="6"></textarea>
-		<div class="container button-leaf-2">
-			<div class="row">
-				<div class="col text-center">
-					<button class="btn btn-primary">Submit</button>
-				</div>
-				<div class="col text-center">
-					<button class="btn btn-primary" onclick="undo()">Clear</button>
-				</div>
+				<button class="btn btn-primary" onclick="redirect()" id="cancel">Decline</button>
 			</div>
 		</div>
 	</div>
@@ -284,5 +242,5 @@ security.enable(session, response);
 
 </body>
 
-<script src="js/portal.js"></script>
+<script src="js/main.js"></script>
 </html>
