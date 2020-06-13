@@ -89,7 +89,8 @@ try {
 						<a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
 						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_approval_home.jsp">Approve Pending Requests</a>
+						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve
+							Pending Requests</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_print.jsp">PRINT</a></li>
@@ -115,12 +116,12 @@ try {
 			while (rs1.next()) {
 			%>
 			<div class="col text-left welcomeMessage">
-				<b>Name:</b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%>
+				<b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%></b>
 
 			</div>
 			<div class="col text-right">
-				<b>Staff ID:</b><%=rs1.getString("staff_id")%>
-				
+				<b>Staff ID:<%=rs1.getString("staff_id")%>
+				</b>
 				<%
 					}
 				connection.close();
@@ -162,31 +163,30 @@ try {
 
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
-				name="bhelStaffNo" value="staff no." /> <br> <label for="bhelName">Name:</label><input
-				type="text" name="bhelName" value="name" /> <br> <label
-				for="bhelDeg">Designation:</label> <input type="text" name="bhelDeg"
-				value="desg" /> <br> <label for="bhelDept">Department:</label> <input
-				type="text" name="bhelDept" value="dept" />
+				name="bhelStaffNo" value="staff no." /> <br> <label
+				for="bhelName">Name:</label><input type="text" name="bhelName"
+				value="name" /> <br> <label for="bhelDeg">Designation:</label>
+			<input type="text" name="bhelDeg" value="desg" /> <br> <label
+				for="bhelDept">Department:</label> <input type="text"
+				name="bhelDept" value="dept" />
 		</div>
 
 		<!--Extra Internal Form for a NON-BHEL Person-->
 
 		<div class="container" id="nonBhelInfo">
 			<label for="nonBhelName">Name:</label> <input type="text"
-				name="NbhelName" value="name" /> <br> <label for="nonBhelCompany">Company
-				Name:</label> <input type="text" name="bhelCompany" value="company name" /> <br> <label
+				name="NbhelName" value="name" /> <br> <label
+				for="nonBhelCompany">Company Name:</label> <input type="text"
+				name="bhelCompany" value="company name" /> <br> <label
 				for="nonBhelAddress">Address:</label> <input type="text"
 				name="bhelAddress" value="address" />
 		</div>
 
 		<div class="container form-group-header">MATERIAL DETAILS</div>
-		<div class="materialForm text-center text-center">
-			<label for="noOfItems">Number of Items:</label> 
-			<input type = "number" name="noOfItems" id="noOfItems" value="0"/> 
-			<input type="button"
-				value="Generate Form" onclick="generate()"/>
-				name="noOfItems" id="noOfItems" size="2"/>
-			<input type="button" value="Submit" onclick="generate()" class="btn btn-primary">
+		<div class="materialForm text-center">
+			<label for="noOfItems">Number of Items:</label> <input type="number"
+				name="noOfItems" id="noOfItems" value="0" /> <input type="button"
+				value="Generate Form" onclick="generate()">
 			<div id="wrapper" class="text-center"></div>
 		</div>
 
@@ -268,12 +268,13 @@ try {
 							var answer = confirm("Must check if all the details are filled. Confirm Submit ??")
 
 							if (answer) {
-								
-								var x = document.getElementById("gatepassMainForm");
-								
+
+								var x = document
+										.getElementById("gatepassMainForm");
+
 								var i;
 								for (i = 0; i < x.length; i++) {
-									
+
 									if (!x.elements[i].value.localeCompare("")) {
 
 										alert("One or more fields are empty. Please fill all the details !!");
@@ -281,7 +282,7 @@ try {
 
 									}
 								}
-								
+
 								document.forms[1].action = "raisegatepass";
 								document.forms[1].method = "post";
 								document.forms[1].submit();
@@ -301,7 +302,6 @@ try {
 				<div class="col text-right">
 
 					<!--This button clears the current form and the gatepass will be cancelled-->
-<<<<<<< HEAD
 
 					<script type="text/javascript">
 						function confirmClear() {
@@ -323,7 +323,7 @@ try {
 					</script>
 
 					<input class="btn btn-primary" type="button" value="Cancel"
-						onclick="confirmClear();">
+						onclick="return confirmClear();">
 				</div>
 			</div>
 		</div>
@@ -352,6 +352,6 @@ try {
 <!--JavaScript for dynamic content based on type of person BHEL/NON-BHEL -->
 
 
-<script type="text/javascript" src="js\main.js"></script>
+<script type="text/javascript" src="js\raise.js"></script>
 
 </html>

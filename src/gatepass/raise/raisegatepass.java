@@ -22,14 +22,14 @@ public class raisegatepass extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		
+
 		String status = "approved";
 
 		// All integer Data
 
 		int numberofmaterials = Integer.parseInt(request.getParameter("noOfItems"));
 		int staff_id = (Integer) session.getAttribute("ID"); // Staff ID
-		
+
 		// Receiver Details
 
 		String PassNumber = generatePIN(); // Pass Number
@@ -45,7 +45,6 @@ public class raisegatepass extends HttpServlet {
 		String TypePerson = request.getParameter("personType"); // Type of person
 		String RecPincode = request.getParameter("personPin"); // Receiver Pin Code
 		String RecPhone = request.getParameter("personPhone"); // Receiver Phone
-
 
 		// Bhel Person Details
 

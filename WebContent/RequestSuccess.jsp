@@ -79,14 +79,9 @@ try {
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
 						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
-<<<<<<< HEAD
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve
 							Pending Requests</a>
-=======
-						 <div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_approval_home.jsp">Approve Pending Requests</a>
->>>>>>> branch 'master' of https://github.com/NamanAgarwal016/BHEL-Material-Gate-Pass-System.git
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_print.jsp">PRINT</a></li>
