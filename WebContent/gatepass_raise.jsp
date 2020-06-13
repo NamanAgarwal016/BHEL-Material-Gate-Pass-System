@@ -37,7 +37,7 @@ try {
 <!DOCTYPE html>
 <html ng-app>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset="ISO-8859-1">
 <title>Material Gate Pass</title>
 
 
@@ -56,7 +56,6 @@ try {
 <link rel="stylesheet" href="css/raise.css">
 
 <!--Importing AngularJS-->
-
 
 <script type="text/javascript" src="js\angular.min.js"></script>
 </head>
@@ -138,8 +137,11 @@ try {
 		<b>GATE PASS FORM</b>
 	</h3>
 
+
 	<form class="" action="<%=request.getContextPath()%>/raisegatepass"
 		method="post" id="gatepassMainForm">
+
+
 		<div class="container form-group-header">PERSON TAKING THE
 			MATERIAL</div>
 
@@ -161,27 +163,27 @@ try {
 
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
-				name="bhelStaffNo" value="" /> <br> <label for="bhelName">Name:</label>
-			<input type="text" name="bhelName" value="" /> <br> <label
+				name="bhelStaffNo" value="staff no." /> <br> <label for="bhelName">Name:</label><input
+				type="text" name="bhelName" value="name" /> <br> <label
 				for="bhelDeg">Designation:</label> <input type="text" name="bhelDeg"
-				value="" /> <br> <label for="bhelDept">Department:</label> <input
-				type="text" name="bhelDept" value="" />
+				value="desg" /> <br> <label for="bhelDept">Department:</label> <input
+				type="text" name="bhelDept" value="dept" />
 		</div>
 
 		<!--Extra Internal Form for a NON-BHEL Person-->
 
 		<div class="container" id="nonBhelInfo">
 			<label for="nonBhelName">Name:</label> <input type="text"
-				name="NbhelName" value="" /> <br> <label for="nonBhelCompany">Company
-				Name:</label> <input type="text" name="bhelCompany" value="" /> <br> <label
+				name="NbhelName" value="name" /> <br> <label for="nonBhelCompany">Company
+				Name:</label> <input type="text" name="bhelCompany" value="company name" /> <br> <label
 				for="nonBhelAddress">Address:</label> <input type="text"
-				name="bhelAddress" value="" />
+				name="bhelAddress" value="address" />
 		</div>
 
 		<div class="container form-group-header">MATERIAL DETAILS</div>
 		<div class="materialForm text-center">
 			<label for="noOfItems">Number of Items:</label> <input type="number"
-				name="noOfItems" id="noOfItems" /> <input type="button"
+				name="noOfItems" id="noOfItems" value="0" /> <input type="button"
 				value="Generate Form" onclick="generate()">
 			<div id="wrapper" class="text-center"></div>
 		</div>
@@ -191,8 +193,8 @@ try {
 		<div class="container" id="receiverForm" align="center">
 			<div class="form-row">
 				<label for="personName">Name :</label> <input type="text"
-					name="personName" ng-required="true" /> <label for="personAdd">Address
-					:</label> <input type="text" name="personAdd" />
+					name="personName" /> <label for="personAdd">Address :</label> <input
+					type="text" name="personAdd" />
 			</div>
 			<div class="form-row text-center">
 				<label for="personDesg">Designation :</label> <input type="text"
@@ -201,18 +203,18 @@ try {
 			</div>
 			<div class="form-row text-center">
 				<label for="personDept">Department :</label> <input type="text"
-					name="personDept" ng-required="true" /> <label for="personState">State
-					:</label> <input type="text" name="personState" />
+					name="personDept" /> <label for="personState">State :</label> <input
+					type="text" name="personState" />
 			</div>
 			<div class="form-row text-center">
 				<label for="personCName">Company Name :</label> <input type="text"
-					name="personCName" /> <label for="personPin">Pincode :</label> <input
+					name="personCName" /> <label for="personPin">PinCode :</label> <input
 					type="text" name="personPin" />
 			</div>
 			<div class="form-row text-center">
-				<label for="personPhone">Tele/Mobile No. :</label> <input type="tel"
-					name="personPhone" ng-required="true" /> <label for="personMail">Email
-					:</label> <input type="email" name="personMail" ng-required="true" />
+				<label for="personPhone">Tele/Mobile No. :</label> <input
+					type="text" name="personPhone" /> <label for="personMail">Email
+					:</label> <input type="text" name="personMail" />
 			</div>
 		</div>
 		<div class="container text-white form-group-header">CUSTODIAN OF
@@ -226,42 +228,78 @@ try {
 
 		<div class="container-fluid button-leaf">
 			<div class="row">
-			
-			
-			
+
+
+
 				<div class="col ">
 
 					<!--This button will save the gatepass as a draft-->
-					
+
 					<script type="text/javascript">
 						function confirmSave() {
 							var answer = confirm("The form is not complete. You can fill it later and then Register again")
 							if (answer) {
-								
+
+								document.forms[0].action = "raisegatepass";
+								document.forms[0].method = "post";
+								document.forms[0].submit();
+
 							} else {
 								return false;
 							}
 						}
 					</script>
-					
-					<input class="btn btn-primary" type="button" value="Save as Draft"
+
+					<input class="btn btn-primary" type="submit" value="Save as Draft"
 						onclick="return confirmSave();">
 				</div>
-				
-				
-				
-				
+
+
+
+
 				<div class="col text-center">
 
 					<!--This button will Register the gatepass provided none of the feilds are invalid-->
 
-					<input class="btn btn-primary" type="submit" value="Register">
+					<script type="text/javascript">
+						function confirmSubmit() {
+							var answer = confirm("Must check if all the details are filled. Confirm Submit ??")
+
+							if (answer) {
+								
+								var x = document.getElementById("gatepassMainForm");
+								
+								var i;
+								for (i = 0; i < x.length; i++) {
+									
+									if (!x.elements[i].value.localeCompare("")) {
+
+										alert("One or more fields are empty. Please fill all the details !!");
+										return false;
+
+									}
+								}
+								
+								document.forms[1].action = "raisegatepass";
+								document.forms[1].method = "post";
+								document.forms[1].submit();
+
+							} else {
+								return false;
+
+							}
+						}
+					</script>
+
+					<input class="btn btn-primary" type="button" value="Register"
+						onclick="return confirmSubmit();">
 				</div>
-				
+
+
 				<div class="col text-right">
-				
+
 					<!--This button clears the current form and the gatepass will be cancelled-->
-					
+
 					<script type="text/javascript">
 						function confirmClear() {
 							var answer = confirm("Confirm to clear whole form ??")
@@ -287,6 +325,8 @@ try {
 			</div>
 		</div>
 	</form>
+
+	<p id="demo"></p>
 
 
 	<!--Importing jQuery,tether,Bootstrap JavaScripts, as bootstrap requires jQuery and tether-->
