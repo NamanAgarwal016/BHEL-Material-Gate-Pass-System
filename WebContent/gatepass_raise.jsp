@@ -89,8 +89,7 @@ try {
 						<a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
 						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve
-							Pending Requests</a>
+						<a class="dropdown-item" href="gatepass_approval_home.jsp">Approve Pending Requests</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_print.jsp">PRINT</a></li>
@@ -116,12 +115,12 @@ try {
 			while (rs1.next()) {
 			%>
 			<div class="col text-left welcomeMessage">
-				<b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%></b>
+				<b>Name:</b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%>
 
 			</div>
 			<div class="col text-right">
-				<b>Staff ID:<%=rs1.getString("staff_id")%>
-				</b>
+				<b>Staff ID:</b><%=rs1.getString("staff_id")%>
+				
 				<%
 					}
 				connection.close();
@@ -181,10 +180,13 @@ try {
 		</div>
 
 		<div class="container form-group-header">MATERIAL DETAILS</div>
-		<div class="materialForm text-center">
-			<label for="noOfItems">Number of Items:</label> <input type="number"
-				name="noOfItems" id="noOfItems" value="0" /> <input type="button"
-				value="Generate Form" onclick="generate()">
+		<div class="materialForm text-center text-center">
+			<label for="noOfItems">Number of Items:</label> 
+			<input type = "number" name="noOfItems" id="noOfItems" value="0"/> 
+			<input type="button"
+				value="Generate Form" onclick="generate()"/>
+				name="noOfItems" id="noOfItems" size="2"/>
+			<input type="button" value="Submit" onclick="generate()" class="btn btn-primary">
 			<div id="wrapper" class="text-center"></div>
 		</div>
 
@@ -299,6 +301,7 @@ try {
 				<div class="col text-right">
 
 					<!--This button clears the current form and the gatepass will be cancelled-->
+<<<<<<< HEAD
 
 					<script type="text/javascript">
 						function confirmClear() {
@@ -320,7 +323,7 @@ try {
 					</script>
 
 					<input class="btn btn-primary" type="button" value="Cancel"
-						onclick="return confirmClear();">
+						onclick="confirmClear();">
 				</div>
 			</div>
 		</div>
@@ -349,6 +352,6 @@ try {
 <!--JavaScript for dynamic content based on type of person BHEL/NON-BHEL -->
 
 
-<script type="text/javascript" src="js\raise.js"></script>
+<script type="text/javascript" src="js\main.js"></script>
 
 </html>

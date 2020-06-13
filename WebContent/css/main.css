@@ -34,5 +34,10 @@ table {
   background-color: #6648b0;
     color:white;
   }
-  
+  .badge-primary{
+  background-color: #6648b0;
+  }
+  .badge-primary:hover{
+  background-color:#342a5a;
+  }
   

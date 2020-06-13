@@ -52,7 +52,7 @@ security.enable(session, response);
 					    <a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
 						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
 						 <div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve Pending Requests</a>
+						<a class="dropdown-item" href="gatepass_approval_home.jsp">Approve Pending Requests</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
 					href="gatepass_print.jsp">PRINT</a></li>
