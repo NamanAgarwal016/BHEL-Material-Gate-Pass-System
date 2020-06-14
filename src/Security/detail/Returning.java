@@ -72,7 +72,7 @@ public class Returning extends HttpServlet {
 							st5.setString(2, Gate);
 							st5.executeUpdate();		
 					}
-					RequestDispatcher view = request.getRequestDispatcher("Security.jsp");
+					RequestDispatcher view = request.getRequestDispatcher("gatepassSecurity.jsp");
 					view.forward(request, response);
 	} catch (Exception e) {
 		JOptionPane.showMessageDialog(null, e.getMessage());

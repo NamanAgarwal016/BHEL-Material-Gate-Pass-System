@@ -77,7 +77,7 @@ public class Leaving extends HttpServlet {
 					
 	} catch (Exception e) {
 		JOptionPane.showMessageDialog(null, e.getMessage());
-		RequestDispatcher view = request.getRequestDispatcher("Security.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("gatepassSecurity.jsp");
 		view.forward(request, response);
 	}
 				}
