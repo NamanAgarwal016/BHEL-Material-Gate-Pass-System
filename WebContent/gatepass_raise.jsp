@@ -89,7 +89,7 @@ try {
 						<a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
 						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_approval_portal.jsp">Approve
+						<a class="dropdown-item" href="gatepass_approval_home.jsp">Approve
 							Pending Requests</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"

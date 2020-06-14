@@ -51,6 +51,8 @@ public class LoginServlet extends HttpServlet {
 				    response.sendRedirect("gatepass_status.jsp");
 				if (staffid == 102)
 					response.sendRedirect("gatepass_statusApprover.jsp");
+				if (staffid == 103)
+					response.sendRedirect("gatepassSecurity.jsp");
 			} else {
 				response.sendRedirect("gatepass_login.jsp");
 			}
