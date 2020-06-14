@@ -23,7 +23,7 @@ public class raisegatepass extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 
-		String status = "approved";
+		String status = request.getParameter("formStatus");
 
 		// All integer Data
 

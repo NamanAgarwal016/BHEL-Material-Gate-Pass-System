@@ -242,6 +242,7 @@ try {
 							var answer = confirm("The form is not complete. You can fill it later and then Register again")
 							if (answer) {
 
+								document.getElementById('formStatus').value = "draft";
 								document.forms[0].action = "raisegatepass";
 								document.forms[0].method = "post";
 								document.forms[0].submit();
@@ -283,6 +284,7 @@ try {
 									}
 								}
 
+								document.getElementById("formStatus").value = "pending";
 								document.forms[1].action = "raisegatepass";
 								document.forms[1].method = "post";
 								document.forms[1].submit();
@@ -327,9 +329,11 @@ try {
 				</div>
 			</div>
 		</div>
-	</form>
 
-	<p id="demo"></p>
+	</form>
+	<div>
+		<input type="hidden" name="formStatus" id="formStatus" value="" />
+	</div>
 
 
 	<!--Importing jQuery,tether,Bootstrap JavaScripts, as bootstrap requires jQuery and tether-->
