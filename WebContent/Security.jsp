@@ -42,7 +42,6 @@ security.enable(session, response);
              <th>Material</th>
              <th>Return Date</th>
              <th>Initiating Officer</th>
-             <th>Receiving State</th>
           </tr>
       </thead>
       <tbody>
@@ -55,7 +54,6 @@ security.enable(session, response);
                 <td><%=rs.getString("Materials") %></td>
                 <td><%=rs.getString("Date_of_return") %></td>
                 <td><%=rs.getString("InitiatingOfficer") %></td>
-                <td><%=rs.getString("state") %></td>
             </tr>
             <%}%>
            </tbody>

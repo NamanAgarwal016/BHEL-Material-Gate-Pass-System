@@ -72,7 +72,7 @@ public class Leaving extends HttpServlet {
 							st5.setString(2, Gate);
 							st5.executeUpdate();		
 					}
-					RequestDispatcher view = request.getRequestDispatcher("Security.jsp");
+					RequestDispatcher view = request.getRequestDispatcher("gatepassSecurity.jsp");
 					view.forward(request, response);
 					
 	} catch (Exception e) {

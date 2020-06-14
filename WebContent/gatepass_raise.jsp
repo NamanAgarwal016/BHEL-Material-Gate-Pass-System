@@ -225,7 +225,7 @@ try {
 			Purpose of gatepass and Description of material <br>
 			<textarea id="custodian" name="custodian" rows="6"></textarea>
 		</div>
-
+        <input type="hidden" name="formStatus" id="formStatus" value="Approved" />
 		<!--Button Group for Register,Save Draft,Cancel -->
 
 		<div class="container-fluid button-leaf">
@@ -242,7 +242,7 @@ try {
 							var answer = confirm("The form is not complete. You can fill it later and then Register again")
 							if (answer) {
 
-								document.getElementById('formStatus').value = "draft";
+								document.getElementById("formStatus").value = "draft";
 								document.forms[0].action = "raisegatepass";
 								document.forms[0].method = "post";
 								document.forms[0].submit();
@@ -285,9 +285,9 @@ try {
 								}
 
 								document.getElementById("formStatus").value = "pending";
-								document.forms[1].action = "raisegatepass";
-								document.forms[1].method = "post";
-								document.forms[1].submit();
+								document.getElementById("gatepassMainForm").action = "<%=request.getContextPath()%>/raisegatepass";
+								document.getElementById("gatepassMainForm").method = "post";
+								document.getElementById("gatepassMainForm").submit();
 
 							} else {
 								return false;
@@ -331,9 +331,6 @@ try {
 		</div>
 
 	</form>
-	<div>
-		<input type="hidden" name="formStatus" id="formStatus" value="" />
-	</div>
 
 
 	<!--Importing jQuery,tether,Bootstrap JavaScripts, as bootstrap requires jQuery and tether-->
@@ -356,6 +353,6 @@ try {
 <!--JavaScript for dynamic content based on type of person BHEL/NON-BHEL -->
 
 
-<script type="text/javascript" src="js\raise.js"></script>
+<script type="text/javascript" src="js\main.js"></script>
 
 </html>

@@ -24,7 +24,7 @@ public class raisegatepass extends HttpServlet {
 		HttpSession session = request.getSession(false);
 
 		String status = request.getParameter("formStatus");
-
+        System.out.println(status);
 		// All integer Data
 
 		int numberofmaterials = Integer.parseInt(request.getParameter("noOfItems"));
