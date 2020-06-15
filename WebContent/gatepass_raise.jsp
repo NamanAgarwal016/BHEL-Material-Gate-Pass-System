@@ -243,9 +243,9 @@ try {
 							if (answer) {
 
 								document.getElementById("formStatus").value = "draft";
-								document.forms[0].action = "raisegatepass";
-								document.forms[0].method = "post";
-								document.forms[0].submit();
+								document.getElementById("gatepassMainForm").action = "<%=request.getContextPath()%>/raisegatepass";
+								document.getElementById("gatepassMainForm").method = "post";
+								document.getElementById("gatepassMainForm").submit();
 
 							} else {
 								return false;
