@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="login_form" class=""
+	<form name="login_form"
 		action="<%=request.getContextPath()%>/SecurityG" method="post"
 		align="center">
 		<label for="Gnumber">Gate Pass Number</label> <img
