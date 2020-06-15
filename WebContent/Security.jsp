@@ -8,6 +8,11 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
+<%
+	Security security = new Security();
+security.enable(session, response);
+%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
