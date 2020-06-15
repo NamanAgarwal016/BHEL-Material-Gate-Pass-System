@@ -8,16 +8,24 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
-<%
-	Security security = new Security();
-security.enable(session, response);
-%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Security</title>
-</head>
+<html lang="en">
+  <head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Gate Pass - Security</title>
+    
+    <!-- Adding Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    
+   <link rel="stylesheet" href="css/security.css"> 
+    
+    
+    
+    </head>
+<body>
 <body>
 	<%
 		try {
@@ -37,8 +45,16 @@ security.enable(session, response);
 		ResultSet rs = statement.executeQuery(loggedInUser);
 	%>
 
-
-	<table border=1 align=center style="text-align: center">
+    
+    <div class="container-fluid header">
+     <h1 >Gate Pass Security Portal
+     <form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get">
+     <input class="btn btn-sign-out" type="submit" value="Sign Out">
+    </form>
+     </h1>
+    </div>
+    
+	<table border=1 align=center class="table table-striped">
 		<thead>
 			<tr>
 				<th>Gate Pass Number</th>
@@ -66,26 +82,29 @@ security.enable(session, response);
 		</tbody>
 	</table>
 
-	<br>
-
+     <div class="container-fluid ">
+	<div class="row fixed-bottom">
+	<div class="col text-center">
 	<form name="login_form" action="<%=request.getContextPath()%>/Leaving"
-		method="post" align="center">
+		method="post">
 
 		<input type="hidden" id="GatePass" name="GatePass"
-			value=<%=userlabel%>> <input class="btn btn-outline-primary"
+			value=<%=userlabel%>> <input class="btn btn-primary"
 			type="submit" value="Material Leaving">
 
 	</form>
-
-	<br>
-
+	</div>
+	<div class="col"></div>
+	<div class="col text-center">
 	<form name="login_form"
-		action="<%=request.getContextPath()%>/Returning" method="post"
-		align="center">
+		action="<%=request.getContextPath()%>/Returning" method="post">
 		<input type="hidden" id="GatePass" name="GatePass"
-			value=<%=userlabel%>> <input class="btn btn-outline-primary"
+			value=<%=userlabel%>> <input class="btn btn-primary"
 			type="submit" value="Material Returning">
 	</form>
+	</div>
+	</div>
+	</div>
 
 	<%
 		connection.close();
