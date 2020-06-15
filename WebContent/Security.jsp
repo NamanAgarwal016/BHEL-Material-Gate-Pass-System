@@ -72,7 +72,7 @@ security.enable(session, response);
 		method="post" align="center">
 
 		<input type="hidden" id="GatePass" name="GatePass"
-			value=<%=userlabel%> > <input class="btn btn-outline-primary"
+			value=<%=userlabel%>> <input class="btn btn-outline-primary"
 			type="submit" value="Material Leaving">
 
 	</form>
@@ -83,7 +83,7 @@ security.enable(session, response);
 		action="<%=request.getContextPath()%>/Returning" method="post"
 		align="center">
 		<input type="hidden" id="GatePass" name="GatePass"
-			value=<%=userlabel%> > <input class="btn btn-outline-primary"
+			value=<%=userlabel%>> <input class="btn btn-outline-primary"
 			type="submit" value="Material Returning">
 	</form>
 

@@ -20,6 +20,7 @@ public class Leaving extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String Gate = request.getParameter("GatePass");
 		System.out.println(Gate);
 
@@ -35,6 +36,7 @@ public class Leaving extends HttpServlet {
 			Class.forName(driver);
 
 			Connection connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+			
 			String insertTableSQL = "UPDATE material SET status=? where PassNumber=?";
 			PreparedStatement st = connection.prepareStatement(insertTableSQL);
 			st.setString(1, "Left the Premises");
@@ -57,6 +59,7 @@ public class Leaving extends HttpServlet {
 			PreparedStatement st3 = connection.prepareStatement(insertTableSQL3);
 			st3.setString(1, Gate);
 			ResultSet rs = st3.executeQuery();
+			
 			if (rs.next() == false) {
 				String insertTableSQL4 = "UPDATE nonbhel_person SET status=? where gatepass=?";
 				PreparedStatement st4 = connection.prepareStatement(insertTableSQL4);

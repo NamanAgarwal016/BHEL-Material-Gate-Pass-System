@@ -14,9 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
-/**
- * Servlet implementation class Returning
- */
 @WebServlet("/Returning")
 public class Returning extends HttpServlet {
 	private static final long serialVersionUID = 1L;
