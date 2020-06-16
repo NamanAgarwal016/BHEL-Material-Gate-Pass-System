@@ -7,12 +7,24 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="java.io.IOException"%>
 
 <%
 	Security security = new Security();
 security.enable(session, response);
-%>
 
+Integer staffid = (Integer) session.getAttribute("staffid");
+
+if (staffid == 104) {
+	try {
+		response.sendRedirect("gatepass_invalidUser.jsp");
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+}
+%>
 
 <%
 	String driver = "com.mysql.jdbc.Driver";
@@ -225,7 +237,8 @@ try {
 			Purpose of gatepass and Description of material <br>
 			<textarea id="custodian" name="custodian" rows="6"></textarea>
 		</div>
-        <input type="hidden" name="formStatus" id="formStatus" value="Approved" />
+		<input type="hidden" name="formStatus" id="formStatus"
+			value="Approved" />
 		<!--Button Group for Register,Save Draft,Cancel -->
 
 		<div class="container-fluid button-leaf">
@@ -233,13 +246,13 @@ try {
 
 
 
-				<div class="col ">
+				<div class="col">
 
 					<!--This button will save the gatepass as a draft-->
 
 					<script type="text/javascript">
 						function confirmSave() {
-							var answer = confirm("The form is not complete. You can fill it later and then Register again")
+							var answer = confirm("Please note that this feature is only for bhel_person. Also you can use Save feature only once.. However you are free to fill & register it at anytime. Confirm to Save As Darft ?? ")
 							if (answer) {
 
 								document.getElementById("formStatus").value = "draft";
@@ -252,9 +265,9 @@ try {
 							}
 						}
 					</script>
-
-					<input class="btn btn-primary" type="submit" value="Save as Draft"
-						onclick="return confirmSave();">
+						<input class="btn btn-primary" type="submit" value="Save as Draft"
+							onclick="return confirmSave();">
+				
 				</div>
 
 
@@ -285,9 +298,10 @@ try {
 								}
 
 								document.getElementById("formStatus").value = "pending";
-								document.getElementById("gatepassMainForm").action = "<%=request.getContextPath()%>/raisegatepass";
-								document.getElementById("gatepassMainForm").method = "post";
-								document.getElementById("gatepassMainForm").submit();
+								document.getElementById("gatepassMainForm").action="<%=request.getContextPath()%>/raisegatepass";           
+								document.getElementById("gatepassMainForm").method ="post";
+								document.getElementById("gatepassMainForm")
+										.submit();
 
 							} else {
 								return false;

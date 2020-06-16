@@ -9,6 +9,8 @@ function nonBhel() {
 	content.style.display = "block";
 	var hide = document.getElementById("bhelInfo");
 	hide.style.display = "none";
+	var hideDraft = document.getElementById("draftBtn");
+	hideDraft.style.display = "none";
 }
 function generate() {
 	var num_rows = document.getElementById('noOfItems').value;
@@ -26,7 +28,7 @@ function generate() {
 				+ '</td>';
 		tbody += '<td><input class="tableEntry" type="number" name="materialQuantity">'
 				+ '</td>';
-		tbody += '<td><input class="tableEntry" type="date"  name="materialDate">'
+		tbody += '<td><input class="tableEntry" type="date"  name="materialDate" >'
 				+ '</td>';
 		tbody += '</tr>\n';
 	}

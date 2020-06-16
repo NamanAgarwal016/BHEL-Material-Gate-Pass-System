@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="login.database.*"%>
-<%@page import="login.web.*"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
+<%@page import="login.web.Security"%>
 <%
 	Security security = new Security();
 security.enable(session, response);
@@ -33,11 +32,14 @@ try {
 	statement = connection.createStatement();
 %>
 
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Material Gate Pass - In Draft</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Approved List</title>
 
 <!-- Adding Bootstrap CSS -->
 
@@ -49,11 +51,10 @@ try {
 <!-- Adding Custom CSS -->
 
 <link rel="stylesheet" href="css/main.css">
-
 </head>
 <body>
 
-
+	<!-- Adding the Navigation Bar -->
 
 	<nav class="navbar navbar-toggleable navbar-inverse">
 		<button class="navbar-toggler" data-toggle="collapse"
@@ -101,7 +102,6 @@ try {
 		<div class="row">
 			<%
 				String user = (String) session.getAttribute("username");
-			System.out.println("user");
 			String pass = (String) session.getAttribute("password");
 			String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
 			ResultSet rs1 = statement.executeQuery(loggedInUser);
@@ -116,75 +116,21 @@ try {
 				</b>
 				<%
 					}
+				connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				%>
-
 			</div>
 		</div>
 	</div>
 
-
-
-	<!-- Creating the table for in Draft Gatepasses -->
-
-	<div class="container">
-
-		<%
-			int staff_id = (Integer) session.getAttribute("ID");
-		String draftDetails = "select * from InDraftView where staff_id='" + staff_id + "'";
-		ResultSet rs2 = statement.executeQuery(draftDetails);
-		%>
-
-
-
-		<table align="center" class="table table-striped">
-
-
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col" colspan="5" id="tableTitle">YOUR LIST OF GATE
-						PASSES CURRENTLY IN DRAFT</th>
-				</tr>
-				<tr>
-					<th>GatePass No.</th>
-					<th>Initiating Officer</th>
-					<th>Purpose</th>
-					<th>Material Name</th>
-					<th>Take Action</th>
-				</tr>
-			</thead>
-
-
-			<tbody>
-
-
-				<%
-					while (rs2.next()) {
-				%>
-				<tr>
-					<td><%=rs2.getString("gatepass")%></td>
-					<td><%=rs2.getString("InitiatingOfficer")%></td>
-					<td><%=rs2.getString("Details")%></td>
-					<td><%=rs2.getString("Materials")%></td>
-					<td><a
-						href="gatepass_editDraft.jsp?pass_Number=<%=rs2.getString("gatepass")%>&initiating_Officer=<%=rs2.getString("InitiatingOfficer")%>">fill
-							and register</a></td>
-				</tr>
-				<%
-					}
-				%>
-
-
-
-			</tbody>
-		</table>
-	</div>
-
-	<%
-		connection.close();
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-	%>
+	<h3 class="text-center">
+		<b>You are not authorised to Raise a gate pass !!
+		</b>
+		<br>
+		<b>Please contact Security Head</b>
+	</h3>
 
 
 	<!-- Importing tether,jQuery,Bootstrap javaScripts -->
@@ -200,8 +146,6 @@ try {
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
 		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
 		crossorigin="anonymous"></script>
-
-
 
 </body>
 </html>

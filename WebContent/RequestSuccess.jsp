@@ -134,6 +134,8 @@ try {
 	<h3 class="text-center">
 		<b>Your Gate Pass Number is: <%=userlabel%> !
 		</b>
+		<br>
+		<b>Please wait for the Approval of your Gate Pass ...</b>
 	</h3>
 
 
