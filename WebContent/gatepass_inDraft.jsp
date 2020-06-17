@@ -146,9 +146,8 @@ try {
 				</tr>
 				<tr>
 					<th>GatePass No.</th>
+					<th>Gate Pass For</th>
 					<th>Initiating Officer</th>
-					<th>Purpose</th>
-					<th>Material Name</th>
 					<th>Take Action</th>
 				</tr>
 			</thead>
@@ -162,12 +161,10 @@ try {
 				%>
 				<tr>
 					<td><%=rs2.getString("gatepass")%></td>
+					<td><%=rs2.getString("name")%></td>
 					<td><%=rs2.getString("InitiatingOfficer")%></td>
-					<td><%=rs2.getString("Details")%></td>
-					<td><%=rs2.getString("Materials")%></td>
 					<td><a
-						href="gatepass_editDraft.jsp?pass_Number=<%=rs2.getString("gatepass")%>&initiating_Officer=<%=rs2.getString("InitiatingOfficer")%>">fill
-							and register</a></td>
+						href="gatepass_editDraft.jsp?pass_Number=<%=rs2.getString("gatepass")%>&initiating_Officer=<%=rs2.getString("InitiatingOfficer")%>">Fill & Register</a></td>
 				</tr>
 				<%
 					}

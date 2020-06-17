@@ -15,7 +15,7 @@ security.enable(session, response);
 
 Integer staffid = (Integer) session.getAttribute("staffid");
 
-if (staffid == 104) {
+if (staffid == 104|| staffid == 102 || staffid == 100 ) {
 	try {
 		response.sendRedirect("gatepass_invalidUser.jsp");
 	} catch (IOException e) {

@@ -64,9 +64,12 @@ security.enable(session, response);
 			<tr>
 				<th>Gate Pass Number</th>
 				<th>Staff ID</th>
-				<th>Material</th>
-				<th>Return Date</th>
 				<th>Initiating Officer</th>
+				<th>Material</th>
+				<th>Quantity</th>
+				<th>Unit</th>
+				<th>Return Date</th>
+				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -76,9 +79,12 @@ security.enable(session, response);
 			<tr>
 				<td><%=rs.getString("PassNumber")%></td>
 				<td><%=rs.getString("staff_id")%></td>
-				<td><%=rs.getString("Materials")%></td>
-				<td><%=rs.getString("Date_of_return")%></td>
 				<td><%=rs.getString("InitiatingOfficer")%></td>
+				<td><%=rs.getString("Materials")%></td>
+				<td><%=rs.getString("Quantity")%></td>
+				<td><%=rs.getString("Unit")%></td>
+				<td><%=rs.getString("Date_of_return")%></td>
+				<td><%=rs.getString("status")%></td>
 			</tr>
 
 			<%

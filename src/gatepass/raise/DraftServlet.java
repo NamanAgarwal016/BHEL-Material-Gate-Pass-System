@@ -21,8 +21,7 @@ public class DraftServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 
-		String status = request.getParameter("formStatus");
-        System.out.println(status);
+		String status = "draft";
 		// All integer Data
 
 		int numberofmaterials = Integer.parseInt(request.getParameter("noOfItems"));
@@ -84,28 +83,27 @@ public class DraftServlet extends HttpServlet {
 			Connection connection = DriverManager.getConnection(connectionUrl + database, userid, passwordd);
 
 			// Inserting Material details
+			String insertTableSQL0 = "delete from material where PassNumber='"+ PassNumber +"' and status='"+ status +"'";
+			PreparedStatement st0 = connection.prepareStatement(insertTableSQL0);
+			st0.executeUpdate();
 			
 			
 			for (int i = 0; i < numberofmaterials; i++) {
 				
-				String insertTableSQL ="Update material set PassNumber=?,status=?,InitiatingOfficer=?,staff_id=?,Materials=?,Quantity=?,Unit=?,Date_of_return=? where PassNumber='" + PassNumber +"'";
-				
-				//String insertTableSQL = "INSERT INTO material VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
-				
-
-			
+				String insertTableSQL = "INSERT INTO material VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 				PreparedStatement st = connection.prepareStatement(insertTableSQL);
 				st.setString(1, PassNumber);
-				st.setString(2, status);
+				st.setString(2, "Pending");
 				st.setString(3, InitiatingOfficer);
 				st.setInt(4, staff_id);
 				st.setString(5, Materials[i]);
 				st.setString(6, Quantity[i]);
 				st.setString(7, Unit[i]);
 				st.setString(8, Date[i]);
-				st.executeUpdate();
+				st.executeUpdate();	
 			}
 			System.out.println("Done material table");
+			
 			// Inserting Receiver Details
 
 
@@ -114,7 +112,7 @@ public class DraftServlet extends HttpServlet {
 			//String insertTableSQL2 = "INSERT INTO receiver VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement st2 = connection.prepareStatement(insertTableSQL2);
 			st2.setString(1, PassNumber);
-			st2.setString(2, status);
+			st2.setString(2, "Pending");
 			st2.setString(3, RecName);
 			st2.setString(4, RecDesig);
 			st2.setString(5, RecDept);
@@ -137,7 +135,7 @@ public class DraftServlet extends HttpServlet {
 				//String insertTableSQL3 = "INSERT INTO bhel_person VALUES(?, ?, ?, ?, ?, ?);";
 				PreparedStatement st3 = connection.prepareStatement(insertTableSQL3);
 				st3.setString(1, PassNumber);
-				st3.setString(2, status);
+				st3.setString(2, "Pending");
 				st3.setInt(3, BStaffNo);
 				st3.setString(4, BName);
 				st3.setString(5, BDesig);
@@ -151,7 +149,7 @@ public class DraftServlet extends HttpServlet {
 				//String insertTableSQL4 = "INSERT INTO nonbhel_person VALUES(?, ?, ?, ?, ?);";
 				PreparedStatement st4 = connection.prepareStatement(insertTableSQL4);
 				st4.setString(1, PassNumber);
-				st4.setString(2, status);
+				st4.setString(2, "Pending");
 				st4.setString(3, NBName);
 				st4.setString(4, NBCompany);
 				st4.setString(5, NBAddress);
@@ -167,7 +165,7 @@ public class DraftServlet extends HttpServlet {
 			//String insertTableSQL5 = "INSERT INTO material_details VALUES(?, ?, ?);";
 			PreparedStatement st5 = connection.prepareStatement(insertTableSQL5);
 			st5.setString(1, PassNumber);
-			st5.setString(2, status);
+			st5.setString(2, "Pending");
 			st5.setString(3, Details);
 			st5.executeUpdate();
 			System.out.println("Done material detials custodian table");

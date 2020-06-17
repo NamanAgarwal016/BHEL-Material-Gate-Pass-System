@@ -2,6 +2,15 @@
     pageEncoding="ISO-8859-1"%>
 	
 <%@page import="login.web.Security"%>
+<%@page import="login.database.*"%>
+<%@page import="login.web.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>	
+<%@page import="login.web.Security"%>
+
 <%
 Security security = new Security();
 security.enable(session, response);
@@ -69,78 +78,67 @@ security.enable(session, response);
     
     <!-- Creating the table for Closed Gatepasses -->
     
-    <div class="container">
-      <table align="center" class="table table-striped">
-      
+  <div class="container">
+<table align="center" class="table table-striped">
+       <%
+		try {
+		String driver = "com.mysql.jdbc.Driver";
+		String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
+		String database = "zvp0njb2yauy3fgk";
+		String userid = "pjyaoyeilkkbtjg8";
+		String password = "ejzn69wchxp2bv6j";
+		Class.forName(driver);
+		Connection connection = null;
+		Statement statement = null;
+		connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+		statement = connection.createStatement();
+		
+		int staff_id = (Integer) session.getAttribute("ID");
+		String loggedInUser = "select a.*, b.NameofOfficer from ClosedView a,IssuingDetail b where a.PassNumber = b.GatePassNumber AND staff_id='" + staff_id + "'";
+		ResultSet rs = statement.executeQuery(loggedInUser);
+	%>
+    
       
       <thead class="thead-dark">
         <tr>
         <th scope="col" colspan="7" id="tableTitle">LIST OF CLOSED GATE PASSES</th>
-      </tr>
+        </tr>
       </thead>
       
       
 <tbody>
     <tr>
-    <th>Gp. No.</th>
+    <th>Pass Number</th>
     <th>Initiator</th>
-    <th>Date</th>
-    <th>Custodian</th>
+    <th>Staff ID</th>
+    <th>Material</th>
+    <th>Date of Return</th>
     <th>Issuing Officer</th>
-    <th>Closed on</th>
+    <th>Status</th>
     </tr>
+    	<%
+				while (rs.next()) {
+			%>
     <tr>
-    <td>1</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><%=rs.getString("PassNumber")%></td>
+    <td><%=rs.getString("InitiatingOfficer")%></td>
+    <td><%=rs.getString("staff_id")%></td>
+    <td><%=rs.getString("Materials")%></td>
+    <td><%=rs.getString("Date_of_return")%></td>
+    <td><%=rs.getString("NameofOfficer")%></td>
+    <td><%=rs.getString("Status")%></td>
     </tr>
-    <tr>
-    <td>2</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>3</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>4</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>5</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td>6</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
+    	<%
+				}
+		connection.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+   %>
   </tbody>
   </table>
 </div>
-
+  
     <!-- Importing tether,jQuery,Bootstrap javaScripts -->
 
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

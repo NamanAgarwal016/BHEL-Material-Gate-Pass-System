@@ -145,7 +145,7 @@ try {
 	</h3>
 
 
-	<form class="" action="<%=request.getContextPath()%>/raisegatepass"
+	<form class="" action="<%=request.getContextPath()%>/DraftServlet"
 		method="post" id="gatepassMainForm">
 
 
@@ -167,15 +167,20 @@ try {
 		<!--Creating the Extra Content that will be displayed depending on BHEL/NON-BHEL-->
 
 		<!--Extra Internal Form for a BHEL Person-->
+		<%
+				String Info = "SELECT * FROM bhel_person WHERE gatepass='" + PassNumber + "'";
+			ResultSet rs10 = statement.executeQuery(Info);
+				rs10.next();
+			%>
 
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
-				name="bhelStaffNo" value="staff no." /> <br> <label
+				name="bhelStaffNo" value="<%=rs10.getString("staff_id")%>" /> <br> <label
 				for="bhelName">Name:</label><input type="text" name="bhelName"
-				value="name" /> <br> <label for="bhelDeg">Designation:</label>
-			<input type="text" name="bhelDeg" value="desg" /> <br> <label
+				value="<%=rs10.getString("name")%>" /> <br> <label for="bhelDeg">Designation:</label>
+			<input type="text" name="bhelDeg" value="<%=rs10.getString("designation")%>" /> <br> <label
 				for="bhelDept">Department:</label> <input type="text"
-				name="bhelDept" value="dept" />
+				name="bhelDept" value="<%=rs10.getString("department")%>" />
 		</div>
 
 		<!--Extra Internal Form for a NON-BHEL Person-->

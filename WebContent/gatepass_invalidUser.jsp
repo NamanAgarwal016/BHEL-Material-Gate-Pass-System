@@ -126,10 +126,10 @@ try {
 	</div>
 
 	<h3 class="text-center">
-		<b>You are not authorised to Raise a gate pass !!
+		<b>You are not authorized to raise a gate pass!
 		</b>
 		<br>
-		<b>Please contact Security Head</b>
+		<b>Please request Security Head to initiate a gate pass</b>
 	</h3>
 
 
