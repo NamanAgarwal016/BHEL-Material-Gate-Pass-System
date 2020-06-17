@@ -1,34 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-	
+	pageEncoding="ISO-8859-1"%>
+<%@page import="login.database.*"%>
+<%@page import="login.web.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+
+<%
+	String driver = "com.mysql.jdbc.Driver";
+String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
+String database = "zvp0njb2yauy3fgk";
+String userid = "pjyaoyeilkkbtjg8";
+String password = "ejzn69wchxp2bv6j";
+
+try {
+	Class.forName(driver);
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+}
+Connection connection = null;
+Statement statement = null;
+
+try {
+	connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+	statement = connection.createStatement();
+%>
+
 <%@page import="login.web.Security"%>
 <%
 Security security = new Security();
 security.enable(session, response);
 %>
 
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Material Gate Pass - Cancelled</title>
 
-    <!-- Adding Bootstrap CSS -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<title>Material Gate Pass - Home</title>
 
-    <!-- Adding Custom CSS -->
-<link rel="stylesheet" href="css/navbar-side.css">   
-<link rel="stylesheet" href="css/main.css"> 
+<!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/navbar-side.css">
+    <link rel="stylesheet" href="css/status.css">
 
-<!-- Font Awesome JS -->
+    <!-- Font Awesome JS -->
     
     <script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
     
-  </head>
-  <body>
-  
-   <!-- Creating the Navigation Menu -->
+</head>
+<body>
+
+	<!-- Creating the Navigation Menu -->
 
 	<div class="wrapper">
         <!-- Sidebar  -->
@@ -117,90 +148,84 @@ security.enable(session, response);
                     </button>
                 </div>
             </nav>
-    
-    
-    <div class="container">
-      <table align="center" class="table table-striped">
-      
-      
-      <thead class="thead-dark">
-        <tr>
-        <th scope="col" colspan="4" id="tableTitle">LIST OF CANCELLED GATE PASSES</th>
-      </tr>
-      </thead>
-      
-            
-<tbody>
-    <tr>
-    <th>Gp. No.</th>
-    <th>Initiator</th>
-    <th>Date</th>
-    <th>Reason For Cancellation</th>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-  </tbody>
-  </table>
-</div>
-<!-- Importing tether,jQuery,Bootstrap javaScript -->
+
+
+	<!-- Displaying the Welcome Message -->
+
+	<div class="container welcome-message">
+
+		<%
+			String user = (String) session.getAttribute("username");
+		String pass = (String) session.getAttribute("password");
+		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
+		ResultSet rs1 = statement.executeQuery(loggedInUser);
+		while (rs1.next()) {
+		%>
+
+		<h3 class="text-center">
+			<b>Welcome, <%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%>
+				!
+			</b>
+		</h3>
+
+		<%
+			}
+		%>
+
+	</div>
+
+	<!-- Creating the table for displaying status of gatepass -->
+
+	<div class="container table-holder">
+		<table align="center" class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col" colspan="4" id="tableTitle">MATERIAL GATE PASS
+						SYSTEM</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<%
+					String status = "select * from gatepass_status";
+				ResultSet rs2 = statement.executeQuery(status);
+				while (rs2.next()) {
+				%>
+				<tr>
+					<th>In Draft Mode</th>
+					<td><%=rs2.getString("In Draft Mode")%></td>
+					<th>Pending Approval</th>
+					<td><%=rs2.getString("Pending Approval")%></td>
+				</tr>
+				<tr>
+					<th>Approved</th>
+					<td><%=rs2.getString("Approved")%></td>
+					<th>Permitted</th>
+					<td><%=rs2.getString("Permitted")%></td>
+				</tr>
+				<tr>
+					<th>Closed</th>
+					<td><%=rs2.getString("Closed")%></td>
+					<th>Cancelled</th>
+					<td><%=rs2.getString("Cancelled")%></td>
+				</tr>
+
+				<%
+					}
+				connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				%>
+
+			</tbody>
+
+
+		</table>
+	</div>
+
+
+	<!-- Importing tether,jQuery,Bootstrap javaScript -->
 
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
 		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
@@ -214,6 +239,7 @@ security.enable(session, response);
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" 
 	    integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
 	    crossorigin="anonymous"></script>
+
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" 
@@ -229,5 +255,6 @@ security.enable(session, response);
         });
     </script>
     
-  </body>
+    
+</body>
 </html>

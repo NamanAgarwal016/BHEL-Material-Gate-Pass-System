@@ -9,16 +9,10 @@
     border-color:#342a5a;
     color:white;
   }
-  
   .btn-sign-out{
   background-color:#6648b0;
-    border-color:white;
+    border:none;
     color:white
-  }
- .btn-sign-out:hover{
-    background-color:#ff0000;
-    border-color:white;
-    color:white;
   }
   th,td,tr{
   border:none;
@@ -30,9 +24,6 @@
   }
   table {
     border:1px solid black;
-  }
-  .navbar {
-  background-color:#6648b0;
   }
   .container {
    margin-top:12%;

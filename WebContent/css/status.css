@@ -5,18 +5,14 @@
   th,td {
   text-align:center;
   }
+  
+.btn-info{
+	background-color:#6648b0;
+}
 .btn-sign-out{
   background-color:#6648b0;
-    border-color:white;
+    border:none;
     color:white
-  }
- .btn-sign-out:hover{
-    background-color:#ff0000;
-    border-color:white;
-    color:white;
-  }
-  .navbar {
-  background-color:#6648b0;
   }
   .welcome-message{
    margin-top:8%;
