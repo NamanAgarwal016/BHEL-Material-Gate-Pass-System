@@ -61,12 +61,14 @@ try {
 
 <!-- Creating the Navigation Menu -->
 
+	<!-- Creating the Navigation Menu -->
+
 	<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Material Gate Pass</h3>
-                <strong>GP</strong>
+                <h3>Material Gate Pass System</h3>
+                <strong>GS</strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -118,13 +120,13 @@ try {
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
+                   Contact
+              </a>
                 </li>
             </ul>
 
             <ul class="list-unstyled components">
-            <li>
+           <li>
                 <a onclick="<%=request.getContextPath()%>/logout">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
@@ -199,9 +201,8 @@ try {
 				</tr>
 				<tr>
 					<th>GatePass No.</th>
+					<th>Gate Pass For</th>
 					<th>Initiating Officer</th>
-					<th>Purpose</th>
-					<th>Material Name</th>
 					<th>Take Action</th>
 				</tr>
 			</thead>
@@ -215,12 +216,10 @@ try {
 				%>
 				<tr>
 					<td><%=rs2.getString("gatepass")%></td>
+					<td><%=rs2.getString("name")%></td>
 					<td><%=rs2.getString("InitiatingOfficer")%></td>
-					<td><%=rs2.getString("Details")%></td>
-					<td><%=rs2.getString("Materials")%></td>
 					<td><a
-						href="gatepass_editDraft.jsp?pass_Number=<%=rs2.getString("gatepass")%>&initiating_Officer=<%=rs2.getString("InitiatingOfficer")%>">fill
-							and register</a></td>
+						href="gatepass_editDraft.jsp?pass_Number=<%=rs2.getString("gatepass")%>&initiating_Officer=<%=rs2.getString("InitiatingOfficer")%>">Fill & Register</a></td>
 				</tr>
 				<%
 					}

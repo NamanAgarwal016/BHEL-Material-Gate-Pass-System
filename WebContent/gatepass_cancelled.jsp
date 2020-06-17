@@ -27,15 +27,14 @@ security.enable(session, response);
     
   </head>
   <body>
-     
-    <!-- Creating the Navigation Menu -->
+<!-- Creating the Navigation Menu -->
 
 	<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Material Gate Pass</h3>
-                <strong>GP</strong>
+                <h3>Material Gate Pass System</h3>
+                <strong>GS</strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -87,8 +86,8 @@ security.enable(session, response);
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
+                   Contact
+              </a>
                 </li>
             </ul>
 
@@ -100,7 +99,7 @@ security.enable(session, response);
                 </a>
             </li>
             </ul>
-        </nav>
+       </nav>
 
         <!-- Page Content  -->
         <div id="content">
@@ -214,7 +213,10 @@ security.enable(session, response);
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" 
 	    integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
 	    crossorigin="anonymous"></script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/NamanAgarwal016/BHEL-Material-Gate-Pass-System.git
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" 

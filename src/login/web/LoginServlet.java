@@ -49,12 +49,10 @@ public class LoginServlet extends HttpServlet {
 				userID = loginBean.getstaffid();
 				session.setAttribute("ID",userID);
 				session.setAttribute("staffid", staffid);
-				if(staffid == 100)
+				if(staffid == 102)
 					response.sendRedirect("gatepass_statusAdmin.jsp");
-				if (staffid == 101 || staffid == 104)
+				if (staffid == 101 || staffid == 104 || staffid == 100 )
 				    response.sendRedirect("gatepass_status.jsp");
-				if (staffid == 102)
-					response.sendRedirect("gatepass_statusApprover.jsp");
 				if (staffid == 103)
 					response.sendRedirect("gatepassSecurity.jsp");
 			} else {

@@ -15,7 +15,7 @@ security.enable(session, response);
 
 Integer staffid = (Integer) session.getAttribute("staffid");
 
-if (staffid == 104) {
+if (staffid == 104|| staffid == 102 || staffid == 100 ) {
 	try {
 		response.sendRedirect("gatepass_invalidUser.jsp");
 	} catch (IOException e) {
@@ -82,15 +82,16 @@ try {
 </head>
 <body>
 
+	<!-- Creating the Navigation Menu -->
 
-	<<!-- Creating the Navigation Menu -->
+	<!-- Creating the Navigation Menu -->
 
 	<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Material Gate Pass</h3>
-                <strong>GP</strong>
+                <h3>Material Gate Pass System</h3>
+                <strong>GS</strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -142,8 +143,8 @@ try {
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
+                   Contact
+              </a>
                 </li>
             </ul>
 
@@ -172,6 +173,7 @@ try {
                     </button>
                 </div>
             </nav>
+
             
 	<div class="container-fluid">
 		<div class="row">
@@ -245,7 +247,7 @@ try {
 				name="NbhelName" value="name" /> <br> <label
 				for="nonBhelCompany">Company Name:</label> <input type="text"
 				name="bhelCompany" value="company name" /> <br> <label
-				for="nonBhelAddress">Address:</label> <input type="text"
+			for="nonBhelAddress">Address:</label> <input type="text"
 				name="bhelAddress" value="address" />
 		</div>
 
@@ -294,7 +296,7 @@ try {
 		</div>
 		<input type="hidden" name="formStatus" id="formStatus"
 			value="Approved" />
-		<!--Button Group for Register,Save Draft,Cancel -->
+	<!--Button Group for Register,Save Draft,Cancel -->
 
 		<div class="container-fluid button-leaf">
 			<div class="row">

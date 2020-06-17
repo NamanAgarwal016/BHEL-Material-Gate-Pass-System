@@ -1,10 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+	<%@page import="login.database.*"%>
+<%@page import="login.web.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>	
+<%@page import="login.web.Security"%>
+<%@page import="java.io.IOException"%>
 	
 <%@page import="login.web.Security"%>
 <%
 Security security = new Security();
 security.enable(session, response);
+Integer staffid = (Integer) session.getAttribute("staffid");
+
+if (staffid == 101|| staffid == 102 || staffid == 104 ) {
+	try {
+		response.sendRedirect("gatepass_invalidUser2.jsp");
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+}
+
 %>
 
 <!DOCTYPE html>
@@ -35,12 +56,14 @@ security.enable(session, response);
   
     <!-- Creating the Navigation Menu -->
 
+	<!-- Creating the Navigation Menu -->
+
 	<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Material Gate Pass</h3>
-                <strong>GP</strong>
+                <h3>Material Gate Pass System</h3>
+                <strong>GS</strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -92,8 +115,8 @@ security.enable(session, response);
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
+                   Contact
+              </a>
                 </li>
             </ul>
 
@@ -122,13 +145,28 @@ security.enable(session, response);
                     </button>
                 </div>
             </nav>
-
-
-    
+            
     <!-- Creating the table for To Be Approved Gate Passes -->
     
     <div class="container">
       <table align="center" class="table table-striped">
+       <%
+		try {
+		String driver = "com.mysql.jdbc.Driver";
+		String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
+		String database = "zvp0njb2yauy3fgk";
+		String userid = "pjyaoyeilkkbtjg8";
+		String password = "ejzn69wchxp2bv6j";
+		Class.forName(driver);
+		Connection connection = null;
+		Statement statement = null;
+		connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+		statement = connection.createStatement();
+
+		String loggedInUser = "select * from ApprovalView";
+		ResultSet rs = statement.executeQuery(loggedInUser);
+	%>
+      
       
       
       <thead class="thead-dark">
@@ -141,64 +179,34 @@ security.enable(session, response);
 <tbody>
     <tr>
     <th>Name of the Indentor</th>
-    <th>Gate Pass No.</th>
-    <th>Gate Pass Type</th>
-    <th>Description</th>
-    <th>Date of Request</th>
+    <th>Staff ID</th>
+    <th>Gate Pass Number</th>
+    <th> Number of Items </th>
     <th>Take Action</th>
     </tr>
+    <%
+				while (rs.next()) {
+			%>
     <tr>
-    <td>1</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
+   <td><%=rs.getString("Name Of Intendor")%></td>
+    <td><%=rs.getString("Staff ID")%></td>
+    <td><%=rs.getString("Pass Number")%></td>
+    <td><%=rs.getString("Numberofitems")%></td>
+    <td><a href="gatepass_approval_portal.jsp?id=<%=rs.getString("Pass Number")%>" class="badge badge-primary">View</a></td>
     </tr>
-    <tr>
-    <td>2</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
-    </tr>
-    <tr>
-    <td>3</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
-    </tr>
-    <tr>
-    <td>4</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
-    </tr>
-    <tr>
-    <td>5</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
-    </tr>
-    <tr>
-    <td>6</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a href="gatepass_approval_portal.jsp" class="badge badge-primary">View</a></td>
-    </tr>
-  </tbody>
+    <%
+	  }
+		connection.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+   %>
+     </tbody>
   </table>
 </div>
-<!-- Importing tether,jQuery,Bootstrap javaScript -->
+
+ <!-- Importing tether,jQuery,Bootstrap javaScript -->
+
 
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
 		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
@@ -221,7 +229,7 @@ security.enable(session, response);
 <!-- jQuery for collapsing Sidebar -->
 
 <script type="text/javascript">
-        $(document).ready(function () {
+       $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
             });

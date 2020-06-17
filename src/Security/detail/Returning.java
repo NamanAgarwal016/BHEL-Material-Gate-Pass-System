@@ -33,21 +33,29 @@ public class Returning extends HttpServlet {
 					Class.forName(driver);
 
 					Connection connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+					
+					String insertTableSQL0 = "UPDATE IssuingDetail SET Decision=? where GatePassNumber=?";
+					PreparedStatement st0 = connection.prepareStatement(insertTableSQL0);
+					st0.setString(1,"Closed");
+					st0.setString(2, Gate);
+					st0.executeUpdate();
+
+					
 					String insertTableSQL = "UPDATE material SET status=? where PassNumber=?";
 					PreparedStatement st = connection.prepareStatement(insertTableSQL);
-					st.setString(1, "Returned");
+					st.setString(1, "Closed");
 					st.setString(2, Gate);
 					st.executeUpdate();
 					
 					String insertTableSQL1 = "UPDATE material_details SET status=? where gatepass=?";
 					PreparedStatement st1 = connection.prepareStatement(insertTableSQL1);
-					st1.setString(1, "Returned");
+					st1.setString(1, "Closed");
 					st1.setString(2, Gate);
 					st1.executeUpdate();
 					
 					String insertTableSQL2 = "UPDATE receiver SET status=? where gatepass=?";
 					PreparedStatement st2 = connection.prepareStatement(insertTableSQL2);
-					st2.setString(1, "Returned");
+					st2.setString(1, "Closed");
 					st2.setString(2, Gate);
 					st2.executeUpdate();
 					
@@ -58,14 +66,14 @@ public class Returning extends HttpServlet {
 					if (rs.next() == false) {
 					    String insertTableSQL4 = "UPDATE nonbhel_person SET status=? where gatepass=?";
 						PreparedStatement st4 = connection.prepareStatement(insertTableSQL4);
-						st4.setString(1, "Returned");
+						st4.setString(1, "Closed");
 						st4.setString(2, Gate);
 						st4.executeUpdate();
 					}
 					else {
 						 String insertTableSQL5 = "UPDATE bhel_person SET status=? where gatepass=?";
 							PreparedStatement st5 = connection.prepareStatement(insertTableSQL5);
-							st5.setString(1, "Returned");
+							st5.setString(1, "Closed");
 							st5.setString(2, Gate);
 							st5.executeUpdate();		
 					}

@@ -69,16 +69,14 @@ try {
 <script type="text/javascript" src="js\angular.min.js"></script>
 </head>
 <body>
-
-
 	<!-- Creating the Navigation Menu -->
 
 	<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Material Gate Pass</h3>
-                <strong>GP</strong>
+                <h3>Material Gate Pass System</h3>
+                <strong>GS</strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -130,8 +128,8 @@ try {
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
+                   Contact
+              </a>
                 </li>
             </ul>
 
@@ -194,7 +192,7 @@ try {
 	</h3>
 
 
-	<form class="" action="<%=request.getContextPath()%>/raisegatepass"
+	<form class="" action="<%=request.getContextPath()%>/DraftServlet"
 		method="post" id="gatepassMainForm">
 
 
@@ -216,15 +214,20 @@ try {
 		<!--Creating the Extra Content that will be displayed depending on BHEL/NON-BHEL-->
 
 		<!--Extra Internal Form for a BHEL Person-->
+		<%
+				String Info = "SELECT * FROM bhel_person WHERE gatepass='" + PassNumber + "'";
+			ResultSet rs10 = statement.executeQuery(Info);
+				rs10.next();
+			%>
 
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
-				name="bhelStaffNo" value="staff no." /> <br> <label
+				name="bhelStaffNo" value="<%=rs10.getString("staff_id")%>" /> <br> <label
 				for="bhelName">Name:</label><input type="text" name="bhelName"
-				value="name" /> <br> <label for="bhelDeg">Designation:</label>
-			<input type="text" name="bhelDeg" value="desg" /> <br> <label
+				value="<%=rs10.getString("name")%>" /> <br> <label for="bhelDeg">Designation:</label>
+			<input type="text" name="bhelDeg" value="<%=rs10.getString("designation")%>" /> <br> <label
 				for="bhelDept">Department:</label> <input type="text"
-				name="bhelDept" value="dept" />
+				name="bhelDept" value="<%=rs10.getString("department")%>" />
 		</div>
 
 		<!--Extra Internal Form for a NON-BHEL Person-->

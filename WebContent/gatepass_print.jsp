@@ -31,16 +31,15 @@ security.enable(session, response);
     
   </head>
   <body>
-  
-  
-    <!-- Creating the Navigation Menu -->
+
+	<!-- Creating the Navigation Menu -->
 
 	<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Material Gate Pass</h3>
-                <strong>GP</strong>
+                <h3>Material Gate Pass System</h3>
+                <strong>GS</strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -92,8 +91,8 @@ security.enable(session, response);
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
+                   Contact
+              </a>
                 </li>
             </ul>
 
@@ -181,3 +180,4 @@ security.enable(session, response);
     
   </body>
 </html>
+

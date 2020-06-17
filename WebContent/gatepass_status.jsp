@@ -56,6 +56,10 @@ security.enable(session, response);
     
     <script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
     
+    <!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
+    
 </head>
 <body>
 
@@ -65,8 +69,8 @@ security.enable(session, response);
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Material Gate Pass</h3>
-                <strong>GP</strong>
+                <h3>Material Gate Pass System</h3>
+                <strong>GS</strong>
             </div>
 
             <ul class="list-unstyled components">
@@ -118,8 +122,8 @@ security.enable(session, response);
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
+                   Contact
+              </a>
                 </li>
             </ul>
 
@@ -149,7 +153,10 @@ security.enable(session, response);
                 </div>
             </nav>
 
-
+    <!-- Drawing Google Chart -->
+    
+    <div id="donutchart"></div>
+ 
 	<!-- Displaying the Welcome Message -->
 
 	<div class="container welcome-message">
