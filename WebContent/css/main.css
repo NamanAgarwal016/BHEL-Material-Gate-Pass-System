@@ -9,23 +9,6 @@ table {
   background-color:#6648b0;
     border-color:white;
   }
-  
-  .btn-sign-out {
-  background-color:#6648b0;
-	border-color: white;
-	color: white
-}
-
-.btn-sign-out:hover {
-	background-color: #ff0000;
-	border-color: white;
-	color: white;
-}
-  
-  .navbar {
-  background-color:#6648b0;
-  }
-  
   .container {
    margin-top:12%;
   }

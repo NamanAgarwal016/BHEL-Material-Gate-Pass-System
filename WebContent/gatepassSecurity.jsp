@@ -22,7 +22,6 @@ security.enable(session, response);
    <link rel="stylesheet" href="css/security.css"> 
     
     
-    
     </head>
 <body>
       

@@ -1,18 +1,8 @@
 @charset "ISO-8859-1";
-.btn-sign-out {
+.btn-sign-out{
   background-color:#6648b0;
-	border-color: white;
-	color: white
-}
-
-.btn-sign-out:hover {
-	background-color: #ff0000;
-	border-color: white;
-	color: white;
-}
-  
-  .navbar {
-  background-color:#6648b0;
+    border:none;
+    color:white
   }
   .btn-primary{
   background-color:#6648b0;

@@ -25,12 +25,18 @@ response.setDateHeader("Expires", 0); // Proxies.
 <!-- Importing the Custom External CSS -->
 
 <link rel="stylesheet" href="css/login.css">
+
+<!-- Font Awesome JS -->
+    
+    <script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
+
+
+<!-- Importing the angularJS javaScript file for directives -->
+
+<script type="text/javascript" src="js\angular.js"></script>
+  
 </head>
 <body>
-
-	<!-- Importing the angularJS javaScript file for directives -->
-
-	<script type="text/javascript" src="js\angular.js"></script>
 
 	<!-- Top Block Element -->
 
@@ -56,13 +62,17 @@ response.setDateHeader("Expires", 0); // Proxies.
 			<form name="login_form" class=""
 				action="<%=request.getContextPath()%>/login" method="post"
 				align="center">
-				<label for="uName">Username:</label> <img src="img_src\useLogo.png"
-					class="icon" width="20" height="20"> <input
+				 
+				    <label for="uName"><i class="far fa-user"></i></label> 
+				    
+				    <input
 					class="loginField" type="text" name="username"
 					placeholder="Enter Username" ng-model="user.name"
-					ng-required="true" required> <br> <label for="uPassw">Password:</label>
-				<img src="img_src\computer-icons-password-login-user-padlock.jpg"
-					width="20" height="20"> <input class="loginField"
+					ng-required="true" required> <br> 
+					
+					<label for="uPassw"><i class="fas fa-key"></i></label>
+					
+					<input class="loginField"
 					type="password" name="password" placeholder="Enter Password"
 					ng-model="user.pass" ng-required="true" required> <br>
 

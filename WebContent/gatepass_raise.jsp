@@ -47,9 +47,14 @@ try {
 %>
 
 <!DOCTYPE html>
-<html ng-app>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset="ISO-8859-1">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
 <title>Material Gate Pass</title>
 
 
@@ -64,9 +69,13 @@ try {
 
 <!--Importing custom css used for applying a theme to the page-->
 
-
+<link rel="stylesheet" href="css/navbar-side.css">
 <link rel="stylesheet" href="css/raise.css">
 
+<!-- Font Awesome JS -->
+    
+<script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
+    
 <!--Importing AngularJS-->
 
 <script type="text/javascript" src="js\angular.min.js"></script>
@@ -74,50 +83,96 @@ try {
 <body>
 
 
-	<!--Importing the Bootstrap Navigation Bar-->
+	<<!-- Creating the Navigation Menu -->
 
+	<div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Material Gate Pass</h3>
+                <strong>GP</strong>
+            </div>
 
-	<nav class="navbar navbar-toggleable navbar-inverse">
-		<button class="navbar-toggler" data-toggle="collapse"
-			data-target="#mainNav">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link"
-					href="gatepass_status.jsp">HOME <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item active"><a class="nav-link"
-					href="gatepass_raise.jsp">RAISE GATE PASS</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#"
-					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false"> VIEW </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="gatepass_approved.jsp">Approved</a>
-						<a class="dropdown-item" href="gatepass_closed.jsp">Closed</a> <a
-							class="dropdown-item" href="gatepass_pending.jsp">Pending</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
-						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_approval_home.jsp">Approve
-							Pending Requests</a>
-					</div></li>
-				<li class="nav-item"><a class="nav-link"
-					href="gatepass_print.jsp">PRINT</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="gatepass_help.jsp">HELP</a></li>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="gatepass_status.jsp">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="gatepass_raise.jsp">
+                        <i class="fas fa-ticket-alt"></i>
+                        Raise
+                    </a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-copy"></i>
+                        View
+                    </a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="gatepass_approved.jsp">Approved</a>
+                        </li>
+                        <li>
+                            <a href="gatepass_pending.jsp">Pending</a>
+                        </li>
+                        <li>
+                            <a href="gatepass_inDraft.jsp">In Draft</a>
+                        </li>
+                        <li>
+                            <a href="gatepass_closed.jsp">Closed</a>
+                        </li>
+                        <li>
+                            <a href="gatepass_cancelled.jsp">Cancelled</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="gatepass_print.jsp">
+                        <i class="fas fa-file-pdf"></i>
+                        Print
+                    </a>
+                </li>
+                <li>
+                    <a href="gatepass_help.jsp">
+                        <i class="fas fa-question"></i>
+                        FAQ
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-paper-plane"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
 
-			</ul>
-		</div>
+            <ul class="list-unstyled components">
+            <li>
+                <a onclick="<%=request.getContextPath()%>/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+                </a>
+            </li>
+            </ul>
+        </nav>
 
-		<form name="logout_button"
-			action="<%=request.getContextPath()%>/logout" method="get"
-			align="right">
-			<input class="btn btn-sign-out" type="submit" value="Sign Out">
-		</form>
-	</nav>
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-justify"></i>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                </div>
+            </nav>
+            
 	<div class="container-fluid">
 		<div class="row">
 			<%
@@ -274,26 +329,36 @@ try {
 	</form>
 
 
-	<!--Importing jQuery,Tether,Bootstrap JavaScripts-->
-
+	<!-- Importing tether,jQuery,Bootstrap javaScript -->
 
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
 		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-		crossorigin="anonymous">
-	</script>
-	
+		crossorigin="anonymous"></script>
+		
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
 		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-		crossorigin="anonymous">
-	</script>
-	
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-		crossorigin="anonymous">
-	</script>
+		crossorigin="anonymous"></script>
+		
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" 
+	    integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+	    crossorigin="anonymous"></script>
 
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" 
+        crossorigin="anonymous"></script>
+
+<!-- jQuery for collapsing Sidebar -->
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    
 
 </body>
 
