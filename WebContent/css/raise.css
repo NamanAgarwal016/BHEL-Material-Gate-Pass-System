@@ -39,13 +39,12 @@ th,td {
 .btn-primary {
 	background-color: #6648b0;
 	border-color: #6648b0;
-	padding:5px;
+	padding:8px;
 }
 
 .btn-primary:hover {
 	background-color: #342a5a;
 	border-color: #342a5a;
-	padding:4px;
 }
 
 .tableEntry {

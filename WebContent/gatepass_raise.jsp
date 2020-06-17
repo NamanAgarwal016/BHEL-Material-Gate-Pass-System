@@ -234,7 +234,7 @@ try {
 		<div class="container text-white form-group-header">CUSTODIAN OF
 			MATERIAL</div>
 		<div class="container form-group-label">
-			Purpose of gatepass and Description of material <br>
+			Purpose of Gate Pass and Description of Material <br>
 			<textarea id="custodian" name="custodian" rows="6"></textarea>
 		</div>
 		<input type="hidden" name="formStatus" id="formStatus"
@@ -243,102 +243,29 @@ try {
 
 		<div class="container-fluid button-leaf">
 			<div class="row">
-
-
-
 				<div class="col">
 
-					<!--This button will save the gatepass as a draft-->
+					<!--This button will save the gate pass as a draft-->
 
-					<script type="text/javascript">
-						function confirmSave() {
-							var answer = confirm("Please note that this feature is only for bhel_person. Also you can use Save feature only once.. However you are free to fill & register it at anytime. Confirm to Save As Darft ?? ")
-							if (answer) {
-
-								document.getElementById("formStatus").value = "draft";
-								document.getElementById("gatepassMainForm").action = "<%=request.getContextPath()%>/raisegatepass";
-								document.getElementById("gatepassMainForm").method = "post";
-								document.getElementById("gatepassMainForm").submit();
-
-							} else {
-								return false;
-							}
-						}
-					</script>
-						<input class="btn btn-primary" type="submit" value="Save as Draft"
+						<input class="btn btn-primary" type="button" value="Save as Draft" id="draft-button"
 							onclick="return confirmSave();">
 				
 				</div>
 
-
-
-
 				<div class="col text-center">
 
-					<!--This button will Register the gatepass provided none of the feilds are invalid-->
+					<!--This button will Register the gate pass provided none of the fields are invalid-->
 
-					<script type="text/javascript">
-						function confirmSubmit() {
-							var answer = confirm("Must check if all the details are filled. Confirm Submit ??")
-
-							if (answer) {
-
-								var x = document
-										.getElementById("gatepassMainForm");
-
-								var i;
-								for (i = 0; i < x.length; i++) {
-
-									if (!x.elements[i].value.localeCompare("")) {
-
-										alert("One or more fields are empty. Please fill all the details !!");
-										return false;
-
-									}
-								}
-
-								document.getElementById("formStatus").value = "pending";
-								document.getElementById("gatepassMainForm").action="<%=request.getContextPath()%>/raisegatepass";           
-								document.getElementById("gatepassMainForm").method ="post";
-								document.getElementById("gatepassMainForm")
-										.submit();
-
-							} else {
-								return false;
-
-							}
-						}
-					</script>
-
-					<input class="btn btn-primary" type="button" value="Register"
+					<input class="btn btn-primary" type="submit" value="Register"
 						onclick="return confirmSubmit();">
 				</div>
 
 
 				<div class="col text-right">
 
-					<!--This button clears the current form and the gatepass will be cancelled-->
+					<!--This button clears the current form and the gate pass will be cancelled-->
 
-					<script type="text/javascript">
-						function confirmClear() {
-							var answer = confirm("Confirm to clear whole form ??")
-							if (answer) {
-								var form = document
-										.getElementById("gatepassMainForm");
-								form.reset();
-								var hide_1 = document
-										.getElementById("bhelInfo");
-								var hide_2 = document
-										.getElementById("nonBhelInfo");
-								hide_1.style.display = "none";
-								hide_2.style.display = "none";
-							} else {
-								return false;
-							}
-						}
-					</script>
-
-					<input class="btn btn-primary" type="button" value="Cancel"
+					<input class="btn btn-primary" type="button" value="Clear"
 						onclick="return confirmClear();">
 				</div>
 			</div>
@@ -347,26 +274,32 @@ try {
 	</form>
 
 
-	<!--Importing jQuery,tether,Bootstrap JavaScripts, as bootstrap requires jQuery and tether-->
+	<!--Importing jQuery,Tether,Bootstrap JavaScripts-->
 
 
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
 		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
+	
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
 		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
+	
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
 		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
+
+
 </body>
 
 
 <!--JavaScript for dynamic content based on type of person BHEL/NON-BHEL -->
 
-
-<script type="text/javascript" src="js\main.js"></script>
+<script type="text/javascript" src="js\main.js" defer></script>
 
 </html>
