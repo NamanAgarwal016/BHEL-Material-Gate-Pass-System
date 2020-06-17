@@ -4,6 +4,9 @@
     border:none;
     color:white
   }
+  .btn-info{
+	background-color:#6648b0;
+  }
   .btn-primary{
   background-color:#6648b0;
   border-color:#342a5a;

@@ -18,6 +18,5 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail.jar"/>
-	<classpathentry kind="lib" path="E:/myserver/apache-tomcat-7.0.104/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

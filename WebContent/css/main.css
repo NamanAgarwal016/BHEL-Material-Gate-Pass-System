@@ -23,4 +23,7 @@ table {
   .badge-primary:hover{
   background-color:#342a5a;
   }
+  .btn-info{
+	background-color:#6648b0;
+  }
   

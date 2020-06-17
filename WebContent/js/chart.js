@@ -2,12 +2,12 @@ google.charts.load("current", {packages:["corechart"]});
 google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Status','Count'],
+          ['Approved',     11],
+          ['Closed',      2],
+          ['Cancelled',  2],
+          ['In Draft', 2],
+          ['Pending',    7]
         ]);
 
         var options = {

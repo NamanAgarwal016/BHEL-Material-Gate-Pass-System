@@ -96,7 +96,7 @@ security.enable(session, response);
 
             <ul class="list-unstyled components">
             <li>
-                <a onclick="<%=request.getContextPath()%>/logout">
+                <a href="#" id="logout">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
                 </a>
@@ -150,6 +150,9 @@ security.enable(session, response);
                 $('#sidebar').toggleClass('active');
             });
         });
+        $("#logout").on('click', function() {
+      	  window.location = "<%=request.getContextPath()%>/logout" 
+      	});
     </script>
     
   </body>

@@ -14,6 +14,9 @@
     border:none;
     color:white
   }
+  .btn-info{
+	background-color:#6648b0;
+  }
   th,td,tr{
   border:none;
   }

@@ -29,3 +29,9 @@
   width:900px; 
   height:500px;
   }
+  #logout{
+  border:none;
+  color:white;
+  background-color:#6648b0;
+  font-family: 'Poppins', sans-serif;
+  }
