@@ -8,43 +8,90 @@ security.enable(session, response);
 %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
   <head>
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>Security Portal</title>
+    <title>Gate Pass - Security Portal</title>
     
     <!-- Adding Bootstrap CSS -->
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     
+   <link rel="stylesheet" href="css/navbar-side.css">
    <link rel="stylesheet" href="css/security.css"> 
     
+    <!-- Font Awesome JS -->
     
+    <script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
+    
+    <!--Importing AngularJS-->
+
+    <script type="text/javascript" src="js\angular.min.js"></script>
     </head>
 <body>
       
-     <div class="container-fluid header">
-     <h1 >Gate Pass Security Portal
-     <form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get">
-     <input class="btn btn-sign-out" type="submit" value="Sign Out">
-    </form>
-     </h1>
-    </div>
+      <!-- Creating the Navigation Menu -->
 
+	<div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Material Gate Pass Security</h3>
+                <strong>GS</strong>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="gatepassSecurity.jsp">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        Home
+                    </a>
+                </li>
+            </ul>
+
+           <ul class="list-unstyled components">
+            <li>
+                <a href="#" id="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+                </a>
+            </li>
+            </ul>
+        </nav>
+        
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-justify"></i>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                </div>
+            </nav>
+            
     <div class="container security text-center">
-    <img src="img_src/securityLogo.png" class="guard-photo" width="200" height="200">
+    <span style="font-size:100px;"><i class="fas fa-file-invoice"></i></span>
     <div class="container-main">
-	<form name="login_form" action="<%=request.getContextPath()%>/SecurityG" method="post">
+	<form name="login_form" id="login_form" action="<%=request.getContextPath()%>/SecurityG" method="post">
 	    
-		<label for="Gnumber">Gate Pass Number</label> <img
-			src="img_src\key_icon.png" class="icon" width="45" height="20">
-		<input class="loginField" type="text" name="Gnumber" placeholder="Enter Gate Pass Number" ng-model="gate.no" ng-required="true" required size="21"><br>
+		<label for="Gnumber">Gate Pass Number <i class="fas fa-key"></i></label> 
+		<input class="loginField" type="text" name="Gnumber" ng-model="gate.no" ng-required="true" required size="21"><br>
 			<div class="button-leaf">
-			<input class="btn btn-primary" type="submit" value="Enter">
+			<button class="btn btn-check" type="submit"><i class="far fa-check-circle"></i></button>
+			<button class="btn btn-reject" type="reset" onclick="clear()"><i class="far fa-times-circle"></i></i></button>
 			</div>
 	</form>
+	</div>
+	</div>
+	
 	</div>
 	</div>
 	
@@ -52,5 +99,25 @@ security.enable(session, response);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   
+  <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" 
+        crossorigin="anonymous"></script>
+        
+        
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+        $("#logout").on('click', function() {
+        	  window.location = "<%=request.getContextPath()%>/logout" 
+        	});
+        function clear(){
+        	var form=document.getElementById("login_form");
+        	form.reset();
+        }
+        </script>
 </body>
 </html>

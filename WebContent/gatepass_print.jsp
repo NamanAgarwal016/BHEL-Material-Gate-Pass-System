@@ -43,7 +43,7 @@ security.enable(session, response);
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="gatepass_status.jsp">
                         <i class="fas fa-home" aria-hidden="true"></i>
                         Home
@@ -51,11 +51,13 @@ security.enable(session, response);
                 </li>
                 <li>
                     <a href="gatepass_raise.jsp">
-                        <i class="fas fa-ticket-alt"></i>
+                        <i class="fas fa-file-upload"></i>
                         Raise
                     </a>
+                    </li>
+                     <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-copy"></i>
+                        <i class="far fa-eye"></i>
                         View
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -77,8 +79,14 @@ security.enable(session, response);
                     </ul>
                 </li>
                 <li>
+                    <a href="gatepass_approval_home.jsp">
+                    <i class="fas fa-check"></i>
+                            Approve
+                    </a>
+                </li>
+                <li class="active">
                     <a href="gatepass_print.jsp">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-print"></i>
                         Print
                     </a>
                 </li>
@@ -96,7 +104,7 @@ security.enable(session, response);
                 </li>
             </ul>
 
-            <ul class="list-unstyled components">
+           <ul class="list-unstyled components">
             <li>
                 <a href="#" id="logout">
                 <i class="fas fa-sign-out-alt"></i>
@@ -105,7 +113,7 @@ security.enable(session, response);
             </li>
             </ul>
         </nav>
-
+        
         <!-- Page Content  -->
         <div id="content">
 
@@ -117,7 +125,7 @@ security.enable(session, response);
                         <span></span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-align-justify"></i>
                     </button>
                 </div>
             </nav>
@@ -126,7 +134,7 @@ security.enable(session, response);
       <table align="center" class="table">
       <thead class="thead-dark">
         <tr>
-        <th scope="col" colspan="2" id="tableHeader">PRINT GATE PASS RETURNABLE</th>
+        <th scope="col" colspan="3" id="tableHeader">PRINT GATE PASS RETURNABLE</th>
 
       </tr>
       </thead>
@@ -136,16 +144,16 @@ security.enable(session, response);
       <td class="text-left">
         <form action="preview.php">
         <input type="number">
+        <button class="btn btn-print"><i class="fas fa-file-download"></i></button>
         </form>
       </td>
       </tr>
-      <tr class="text-center">
-      <td colspan="2" ><button class="btn btn-primary">Submit</button></td>
-      </tr>
-
       </tbody>
       </table>
 </div>
+
+    </div>
+    </div>
     
     
     <!-- Importing tether,jQuery,Bootstrap javaScript -->

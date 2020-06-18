@@ -34,7 +34,6 @@ Security security = new Security();
 security.enable(session, response);
 %>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,11 +81,13 @@ security.enable(session, response);
                 </li>
                 <li>
                     <a href="gatepass_raise.jsp">
-                        <i class="fas fa-ticket-alt"></i>
+                        <i class="fas fa-file-upload"></i>
                         Raise
                     </a>
+                    </li>
+                     <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-copy"></i>
+                        <i class="far fa-eye"></i>
                         View
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -108,8 +109,14 @@ security.enable(session, response);
                     </ul>
                 </li>
                 <li>
+                    <a href="gatepass_approval_home.jsp">
+                    <i class="fas fa-check"></i>
+                            Approve
+                    </a>
+                </li>
+                <li>
                     <a href="gatepass_print.jsp">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-print"></i>
                         Print
                     </a>
                 </li>
@@ -136,7 +143,15 @@ security.enable(session, response);
             </li>
             </ul>
         </nav>
-
+        
+        <%
+			String user = (String) session.getAttribute("username");
+		String pass = (String) session.getAttribute("password");
+		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
+		ResultSet rs1 = statement.executeQuery(loggedInUser);
+		while (rs1.next()) {
+		%>
+        
         <!-- Page Content  -->
         <div id="content">
 
@@ -148,39 +163,30 @@ security.enable(session, response);
                         <span></span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-align-justify"></i>
                     </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" >Welcome, <%=rs1.getString("firstname")%></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><span style="color:black"><i class="fas fa-user-circle"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
 
+        <%
+			}
+		%>
     <!-- Drawing Google Chart -->
     
     <div id="donutchart"></div>
- 
-	<!-- Displaying the Welcome Message -->
-
-	<div class="container welcome-message">
-
-		<%
-			String user = (String) session.getAttribute("username");
-		String pass = (String) session.getAttribute("password");
-		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
-		ResultSet rs1 = statement.executeQuery(loggedInUser);
-		while (rs1.next()) {
-		%>
-
-		<h3 class="text-center">
-			<b>Welcome, <%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%>
-				!
-			</b>
-		</h3>
-
-		<%
-			}
-		%>
-
-	</div>
-
+	
+    <div class="container"></div>
+      
 	<!-- Creating the table for displaying status of gatepass -->
 
 	<div class="container table-holder">
@@ -231,6 +237,8 @@ security.enable(session, response);
 		</table>
 	</div>
 
+</div>
+</div>
 
 	<!-- Importing tether,jQuery,Bootstrap javaScript -->
 
@@ -277,7 +285,7 @@ security.enable(session, response);
 
                 var options = {
                   pieHole: 0.4,
-                  colors: ['#ff9933', "#3f51b5","#2196f3","#03a9f4","#00bcd4"],
+                  colors: ['#99e699', "#3f51b5","#2196f3","#ff8080","#ff9933"],
                 };
 
                 var chart = new google.visualization.PieChart(document.getElementById('donutchart'));

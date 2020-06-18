@@ -59,9 +59,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 
 			<!-- Login Form -->
 
-			<form name="login_form" class=""
-				action="<%=request.getContextPath()%>/login" method="post"
-				align="center">
+			<form name="login_form" action="<%=request.getContextPath()%>/login" method="post" align="center">
 				 
 				    <label for="uName"><i class="far fa-user"></i></label> 
 				    
@@ -76,7 +74,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 					type="password" name="password" placeholder="Enter Password"
 					ng-model="user.pass" ng-required="true" required> <br>
 
-				<input class="btn btn-outline-primary" type="submit" value="Sign In">
+				<button class="btn btn-primary" type="submit">Sign In <i class="fas fa-sign-in-alt"></i></button>
 			</form>
 		</div>
 	</div>

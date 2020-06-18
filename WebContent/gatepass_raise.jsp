@@ -9,8 +9,10 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.io.IOException"%>
 
+<%@page import="login.web.Security"%>
 <%
-	Security security = new Security();
+
+Security security = new Security();
 security.enable(session, response);
 
 Integer staffid = (Integer) session.getAttribute("staffid");
@@ -47,7 +49,7 @@ try {
 %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 
 <head>
 
@@ -55,7 +57,7 @@ try {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-<title>Material Gate Pass</title>
+<title>Returnable Material Gate Pass</title>
 
 
 <!--Importing Bootstrap css files from the cdn server,4.0.0-alpha.6 being the release Version-->
@@ -84,8 +86,6 @@ try {
 
 	<!-- Creating the Navigation Menu -->
 
-	<!-- Creating the Navigation Menu -->
-
 	<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -95,19 +95,21 @@ try {
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="gatepass_status.jsp">
                         <i class="fas fa-home" aria-hidden="true"></i>
                         Home
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="gatepass_raise.jsp">
-                        <i class="fas fa-ticket-alt"></i>
+                        <i class="fas fa-file-upload"></i>
                         Raise
                     </a>
+                    </li>
+                    <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-copy"></i>
+                        <i class="far fa-eye"></i>
                         View
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -129,8 +131,14 @@ try {
                     </ul>
                 </li>
                 <li>
+                    <a href="gatepass_approval_home.jsp">
+                    <i class="fas fa-check"></i>
+                            Approve
+                    </a>
+                </li>
+                <li>
                     <a href="gatepass_print.jsp">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-print"></i>
                         Print
                     </a>
                 </li>
@@ -148,7 +156,7 @@ try {
                 </li>
             </ul>
 
-            <ul class="list-unstyled components">
+           <ul class="list-unstyled components">
             <li>
                 <a href="#" id="logout">
                 <i class="fas fa-sign-out-alt"></i>
@@ -157,7 +165,16 @@ try {
             </li>
             </ul>
         </nav>
-
+         
+        <%
+		String user = (String) session.getAttribute("username");
+		String pass = (String) session.getAttribute("password");
+		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
+		ResultSet rs1 = statement.executeQuery(loggedInUser);
+		while (rs1.next()) {
+		%>
+        
+        
         <!-- Page Content  -->
         <div id="content">
 
@@ -169,46 +186,32 @@ try {
                         <span></span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-align-justify"></i>
                     </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" ><%=rs1.getString("firstname")%></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><span style="color:black"><i class="fas fa-user"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
 
-            
-	<div class="container-fluid">
-		<div class="row">
-			<%
-				String user = (String) session.getAttribute("username");
-			String pass = (String) session.getAttribute("password");
-			String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
-			ResultSet rs1 = statement.executeQuery(loggedInUser);
-			while (rs1.next()) {
-			%>
-			<div class="col text-left welcomeMessage">
-				<b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%></b>
-
-			</div>
-			<div class="col text-right">
-				<b>Staff ID:<%=rs1.getString("staff_id")%>
-				</b>
-				<%
-					}
+        <%
+			}
+		%>
+		<%
 				connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				%>
-			</div>
-		</div>
-	</div>
-
-	<h3 class="text-center">
-		<b>GATE PASS FORM</b>
-	</h3>
-
-
-	<form class="" action=""
-		method="post" id="gatepassMainForm">
+				
+	<form  action="" method="post" id="gatepassMainForm" name="raiseForm">
 
 
 		<div class="container form-group-header">PERSON TAKING THE
@@ -220,9 +223,9 @@ try {
 
 			<input type="radio" id="bhelPerson" name="personType"
 				value="bhelPerson" onclick="bhel()" /> <label for="bhelPerson">BHEL,
-				HPVP Person</label> <br> <input type="radio" id="nonBhelPerson"
+				HPVP</label> <br> <input type="radio" id="nonBhelPerson"
 				name="personType" value="nonBhelPerson" onclick="nonBhel()" /> <label
-				for="nonBhelPerson">Non BHEL, HPVP Person</label><br>
+				for="nonBhelPerson">Non BHEL, HPVP</label><br>
 
 		</div>
 
@@ -232,30 +235,30 @@ try {
 
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
-				name="bhelStaffNo" value="Enter Staff no." /> <br> <label
+				name="bhelStaffNo" /> <br> <label
 				for="bhelName">Name:</label><input type="text" name="bhelName"
-				value="Enter Name" /> <br> <label for="bhelDeg">Designation:</label>
-			<input type="text" name="bhelDeg" value="Enter Designation" /> <br> <label
+				 /> <br> <label for="bhelDeg">Designation:</label>
+			<input type="text" name="bhelDeg"  /> <br> <label
 				for="bhelDept">Department:</label> <input type="text"
-				name="bhelDept" value="Enter Department" />
+				name="bhelDept"  />
 		</div>
 
 		<!--Extra Internal Form for a NON-BHEL Person-->
 
 		<div class="container" id="nonBhelInfo">
 			<label for="nonBhelName">Name:</label> <input type="text"
-				name="NbhelName" value="Enter Name" /> <br> <label
+				name="NbhelName" /> <br> <label
 				for="nonBhelCompany">Company Name:</label> <input type="text"
-				name="bhelCompany" value="Enter Company Name" /> <br> <label
+				name="bhelCompany"  /> <br> <label
 			for="nonBhelAddress">Address:</label> <input type="text"
-				name="bhelAddress" value="Enter Address" />
+				name="bhelAddress" />
 		</div>
 
 		<div class="container form-group-header">MATERIAL DETAILS</div>
 		<div class="materialForm text-center">
 			<label for="noOfItems">Number of Items:</label> <input type="number"
-				name="noOfItems" id="noOfItems" value="0" /> <input type="button"
-				value="Generate Form" onclick="generate()">
+				name="noOfItems" id="noOfItems" value="0" /> 
+				<button class="btn btn-gen" onclick="generate()"><i class="fas fa-angle-down"></i></button>
 			<div id="wrapper" class="text-center"></div>
 		</div>
 
@@ -283,7 +286,7 @@ try {
 					type="text" name="personPin" />
 			</div>
 			<div class="form-row text-center">
-				<label for="personPhone">Tele/Mobile No. :</label> <input
+				<label for="personPhone">Tele/Mobile No :</label> <input
 					type="text" name="personPhone" /> <label for="personMail">Email
 					:</label> <input type="text" name="personMail" />
 			</div>
@@ -379,8 +382,9 @@ function confirmSave() {
 </script>
 					<!--This button will save the gate pass as a draft-->
 
-						<input class="btn btn-primary" type="button" value="Save as Draft" id="draft-button"
-							onclick="return confirmSave();">
+						<button class="btn btn-primary" type="button"  id="draft-button" onclick="return confirmSave();">
+						<strong>Draft </strong><i class="far fa-save"></i>
+						</button>
 				
 				</div>
 
@@ -388,8 +392,9 @@ function confirmSave() {
 
 					<!--This button will Register the gate pass provided none of the fields are invalid-->
 
-					<input class="btn btn-primary" type="submit" value="Register"
-						onclick="return confirmSubmit();">
+					<button class="btn btn-primary" type="submit" onclick="return confirmSubmit();">
+					<strong>Register </strong><i class="fas fa-clipboard-check"></i>
+					</button>
 				</div>
 
 
@@ -397,14 +402,20 @@ function confirmSave() {
 
 					<!--This button clears the current form and the gate pass will be cancelled-->
 
-					<input class="btn btn-primary" type="button" value="Clear"
-						onclick="return confirmClear();">
+					<button class="btn btn-primary" type="button" onclick="return confirmClear();">
+					<strong>Clear </strong><i class="fas fa-backspace"></i>
+					</button>
 				</div>
 			</div>
 		</div>
 
 	</form>
-
+    </div>
+    
+    </div>
+    </div>
+    
+    
 
 	<!-- Importing tether,jQuery,Bootstrap javaScript -->
 

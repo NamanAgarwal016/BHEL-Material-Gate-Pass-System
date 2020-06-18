@@ -4,16 +4,18 @@
     border:none;
     color:white
   }
-  .btn-info{
+  .btn,.btn-info{
 	background-color:#6648b0;
   }
-  .btn-primary{
-  background-color:#6648b0;
-  border-color:#342a5a;
+  .btn-decline{
+  background-color:none;
+  color:red;
+  font-size:15px;
   }
-  .btn-primary:hover{
-  background-color:#342a5a;
-  border-color:#6648b0;
+  .btn-approve{
+  background-color:none;
+  color:green;
+  font-size:15px;
   }
   th,td{
   text-align:center;

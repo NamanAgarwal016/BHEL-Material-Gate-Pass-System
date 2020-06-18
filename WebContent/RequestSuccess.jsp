@@ -35,109 +35,173 @@ try {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="ISO-8859-1">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Approved List</title>
 
-<!-- Adding Bootstrap CSS -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-	crossorigin="anonymous">
+<title>Registration Successful</title>
 
-<!-- Adding Custom CSS -->
+<!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    
+    <!-- Our Custom CSS -->
+    
+    <link rel="stylesheet" href="css/navbar-side.css">
+    <link rel="stylesheet" href="css/response.css">
+    
+    <!-- Font Awesome JS -->
+    
+    <script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-	<!-- Adding the Navigation Bar -->
+	<!-- Creating the Navigation Menu -->
 
-	<nav class="navbar navbar-toggleable navbar-inverse">
-		<button class="navbar-toggler" data-toggle="collapse"
-			data-target="#mainNav">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link"
-					href="gatepass_status.jsp">HOME <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item"><a class="nav-link"
-					href="gatepass_raise.jsp">RAISE GATE PASS</a></li>
-				<li class="nav-item dropdown active"><a
-					class="nav-link dropdown-toggle" href="#"
-					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false"> VIEW </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="gatepass_approved.jsp">Approved</a>
-						<a class="dropdown-item" href="gatepass_closed.jsp">Closed</a> <a
-							class="dropdown-item" href="gatepass_pending.jsp">Pending</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_cancelled.jsp">Cancelled</a>
-						<a class="dropdown-item" href="gatepass_inDraft.jsp">In Draft</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="gatepass_approval_home.jsp">Approve
-							Pending Requests</a>
-					</div></li>
-				<li class="nav-item"><a class="nav-link"
-					href="gatepass_print.jsp">PRINT</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="gatepass_help.jsp">HELP</a></li>
+	<div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Material Gate Pass System</h3>
+                <strong>GS</strong>
+            </div>
 
-			</ul>
-		</div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="gatepass_status.jsp">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="gatepass_raise.jsp">
+                        <i class="fas fa-file-upload"></i>
+                        Raise
+                    </a>
+                    </li>
+                     <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="far fa-eye"></i>
+                        View
+                    </a>
+                    </li>
+                    <li>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="gatepass_approved.jsp">Approved</a>
+                        </li>
+                        <li>
+                            <a href="gatepass_pending.jsp">Pending</a>
+                        </li>
+                        <li>
+                            <a href="gatepass_inDraft.jsp">In Draft</a>
+                        </li>
+                        <li>
+                            <a href="gatepass_closed.jsp">Closed</a>
+                        </li>
+                        <li>
+                            <a href="gatepass_cancelled.jsp">Cancelled</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="gatepass_approval_home.jsp">
+                    <i class="fas fa-check"></i>
+                            Approve
+                    </a>
+                </li>
+                <li>
+                    <a href="gatepass_print.jsp">
+                        <i class="fas fa-print"></i>
+                        Print
+                    </a>
+                </li>
+                <li>
+                    <a href="gatepass_help.jsp">
+                        <i class="fas fa-question"></i>
+                        FAQ
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-paper-plane"></i>
+                   Contact
+              </a>
+                </li>
+            </ul>
 
-		<form name="logout_button"
-			action="<%=request.getContextPath()%>/logout" method="get"
-			align="right">
-			<input class="btn btn-sign-out" type="submit" value="Sign Out">
-		</form>
-	</nav>
-
-	<div class="container-fluid">
-		<div class="row">
-			<%
+           <ul class="list-unstyled components">
+            <li>
+                <a href="#" id="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+                </a>
+            </li>
+            </ul>
+        </nav>
+          
+          <%
 				String user = (String) session.getAttribute("username");
 			String pass = (String) session.getAttribute("password");
 			String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
 			ResultSet rs1 = statement.executeQuery(loggedInUser);
 			while (rs1.next()) {
 			%>
-			<div class="col text-left welcomeMessage">
-				<b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%></b>
+        <!-- Page Content  -->
+        <div id="content">
 
-			</div>
-			<div class="col text-right">
-				<b>Staff ID:<%=rs1.getString("staff_id")%>
-				</b>
-				<%
-					}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-justify"></i>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" ><%=rs1.getString("firstname")%></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><span style="color:black"><i class="fas fa-user-circle"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        <%
+			}
+		%>
+			    <% 
 				connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				%>
-			</div>
-		</div>
-	</div>
-
 
 
 
 	<%
 		String userlabel = (String) request.getAttribute("printval");
 	%>
-	<h3 class="text-center">
-		<b>Your Gate Pass Number is: <%=userlabel%> !
-		</b>
-		<br>
-		<b>Please wait for the Approval of your Gate Pass ...</b>
-	</h3>
+	<div class="container text-center message-success">
+	
+	     <div class="container">
+	     <span class="success"><i class="fas fa-check-circle"></i></span>
+	     </div>
+		Your Gate Pass Number : <b><%=userlabel%></b>
+		<br> has been registered successfully
+		<br>Please wait for Approval
+		</div>
 
+</div>
+</div>
 
 	<!-- Importing tether,jQuery,Bootstrap javaScripts -->
 
@@ -152,6 +216,17 @@ try {
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
 		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
 		crossorigin="anonymous"></script>
+		
+	<script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+        $("#logout").on('click', function() {
+      	  window.location = "<%=request.getContextPath()%>/logout" 
+      	});
+    </script>
 
 </body>
 </html>

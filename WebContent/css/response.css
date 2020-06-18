@@ -1,0 +1,10 @@
+.message-success,.message-invalid{
+	margin-top:50px;
+}
+.success{
+	color:green;font-size:80px;
+}
+.fail{
+	color:black;
+	font-size:80px;
+}

@@ -5,34 +5,31 @@
 }
 .security{
 	
-margin-top:200px;
+margin-top:120px;
 }
 .container-main{
 	display:inline-block;
 	margin-left:50px;
 }
-.btn-sign-out {
-  background-color:#6648b0;
-	border-color: white;
-	color: white
-}
-.guard-photo{
-	border:solid 5px #6648b0;
-}
-.btn-sign-out:hover {
-	background-color: #ff0000;
-	border-color: white;
-	color: white;
-}
 .btn-primary {
 	background-color: #6648b0;
 	border-color: #6648b0;
 	padding:10px 20px;
+	cursor: pointer;
 }
 
-.btn-primary:hover {
-	background-color: #342a5a;
-	border-color: #342a5a;
+.btn-check {
+	background-color: none;
+	color:green;
+	font-size:20px;
+	cursor: pointer;
+	margin-right:30px;
+}
+.btn-reject{
+	background-color: none;
+	font-size:20px;
+	color:red;
+	cursor: pointer;
 }
 table {
     border:1px solid black;
@@ -53,4 +50,7 @@ table {
   }
   .button-leaf{
   margin-top:30px;
+  }
+  .btn-info,.btn-dark{
+ background-color:#6648b0;
   }

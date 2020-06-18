@@ -1,26 +1,14 @@
 @charset "ISO-8859-1";
- .btn-outline-primary{
-    background-color:white;
-    border-color:#6648b0;
-    color:#6648b0
-  }
-  .btn-outline-primary:hover{
+ .btn, .btn-primary{
     background-color:#6648b0;
     border-color:#342a5a;
     color:white;
   }
-  
-  .btn-sign-out{
-  background-color:#6648b0;
-    border-color:white;
-    color:white
-  }
- .btn-sign-out:hover{
-    background-color:#ff0000;
-    border-color:white;
+  .btn, .btn-primary:hover{
+    background-color:#6648b0;
+    border-color:#6648b0;
     color:white;
   }
-  
   .loginField {
     outline: 0;
   border-width: 0 0 2px;

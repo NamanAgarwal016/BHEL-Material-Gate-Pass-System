@@ -69,6 +69,7 @@ try {
 <script type="text/javascript" src="js\angular.min.js"></script>
 </head>
 <body>
+
 	<!-- Creating the Navigation Menu -->
 
 	<div class="wrapper">
@@ -80,19 +81,23 @@ try {
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="gatepass_status.jsp">
                         <i class="fas fa-home" aria-hidden="true"></i>
                         Home
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="gatepass_raise.jsp">
-                        <i class="fas fa-ticket-alt"></i>
+                        <i class="fas fa-file-upload"></i>
                         Raise
                     </a>
+                    </li>
+                        <li>
+                  </li>
+                  <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-copy"></i>
+                        <i class="far fa-eye"></i>
                         View
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -114,8 +119,14 @@ try {
                     </ul>
                 </li>
                 <li>
+                    <a href="gatepass_approval_home.jsp">
+                    <i class="fas fa-check"></i>
+                            Approve
+                    </a>
+                </li>
+                <li>
                     <a href="gatepass_print.jsp">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-print"></i>
                         Print
                     </a>
                 </li>
@@ -133,7 +144,7 @@ try {
                 </li>
             </ul>
 
-            <ul class="list-unstyled components">
+           <ul class="list-unstyled components">
             <li>
                 <a href="#" id="logout">
                 <i class="fas fa-sign-out-alt"></i>
@@ -142,7 +153,7 @@ try {
             </li>
             </ul>
         </nav>
-
+        
         <!-- Page Content  -->
         <div id="content">
 
@@ -154,10 +165,11 @@ try {
                         <span></span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-align-justify"></i>
                     </button>
                 </div>
             </nav>
+            
 	<div class="container-fluid">
 		<div class="row">
 			<%
@@ -355,7 +367,7 @@ try {
 		<div class="container text-white form-group-header">CUSTODIAN OF
 			MATERIAL</div>
 		<div class="container form-group-label">
-			Purpose of gatepass and Description of material <br>
+			Purpose of Gate Pass and Description of material <br>
 
 			<%
 				String materialDetailsTable = "select * from material_details WHERE gatepass='" + PassNumber + "'";
@@ -460,6 +472,9 @@ try {
 		e.printStackTrace();
 	}
 	%>
+	
+	</div>
+	</div>
 
 
 	<!-- Importing tether,jQuery,Bootstrap javaScript -->
@@ -499,7 +514,6 @@ try {
 
 
 <!--JavaScript for dynamic content based on type of person BHEL/NON-BHEL -->
-
 
 <script type="text/javascript" src="js\main.js"></script>
 

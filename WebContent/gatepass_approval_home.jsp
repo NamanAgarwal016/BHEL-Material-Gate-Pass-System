@@ -11,22 +11,7 @@
 <%@page import="java.io.IOException"%>
 	
 <%@page import="login.web.Security"%>
-<%
-Security security = new Security();
-security.enable(session, response);
-Integer staffid = (Integer) session.getAttribute("staffid");
 
-if (staffid == 101|| staffid == 102 || staffid == 104 ) {
-	try {
-		response.sendRedirect("gatepass_invalidUser2.jsp");
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-
-}
-
-%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +41,6 @@ if (staffid == 101|| staffid == 102 || staffid == 104 ) {
   
     <!-- Creating the Navigation Menu -->
 
-	<!-- Creating the Navigation Menu -->
-
 	<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -67,7 +50,7 @@ if (staffid == 101|| staffid == 102 || staffid == 104 ) {
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="gatepass_status.jsp">
                         <i class="fas fa-home" aria-hidden="true"></i>
                         Home
@@ -75,11 +58,13 @@ if (staffid == 101|| staffid == 102 || staffid == 104 ) {
                 </li>
                 <li>
                     <a href="gatepass_raise.jsp">
-                        <i class="fas fa-ticket-alt"></i>
+                        <i class="fas fa-file-upload"></i>
                         Raise
                     </a>
+                    </li>
+                    <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-copy"></i>
+                        <i class="far fa-eye"></i>
                         View
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -100,9 +85,15 @@ if (staffid == 101|| staffid == 102 || staffid == 104 ) {
                         </li>
                     </ul>
                 </li>
+                <li class="active">
+                    <a href="gatepass_approval_home.jsp">
+                    <i class="fas fa-check"></i>
+                            Approve
+                    </a>
+                </li>
                 <li>
                     <a href="gatepass_print.jsp">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-print"></i>
                         Print
                     </a>
                 </li>
@@ -120,7 +111,7 @@ if (staffid == 101|| staffid == 102 || staffid == 104 ) {
                 </li>
             </ul>
 
-            <ul class="list-unstyled components">
+           <ul class="list-unstyled components">
             <li>
                 <a href="#" id="logout">
                 <i class="fas fa-sign-out-alt"></i>
@@ -129,7 +120,7 @@ if (staffid == 101|| staffid == 102 || staffid == 104 ) {
             </li>
             </ul>
         </nav>
-
+        
         <!-- Page Content  -->
         <div id="content">
 
@@ -141,7 +132,7 @@ if (staffid == 101|| staffid == 102 || staffid == 104 ) {
                         <span></span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-align-justify"></i>
                     </button>
                 </div>
             </nav>
@@ -203,6 +194,9 @@ if (staffid == 101|| staffid == 102 || staffid == 104 ) {
    %>
      </tbody>
   </table>
+</div>
+
+</div>
 </div>
 
  <!-- Importing tether,jQuery,Bootstrap javaScript -->

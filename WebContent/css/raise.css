@@ -1,5 +1,5 @@
 label {
-	width: 180px;
+	width: 150px;
 }
 input:focus,select:focus,textarea:focus{
 	outline-color: #6648b0;
@@ -29,11 +29,15 @@ th,td {
 	background-color: #342a5a;
 	border-color: #342a5a;
 }
-.btn-sign-out{
-  background-color:#6648b0;
-    border:none;
-    color:white
-  }
+.btn-gen{
+	background-color:none;
+	color:#6648b0;
+	font-size:15px;
+}
+.btn-info,.btn-dark{
+ background-color:#6648b0;
+ }
+
 .tableEntry {
 	border: none;
 	background-color: transparent;

@@ -61,8 +61,6 @@ try {
 
 <!-- Creating the Navigation Menu -->
 
-	<!-- Creating the Navigation Menu -->
-
 	<div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -72,7 +70,7 @@ try {
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li >
                     <a href="gatepass_status.jsp">
                         <i class="fas fa-home" aria-hidden="true"></i>
                         Home
@@ -80,11 +78,13 @@ try {
                 </li>
                 <li>
                     <a href="gatepass_raise.jsp">
-                        <i class="fas fa-ticket-alt"></i>
+                        <i class="fas fa-file-upload"></i>
                         Raise
                     </a>
+                    </li>
+                    <li class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-copy"></i>
+                        <i class="far fa-eye"></i>
                         View
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -94,7 +94,7 @@ try {
                         <li>
                             <a href="gatepass_pending.jsp">Pending</a>
                         </li>
-                        <li>
+                        <li >
                             <a href="gatepass_inDraft.jsp">In Draft</a>
                         </li>
                         <li>
@@ -106,8 +106,14 @@ try {
                     </ul>
                 </li>
                 <li>
+                    <a href="gatepass_approval_home.jsp">
+                    <i class="fas fa-check"></i>
+                            Approve
+                    </a>
+                </li>
+                <li>
                     <a href="gatepass_print.jsp">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-print"></i>
                         Print
                     </a>
                 </li>
@@ -125,8 +131,8 @@ try {
                 </li>
             </ul>
 
-            <ul class="list-unstyled components">
-           <li>
+           <ul class="list-unstyled components">
+            <li>
                 <a href="#" id="logout">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
@@ -134,7 +140,14 @@ try {
             </li>
             </ul>
         </nav>
-
+            <%
+			String user = (String) session.getAttribute("username");
+			System.out.println("user");
+			String pass = (String) session.getAttribute("password");
+			String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
+			ResultSet rs1 = statement.executeQuery(loggedInUser);
+			while (rs1.next()) {
+			%>
         <!-- Page Content  -->
         <div id="content">
 
@@ -146,37 +159,23 @@ try {
                         <span></span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-align-justify"></i>
                     </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" ><%=rs1.getString("firstname")%></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><span style="color:black"><i class="fas fa-user-circle"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
-            
-            
-	<div class="container-fluid">
-		<div class="row">
-			<%
-				String user = (String) session.getAttribute("username");
-			System.out.println("user");
-			String pass = (String) session.getAttribute("password");
-			String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
-			ResultSet rs1 = statement.executeQuery(loggedInUser);
-			while (rs1.next()) {
-			%>
-			<div class="col text-left welcomeMessage">
-				<b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%></b>
-
-			</div>
-			<div class="col text-right">
-				<b>Staff ID:<%=rs1.getString("staff_id")%>
-				</b>
 				<%
 					}
 				%>
-
-			</div>
-		</div>
-	</div>
-
 
 
 	<!-- Creating the table for in Draft Gatepasses -->
@@ -199,17 +198,16 @@ try {
 					<th scope="col" colspan="5" id="tableTitle">YOUR LIST OF GATE
 						PASSES CURRENTLY IN DRAFT</th>
 				</tr>
-				<tr>
+			</thead>
+
+
+			<tbody>
+                 <tr>
 					<th>GatePass No.</th>
 					<th>Gate Pass For</th>
 					<th>Initiating Officer</th>
 					<th>Take Action</th>
 				</tr>
-			</thead>
-
-
-			<tbody>
-
 
 				<%
 					while (rs2.next()) {
@@ -237,6 +235,9 @@ try {
 		e.printStackTrace();
 	}
 	%>
+	
+	</div>
+	</div>
 
 
 	<!-- Importing tether,jQuery,Bootstrap javaScript -->

@@ -6,9 +6,10 @@
   text-align:center;
   }
   
-.btn-info{
-	background-color:#6648b0;
-}
+.btn-info,.btn-dark{
+ background-color:#6648b0;
+  }
+
 .btn-sign-out{
   background-color:#6648b0;
     border:none;
@@ -26,8 +27,8 @@
     color:white;
   }
   #donutchart{
-  width:900px; 
-  height:500px;
+  width:500px;
+  height:420px;
   }
   #logout{
   border:none;

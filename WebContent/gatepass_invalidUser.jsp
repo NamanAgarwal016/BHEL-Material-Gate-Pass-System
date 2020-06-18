@@ -6,11 +6,6 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
-<%@page import="login.web.Security"%>
-<%
-	Security security = new Security();
-security.enable(session, response);
-%>
 
 <%
 	String driver = "com.mysql.jdbc.Driver";
@@ -42,7 +37,7 @@ try {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-<title>Material Gate Pass</title>
+<title>Invalid Approve Request</title>
 
 <!-- Adding Bootstrap CSS -->
 
@@ -53,8 +48,8 @@ try {
 
 <!-- Adding Custom CSS -->
 
-<link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/navbar-side.css">
+<link rel="stylesheet" href="css/response.css">
 
 <!-- Font Awesome JS -->
     
@@ -69,12 +64,12 @@ try {
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Material Gate Pass</h3>
-                <strong>GP</strong>
+                <h3>Material Gate Pass System</h3>
+                <strong>GS</strong>
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="gatepass_status.jsp">
                         <i class="fas fa-home" aria-hidden="true"></i>
                         Home
@@ -82,11 +77,13 @@ try {
                 </li>
                 <li>
                     <a href="gatepass_raise.jsp">
-                        <i class="fas fa-ticket-alt"></i>
+                        <i class="fas fa-file-upload"></i>
                         Raise
                     </a>
+                    </li>
+                        <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-copy"></i>
+                        <i class="far fa-eye"></i>
                         View
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -107,9 +104,15 @@ try {
                         </li>
                     </ul>
                 </li>
+                <li class="active">
+                    <a href="gatepass_approval_home.jsp">
+                    <i class="fas fa-check"></i>
+                            Approve
+                    </a>
+                </li>
                 <li>
                     <a href="gatepass_print.jsp">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-print"></i>
                         Print
                     </a>
                 </li>
@@ -122,12 +125,12 @@ try {
                 <li>
                     <a href="#">
                         <i class="fas fa-paper-plane"></i>
-                        Contact
-                    </a>
+                   Contact
+              </a>
                 </li>
             </ul>
 
-            <ul class="list-unstyled components">
+           <ul class="list-unstyled components">
             <li>
                 <a href="#" id="logout">
                 <i class="fas fa-sign-out-alt"></i>
@@ -136,7 +139,15 @@ try {
             </li>
             </ul>
         </nav>
-
+        
+        <%
+			String user = (String) session.getAttribute("username");
+		String pass = (String) session.getAttribute("password");
+		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
+		ResultSet rs1 = statement.executeQuery(loggedInUser);
+		while (rs1.next()) {
+		%>
+        
         <!-- Page Content  -->
         <div id="content">
 
@@ -148,44 +159,41 @@ try {
                         <span></span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-left"></i>
+                        <i class="fas fa-align-justify"></i>
                     </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" ><%=rs1.getString("firstname")%></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><span style="color:black"><i class="fas fa-user-circle"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
 
-
-	<div class="container-fluid">
-		<div class="row">
-			<%
-				String user = (String) session.getAttribute("username");
-			String pass = (String) session.getAttribute("password");
-			String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
-			ResultSet rs1 = statement.executeQuery(loggedInUser);
-			while (rs1.next()) {
-			%>
-			<div class="col text-left welcomeMessage">
-				<b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%></b>
-
-			</div>
-			<div class="col text-right">
-				<b>Staff ID:<%=rs1.getString("staff_id")%>
-				</b>
-				<%
-					}
-				connection.close();
+              <%
+			    }
+		       %>
+               <%
+		      connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				%>
-			</div>
+	<div class="container text-center message-invalid">
+	
+	     <div class="container">
+	     <span class="fail"><i class="fas fa-eye-slash"></i></span>
+	     </div>
+		  <b>ERROR:</b>You are not authorized to view this page
+		<br> Contact system administrator for more info
 		</div>
-	</div>
 
-	<h3 class="text-center">
-		<b>403:Forbidden</b>
-	</h3>
-
-
+     </div>
+     </div>
 	<!-- Importing tether,jQuery,Bootstrap javaScript -->
 
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
