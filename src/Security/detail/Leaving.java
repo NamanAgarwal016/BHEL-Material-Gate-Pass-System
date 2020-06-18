@@ -23,7 +23,8 @@ public class Leaving extends HttpServlet {
 		
 		String Gate = request.getParameter("GatePass");
 		System.out.println(Gate);
-
+		String Date= request.getParameter("Date");
+		System.out.println(Date);
 		// MySQL Server Details
 
 		String driver = "com.mysql.jdbc.Driver";
@@ -37,10 +38,11 @@ public class Leaving extends HttpServlet {
 
 			Connection connection = DriverManager.getConnection(connectionUrl + database, userid, password);
 			
-			String insertTableSQL0 = "UPDATE IssuingDetail SET Decision=? where GatePassNumber=?";
+			String insertTableSQL0 = "UPDATE IssuingDetail SET Decision=?, Date_of_Leaving=? where GatePassNumber=?";
 			PreparedStatement st0 = connection.prepareStatement(insertTableSQL0);
 			st0.setString(1,"Left the Premises" );
-			st0.setString(2, Gate);
+			st0.setString(2,Date);
+			st0.setString(3, Gate);
 			st0.executeUpdate();
 
 			

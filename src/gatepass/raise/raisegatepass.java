@@ -25,11 +25,11 @@ public class raisegatepass extends HttpServlet {
 
 		String status = request.getParameter("formStatus");
         System.out.println(status);
+  
 		// All integer Data
-
 		int numberofmaterials = Integer.parseInt(request.getParameter("noOfItems"));
 		int staff_id = (Integer) session.getAttribute("ID"); // Staff ID
-
+	      System.out.println(numberofmaterials);
 		// Receiver Details
 
 		String PassNumber = generatePIN(); // Pass Number
@@ -81,9 +81,24 @@ public class raisegatepass extends HttpServlet {
 			Class.forName(driver);
 
 			Connection connection = DriverManager.getConnection(connectionUrl + database, userid, passwordd);
-
+			System.out.println("Connection done");
+			
 			// Inserting Material details
-
+			if(numberofmaterials==0)
+			{
+				String insertTableSQLf = "INSERT INTO material VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
+				PreparedStatement stf = connection.prepareStatement(insertTableSQLf);
+				stf.setString(1, PassNumber);
+				stf.setString(2, status);
+				stf.setString(3, InitiatingOfficer);
+				stf.setInt(4, staff_id);
+				stf.setString(5, "");
+				stf.setString(6, "");
+				stf.setString(7, "");
+				stf.setString(8, "");
+				stf.executeUpdate();
+			}
+			else {
 			for (int i = 0; i < numberofmaterials; i++) {
 				String insertTableSQL = "INSERT INTO material VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 				PreparedStatement st = connection.prepareStatement(insertTableSQL);
@@ -98,8 +113,8 @@ public class raisegatepass extends HttpServlet {
 				st.executeUpdate();
 			}
 			System.out.println("Done material table");
+			}
 			// Inserting Receiver Details
-
 			String insertTableSQL2 = "INSERT INTO receiver VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement st2 = connection.prepareStatement(insertTableSQL2);
 			st2.setString(1, PassNumber);

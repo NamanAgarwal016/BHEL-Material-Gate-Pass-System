@@ -19,6 +19,7 @@ public class Returning extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String Gate = request.getParameter("GatePass");
+		String Date= request.getParameter("Date");
 		System.out.println(Gate);
 		
 		// MySQL Server Details
@@ -34,10 +35,11 @@ public class Returning extends HttpServlet {
 
 					Connection connection = DriverManager.getConnection(connectionUrl + database, userid, password);
 					
-					String insertTableSQL0 = "UPDATE IssuingDetail SET Decision=? where GatePassNumber=?";
+					String insertTableSQL0 = "UPDATE IssuingDetail SET Decision=?, Date_of_Returning=? where GatePassNumber=?";
 					PreparedStatement st0 = connection.prepareStatement(insertTableSQL0);
 					st0.setString(1,"Closed");
-					st0.setString(2, Gate);
+					st0.setString(2,Date);
+					st0.setString(3, Gate);
 					st0.executeUpdate();
 
 					

@@ -41,17 +41,17 @@ try {
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Approved List</title>
 
-<!-- Adding Bootstrap CSS -->
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-	crossorigin="anonymous">
-
-<!-- Adding Custom CSS -->
-
-<link rel="stylesheet" href="css/main.css">
-</head>
+ <!-- Adding Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css\navbar-side.css">
+    <link rel="stylesheet" href="css\main.css">
+    <!-- Font Awesome JS -->
+    
+    <script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
+   </head>
 <body>
 
 	<!-- Adding the Navigation Bar -->
@@ -183,7 +183,7 @@ try {
 		<b>Your Gate Pass Number : <%=finalPassNumber%> is now complete!
 		</b>
 		<br>
-		<b>Please wait for the Approval of your Gate Pass ...</b>
+		<b>Please wait for the Approval of your Gate Pass.</b>
 	</h3>
 
 

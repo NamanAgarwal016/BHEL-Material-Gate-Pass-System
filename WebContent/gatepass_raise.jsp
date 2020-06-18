@@ -15,7 +15,7 @@ security.enable(session, response);
 
 Integer staffid = (Integer) session.getAttribute("staffid");
 
-if (staffid == 104|| staffid == 102 || staffid == 100 ) {
+if (staffid == 100|| staffid == 102 || staffid == 103 ) {
 	try {
 		response.sendRedirect("gatepass_invalidUser.jsp");
 	} catch (IOException e) {
@@ -207,7 +207,7 @@ try {
 	</h3>
 
 
-	<form class="" action="<%=request.getContextPath()%>/raisegatepass"
+	<form class="" action=""
 		method="post" id="gatepassMainForm">
 
 
@@ -232,23 +232,23 @@ try {
 
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
-				name="bhelStaffNo" value="staff no." /> <br> <label
+				name="bhelStaffNo" value="Enter Staff no." /> <br> <label
 				for="bhelName">Name:</label><input type="text" name="bhelName"
-				value="name" /> <br> <label for="bhelDeg">Designation:</label>
-			<input type="text" name="bhelDeg" value="desg" /> <br> <label
+				value="Enter Name" /> <br> <label for="bhelDeg">Designation:</label>
+			<input type="text" name="bhelDeg" value="Enter Designation" /> <br> <label
 				for="bhelDept">Department:</label> <input type="text"
-				name="bhelDept" value="dept" />
+				name="bhelDept" value="Enter Department" />
 		</div>
 
 		<!--Extra Internal Form for a NON-BHEL Person-->
 
 		<div class="container" id="nonBhelInfo">
 			<label for="nonBhelName">Name:</label> <input type="text"
-				name="NbhelName" value="name" /> <br> <label
+				name="NbhelName" value="Enter Name" /> <br> <label
 				for="nonBhelCompany">Company Name:</label> <input type="text"
-				name="bhelCompany" value="company name" /> <br> <label
+				name="bhelCompany" value="Enter Company Name" /> <br> <label
 			for="nonBhelAddress">Address:</label> <input type="text"
-				name="bhelAddress" value="address" />
+				name="bhelAddress" value="Enter Address" />
 		</div>
 
 		<div class="container form-group-header">MATERIAL DETAILS</div>
@@ -301,7 +301,82 @@ try {
 		<div class="container-fluid button-leaf">
 			<div class="row">
 				<div class="col">
+<script>
+//function to clear the complete Gate Pass Form , after confirming from the User
 
+
+function confirmClear() {
+	var answer = confirm("Confirm to clear the Form??");
+	if (answer) {
+		var form = document
+				.getElementById("gatepassMainForm");
+		form.reset();
+		var hide_1 = document
+				.getElementById("bhelInfo");
+		var hide_2 = document
+				.getElementById("nonBhelInfo");
+		hide_1.style.display = "none";
+		hide_2.style.display = "none";
+	} else {
+		return false;
+	}
+	
+}
+
+
+// function to Register completed Gate Pass Form , after confirming from the User
+
+
+function confirmSubmit() {
+	var answer = confirm("Must check if all the details are filled. Confirm Submit ??")
+
+	if (answer) {
+
+		var x = document
+				.getElementById("gatepassMainForm");
+
+		var i;
+		for (i = 0; i < x.length; i++) {
+
+			if (!x.elements[i].value.localeCompare("")) {
+
+				alert("One or more fields are empty. Please fill all the details !!");
+				return false;
+
+			}
+		}
+
+		document.getElementById("formStatus").value = "Pending";
+		document.getElementById("gatepassMainForm").action="<%=request.getContextPath()%>/raisegatepass";           
+		document.getElementById("gatepassMainForm").method ="post";
+		document.getElementById("gatepassMainForm")
+				.submit();
+
+	} else {
+		return false;
+
+	}
+}
+
+
+// function to save the Gate Pass Form as a Draft
+
+
+function confirmSave() {
+	var answer = confirm("Please note that this feature is only for bhel_person. Also you can use Save feature only once.. However you are free to fill & register it at anytime. Confirm to Save As Darft ?? ")
+	if (answer) {
+
+		document.getElementById("formStatus").value = "Draft";
+		document.getElementById("gatepassMainForm").action = "<%=request.getContextPath()%>/raisegatepass";
+		document.getElementById("gatepassMainForm").method = "post";
+		document.getElementById("gatepassMainForm").submit();
+
+	} else {
+		return false;
+	}
+}
+
+</script>
 					<!--This button will save the gate pass as a draft-->
 
 						<input class="btn btn-primary" type="button" value="Save as Draft" id="draft-button"

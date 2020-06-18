@@ -7,6 +7,9 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@ page import = "java.io.*,java.util.Date" %>
+<%@ page import = "javax.servlet.*,java.text.*" %>
+
 
 <%
 	Security security = new Security();
@@ -44,10 +47,6 @@ security.enable(session, response);
 		Statement statement = null;
 		connection = DriverManager.getConnection(connectionUrl + database, userid, password);
 		statement = connection.createStatement();
-
-		String userlabel = (String) request.getAttribute("GateNumber");
-		String loggedInUser = "select * from SecurityView where PassNumber='" + userlabel + "'";
-		ResultSet rs = statement.executeQuery(loggedInUser);
 	%>
 
     
@@ -58,13 +57,26 @@ security.enable(session, response);
     </form>
      </h1>
     </div>
-    
+    <%String userlabel = (String) request.getAttribute("GateNumber");
+    String loggedInUser;
+	String insertTableSQL3 = "SELECT * from bhel_person where gatepass=?";
+	PreparedStatement st3 = connection.prepareStatement(insertTableSQL3);
+	st3.setString(1, userlabel);
+	ResultSet rs = st3.executeQuery();
+	
+	if (rs.next() == false) {
+		 loggedInUser = "select a.* , b.name from SecurityView a, bhel_person b where a.Passnumber=b.gatepass and PassNumber='" + userlabel + "'";
+	} else {
+		 loggedInUser = "select a.* , b.name from SecurityView a, nonbhel_person b where a.Passnumber=b.gatepass and PassNumber='" + userlabel + "'";
+		} 
+		ResultSet rs1 = statement.executeQuery(loggedInUser);%>
 	<table border=1 align=center class="table table-striped">
 		<thead>
 			<tr>
 				<th>Gate Pass Number</th>
 				<th>Staff ID</th>
 				<th>Initiating Officer</th>
+				<th>Person Taking the Material </th>
 				<th>Material</th>
 				<th>Quantity</th>
 				<th>Unit</th>
@@ -74,17 +86,18 @@ security.enable(session, response);
 		</thead>
 		<tbody>
 			<%
-				while (rs.next()) {
+				while (rs1.next()) {
 			%>
 			<tr>
-				<td><%=rs.getString("PassNumber")%></td>
-				<td><%=rs.getString("staff_id")%></td>
-				<td><%=rs.getString("InitiatingOfficer")%></td>
-				<td><%=rs.getString("Materials")%></td>
-				<td><%=rs.getString("Quantity")%></td>
-				<td><%=rs.getString("Unit")%></td>
-				<td><%=rs.getString("Date_of_return")%></td>
-				<td><%=rs.getString("status")%></td>
+				<td><%=rs1.getString("PassNumber")%></td>
+				<td><%=rs1.getString("staff_id")%></td>
+				<td><%=rs1.getString("InitiatingOfficer")%></td>
+				<td><%=rs1.getString("name")%></td>
+				<td><%=rs1.getString("Materials")%></td>
+				<td><%=rs1.getString("Quantity")%></td>
+				<td><%=rs1.getString("Unit")%></td>
+				<td><%=rs1.getString("Date_of_return")%></td>
+				<td><%=rs1.getString("status")%></td>
 			</tr>
 
 			<%
@@ -99,9 +112,12 @@ security.enable(session, response);
 	<form name="login_form" action="<%=request.getContextPath()%>/Leaving"
 		method="post">
 
-		<input type="hidden" id="GatePass" name="GatePass"
-			value=<%=userlabel%>> <input class="btn btn-primary"
-			type="submit" value="Material Leaving">
+		<input type="hidden" id="GatePass" name="GatePass" value=<%=userlabel%>>
+		<%Date dNow = new Date( );
+        SimpleDateFormat ft = 
+        new SimpleDateFormat ("dd.MM.yyyy"); %>
+		<input type="hidden" id="Date" name="Date" value=<%=ft.format(dNow)%>>
+	    <input class="btn btn-primary" type="submit" value="Material Leaving">
 
 	</form>
 	</div>
@@ -110,7 +126,12 @@ security.enable(session, response);
 	<form name="login_form"
 		action="<%=request.getContextPath()%>/Returning" method="post">
 		<input type="hidden" id="GatePass" name="GatePass"
-			value=<%=userlabel%>> <input class="btn btn-primary"
+			value=<%=userlabel%>>
+			<%Date dNow1 = new Date( );
+        SimpleDateFormat ft1 = 
+        new SimpleDateFormat ("dd.MM.yyyy"); %>
+		<input type="hidden" id="Date" name="Date" value=<%=ft1.format(dNow1)%>>
+		 <input class="btn btn-primary"
 			type="submit" value="Material Returning">
 	</form>
 	</div>

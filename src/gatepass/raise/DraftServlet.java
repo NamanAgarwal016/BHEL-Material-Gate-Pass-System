@@ -21,7 +21,7 @@ public class DraftServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 
-		String status = "draft";
+		String status = "Draft";
 		// All integer Data
 
 		int numberofmaterials = Integer.parseInt(request.getParameter("noOfItems"));
