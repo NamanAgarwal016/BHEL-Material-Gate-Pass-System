@@ -12,7 +12,23 @@
 	
 <%@page import="login.web.Security"%>
 
+<%
 
+Security security = new Security();
+security.enable(session, response);
+
+Integer staffid = (Integer) session.getAttribute("staffid");
+
+if (staffid == 101|| staffid == 102 || staffid == 103 || staffid == 104 ) {
+	try {
+		response.sendRedirect("gatepass_invalidUser.jsp");
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +37,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>Material Gate Pass - Closed</title>
+    <title>Material Gate Pass - Approvals</title>
     
     <!-- Adding Bootstrap CSS -->
     

@@ -211,7 +211,7 @@ try {
 				}
 				%>
 				
-	<form  action="" method="post" id="gatepassMainForm" name="raiseForm">
+	<form method="post" id="gatepassMainForm" name="raiseForm">
 
 
 		<div class="container form-group-header">PERSON TAKING THE
@@ -235,30 +235,31 @@ try {
 
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
-				name="bhelStaffNo" /> <br> <label
-				for="bhelName">Name:</label><input type="text" name="bhelName"
-				 /> <br> <label for="bhelDeg">Designation:</label>
-			<input type="text" name="bhelDeg"  /> <br> <label
+				name="bhelStaffNo" value="Enter Staff No."/> <br> <label
+				for="bhelName">Name:</label><input type="text" name="bhelName" value="Enter Name"
+ 			 /> <br> <label for="bhelDeg">Designation:</label>
+			<input type="text" name="bhelDeg" value="Enter Designation" /> <br> <label
 				for="bhelDept">Department:</label> <input type="text"
-				name="bhelDept"  />
+				name="bhelDept" value="Enter Department"  />
 		</div>
 
 		<!--Extra Internal Form for a NON-BHEL Person-->
 
 		<div class="container" id="nonBhelInfo">
 			<label for="nonBhelName">Name:</label> <input type="text"
-				name="NbhelName" /> <br> <label
+				name="NbhelName" value="Enter Name"/> <br> <label
 				for="nonBhelCompany">Company Name:</label> <input type="text"
-				name="bhelCompany"  /> <br> <label
+				name="bhelCompany" value="Enter Company Name" /> <br> <label
 			for="nonBhelAddress">Address:</label> <input type="text"
-				name="bhelAddress" />
+				name="bhelAddress" value="Enter Address"/>
 		</div>
 
 		<div class="container form-group-header">MATERIAL DETAILS</div>
 		<div class="materialForm text-center">
 			<label for="noOfItems">Number of Items:</label> <input type="number"
 				name="noOfItems" id="noOfItems" value="0" /> 
-				<button class="btn btn-gen" onclick="generate()"><i class="fas fa-angle-down"></i></button>
+				 <input type="button"
+				value="Generate Form" onclick="generate()">
 			<div id="wrapper" class="text-center"></div>
 		</div>
 
@@ -304,6 +305,33 @@ try {
 		<div class="container-fluid button-leaf">
 			<div class="row">
 				<div class="col">
+					<!--This button will save the gate pass as a draft-->
+
+						<button class="btn btn-primary" type="button" value="Save as Draft" id="draft-button" onclick="return confirmSave();">
+						<strong>Draft </strong><i class="far fa-save"></i>
+						</button>
+				
+				</div>
+
+				<div class="col text-center">
+
+					<!--This button will Register the gate pass provided none of the fields are invalid-->
+
+					<button class="btn btn-primary" type="submit" value="Register" onclick="return confirmSubmit();">
+					</button>
+				</div>
+
+
+				<div class="col text-right">
+
+					<!--This button clears the current form and the gate pass will be cancelled-->
+
+					<button class="btn btn-primary" type="button" value="Clear" onclick="return confirmClear();">
+					<strong>Clear </strong><i class="fas fa-backspace"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 <script>
 //function to clear the complete Gate Pass Form , after confirming from the User
 
@@ -359,7 +387,7 @@ function confirmSubmit() {
 		return false;
 
 	}
-}
+}			
 
 
 // function to save the Gate Pass Form as a Draft
@@ -380,34 +408,6 @@ function confirmSave() {
 }
 
 </script>
-					<!--This button will save the gate pass as a draft-->
-
-						<button class="btn btn-primary" type="button"  id="draft-button" onclick="return confirmSave();">
-						<strong>Draft </strong><i class="far fa-save"></i>
-						</button>
-				
-				</div>
-
-				<div class="col text-center">
-
-					<!--This button will Register the gate pass provided none of the fields are invalid-->
-
-					<button class="btn btn-primary" type="submit" onclick="return confirmSubmit();">
-					<strong>Register </strong><i class="fas fa-clipboard-check"></i>
-					</button>
-				</div>
-
-
-				<div class="col text-right">
-
-					<!--This button clears the current form and the gate pass will be cancelled-->
-
-					<button class="btn btn-primary" type="button" onclick="return confirmClear();">
-					<strong>Clear </strong><i class="fas fa-backspace"></i>
-					</button>
-				</div>
-			</div>
-		</div>
 
 	</form>
     </div>

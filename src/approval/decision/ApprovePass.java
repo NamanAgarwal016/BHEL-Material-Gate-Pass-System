@@ -36,12 +36,14 @@ public class ApprovePass extends HttpServlet {
 
 			Connection connection = DriverManager.getConnection(connectionUrl + database, userid, password);
 			
-			String insertTableSQL0 = "INSERT INTO IssuingDetail VALUES(?, ?, ?, ?);";
+			String insertTableSQL0 = "INSERT INTO IssuingDetail VALUES(?, ?, ?, ?,?,?);";
 			PreparedStatement st0 = connection.prepareStatement(insertTableSQL0);
 			st0.setString(1, Name);
 			st0.setString(2, GatePassNumber);
 			st0.setString(3, Decision);
 			st0.setString(4, Date);
+			st0.setString(5, "");
+			st0.setString(6, "");
 			st0.executeUpdate();
 			
 			String insertTableSQL = "UPDATE material SET status=? where PassNumber=?";
