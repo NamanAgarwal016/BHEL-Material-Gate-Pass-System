@@ -106,7 +106,7 @@ security.enable(session, response);
 	st3.setString(1, userlabel);
 	ResultSet rs = st3.executeQuery();
 	
-	if (rs.next() == false) {
+	if (rs.next() == true) {
 		 loggedInUser = "select a.* , b.name from SecurityView a, bhel_person b where a.Passnumber=b.gatepass and PassNumber='" + userlabel + "'";
 	} else {
 		 loggedInUser = "select a.* , b.name from SecurityView a, nonbhel_person b where a.Passnumber=b.gatepass and PassNumber='" + userlabel + "'";

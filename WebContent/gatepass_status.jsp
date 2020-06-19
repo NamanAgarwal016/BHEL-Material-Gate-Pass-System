@@ -180,7 +180,7 @@ security.enable(session, response);
 
         <%
 			}
-		%>
+%>
     <!-- Drawing Google Chart -->
     
     <div id="donutchart"></div>
@@ -191,6 +191,12 @@ security.enable(session, response);
 
 	<div class="container table-holder">
 		<table align="center" class="table table-striped">
+		  <%		
+		int staff_id = (Integer) session.getAttribute("ID");
+		String loggedInUserr = "select * from status_View where staff_id='" + staff_id + "'";
+		ResultSet rs = statement.executeQuery(loggedInUserr);
+	%>
+    
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col" colspan="4" id="tableTitle">MATERIAL GATE PASS
@@ -198,42 +204,31 @@ security.enable(session, response);
 				</tr>
 			</thead>
 			<tbody>
-
-				<%
-					String status = "select * from gatepass_status";
-				ResultSet rs2 = statement.executeQuery(status);
-				while (rs2.next()) {
+<% 
+				while (rs.next()) {
 				%>
 				<tr>
 					<th>In Draft Mode</th>
-					<td><%=rs2.getString("In Draft Mode")%></td>
+					<td><%=rs.getString("InDraft")%></td>
 					<th>Pending Approval</th>
-					<td><%=rs2.getString("Pending Approval")%></td>
+					<td><%=rs.getString("Pending")%></td>
 				</tr>
 				<tr>
 					<th>Approved</th>
-					<td><%=rs2.getString("Approved")%></td>
+					<td><%=rs.getString("Approved")%></td>
 					<th>Permitted</th>
-					<td><%=rs2.getString("Permitted")%></td>
+					<td><%=rs.getString("LeftP")%></td>
 				</tr>
 				<tr>
 					<th>Closed</th>
-					<td><%=rs2.getString("Closed")%></td>
+					<td><%=rs.getString("Closed")%></td>
 					<th>Cancelled</th>
-					<td><%=rs2.getString("Cancelled")%></td>
+					<td><%=rs.getString("Declined")%></td>
 				</tr>
-
-				<%
-					}
-				connection.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				%>
 
 			</tbody>
 
-
+<%} %>
 		</table>
 	</div>
 
@@ -261,7 +256,11 @@ security.enable(session, response);
         crossorigin="anonymous"></script>
 
 <!-- jQuery for collapsing Sidebar -->
-
+<%
+String total = "select * from total_stats;";
+ResultSet rs3 = statement.executeQuery(total);
+while (rs3.next()) {
+%>
 <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -276,11 +275,11 @@ security.enable(session, response);
               function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                   ['Status','Count'],
-                  ['Approved',     11],
-                  ['Closed',      2],
-                  ['Cancelled',  2],
-                  ['In Draft', 2],
-                  ['Pending',    7]
+                  ['Approved',<%=rs3.getString("Approved")%>],
+                  ['Closed',  <%=rs3.getString("Closed")%>],
+                  ['Cancelled', <%=rs3.getString("Declined")%>],
+                  ['In Draft', <%=rs3.getString("In Draft")%>],
+                  ['Pending',  <%=rs3.getString("Pending")%>]
                 ]);
 
                 var options = {
@@ -293,6 +292,12 @@ security.enable(session, response);
               }
            
     </script>
+    	<%}
+				connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				%>
     
     
 </body>

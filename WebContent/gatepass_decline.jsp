@@ -128,7 +128,7 @@
             </nav>
 	
 	
-<form method="post" action="" id="reason">
+<form method="post" action="<%=request.getContextPath()%>/reason" id="reason">
 <div class="container" id="reasonForCancellation">
 		<div class="container-fluid cancel-header">Please Enter a Valid
 			Reason</div>
