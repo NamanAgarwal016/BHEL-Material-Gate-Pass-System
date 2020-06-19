@@ -317,7 +317,8 @@ try {
 
 					<!--This button will Register the gate pass provided none of the fields are invalid-->
 
-					<button class="btn btn-primary" type="submit" value="Register" onclick="return confirmSubmit();">
+					<button class="btn btn-primary" type="button" value="Register" onclick="return confirmSubmit();">
+					<strong>Register </strong><i class="fas fa-clipboard-check"></i>
 					</button>
 				</div>
 
