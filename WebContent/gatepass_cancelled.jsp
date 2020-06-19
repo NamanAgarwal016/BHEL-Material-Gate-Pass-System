@@ -2,6 +2,15 @@
     pageEncoding="ISO-8859-1"%>
 	
 <%@page import="login.web.Security"%>
+<%@page import="login.database.*"%>
+<%@page import="login.web.*"%>
+<%@page import="java.sql.*"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>	
+<%@page import="login.web.Security"%>
+
 <%
 Security security = new Security();
 security.enable(session, response);
@@ -128,7 +137,24 @@ security.enable(session, response);
     
       <div class="container">
       <table align="center" class="table table-striped">
-      
+      <%
+		try {
+		String driver = "com.mysql.jdbc.Driver";
+		String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
+		String database = "zvp0njb2yauy3fgk";
+		String userid = "pjyaoyeilkkbtjg8";
+		String password = "ejzn69wchxp2bv6j";
+		Class.forName(driver);
+		Connection connection = null;
+		Statement statement = null;
+		connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+		statement = connection.createStatement();
+		
+		int staff_id = (Integer) session.getAttribute("ID");
+		String loggedInUser = "select * from cancelled_view where staff_id='" + staff_id + "'";
+		ResultSet rs = statement.executeQuery(loggedInUser);
+	%>
+    
       <thead class="thead-dark">
         <tr>
         <th scope="col" colspan="4" id="tableTitle">LIST OF CANCELLED GATE PASSES</th>
@@ -136,11 +162,27 @@ security.enable(session, response);
       </thead>          
       <tbody>
       <tr>
-      <th>Gp. No.</th>
+      <th>Gate Pass Number</th>
       <th>Initiator</th>
-      <th>Date</th>
-      <th>Reason</th>
+      <th>Cancelled By</th>
+      <th>Date of Decision</th>
       </tr>
+       	<%
+				while (rs.next()) {
+			%>
+    <tr>
+    <td><%=rs.getString("GatePassNumber")%></td>
+    <td><%=rs.getString("InitiatingOfficer")%></td>
+    <td><%=rs.getString("NameofOfficer")%></td>
+    <td><%=rs.getString("DateofDecision")%></td>
+    </tr>
+    	<%
+				}
+		connection.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+   %>
       </tbody>
       </table>
       </div>
