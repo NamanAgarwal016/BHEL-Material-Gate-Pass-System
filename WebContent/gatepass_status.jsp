@@ -228,7 +228,7 @@ security.enable(session, response);
 
 			</tbody>
 
-
+<%} %>
 		</table>
 	</div>
 
@@ -256,7 +256,11 @@ security.enable(session, response);
         crossorigin="anonymous"></script>
 
 <!-- jQuery for collapsing Sidebar -->
-
+<%
+String total = "select * from total_stats;";
+ResultSet rs3 = statement.executeQuery(total);
+while (rs3.next()) {
+%>
 <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -271,11 +275,11 @@ security.enable(session, response);
               function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                   ['Status','Count'],
-                  ['Approved',<%=rs.getString("Approved")%>],
-                  ['Closed',  <%=rs.getString("Closed")%>],
-                  ['Cancelled', <%=rs.getString("Declined")%>],
-                  ['In Draft', <%=rs.getString("InDraft")%>],
-                  ['Pending',  <%=rs.getString("Pending")%>]
+                  ['Approved',<%=rs3.getString("Approved")%>],
+                  ['Closed',  <%=rs3.getString("Closed")%>],
+                  ['Cancelled', <%=rs3.getString("Declined")%>],
+                  ['In Draft', <%=rs3.getString("In Draft")%>],
+                  ['Pending',  <%=rs3.getString("Pending")%>]
                 ]);
 
                 var options = {
@@ -288,8 +292,7 @@ security.enable(session, response);
               }
            
     </script>
-    	<%
-					}
+    	<%}
 				connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
