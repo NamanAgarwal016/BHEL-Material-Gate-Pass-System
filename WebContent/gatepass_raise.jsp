@@ -350,6 +350,7 @@ function confirmSubmit() {
 		}
 
 		document.getElementById("formStatus").value = "Pending";
+		
 		document.getElementById("gatepassMainForm").action="<%=request.getContextPath()%>/raisegatepass";           
 		document.getElementById("gatepassMainForm").method ="post";
 		document.getElementById("gatepassMainForm")
@@ -370,6 +371,7 @@ function confirmSave() {
 	if (answer) {
 
 		document.getElementById("formStatus").value = "Draft";
+		
 		document.getElementById("gatepassMainForm").action = "<%=request.getContextPath()%>/raisegatepass";
 		document.getElementById("gatepassMainForm").method = "post";
 		document.getElementById("gatepassMainForm").submit();
