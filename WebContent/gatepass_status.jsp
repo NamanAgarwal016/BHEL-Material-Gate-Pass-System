@@ -184,7 +184,7 @@ security.enable(session, response);
    
    <!-- Creating the table for displaying status of gatepass -->
 	<div class="container table-holder">
-		<table align="center" class="table table-striped">
+		<table align="center" class="table table-striped table-primary">
 		  <%		
 		int staff_id = (Integer) session.getAttribute("ID");
 		String loggedInUserr = "select * from status_View where staff_id='" + staff_id + "'";
@@ -232,13 +232,8 @@ security.enable(session, response);
    
    
     <!-- Drawing Google Chart -->
-    
-    <div id="donutchart"></div>
+    <div class="text-center"  id="donutchart"></div>
 	
-    <div class="container"></div>
-      
-	
-
 </div>
 </div>
 
@@ -292,6 +287,14 @@ while (rs3.next()) {
                 var options = {
                   pieHole: 0.4,
                   colors: ['#99e699', "#3f51b5","#2196f3","#ff8080","#ff9933"],
+                  title : "MATERIAL GATE PASS STATUS",
+                  titleTextStyle: {
+                      color: 'black',    // any HTML string color ('red', '#cc00cc')
+                      fontName: 'Poppins', // i.e. 'Times New Roman'
+                      fontSize: 16, // 12, 18 whatever you want (don't specify px)
+                      bold: true,    // true or false
+                      italic: false   // true of false
+                  }
                 };
 
                 var chart = new google.visualization.PieChart(document.getElementById('donutchart'));

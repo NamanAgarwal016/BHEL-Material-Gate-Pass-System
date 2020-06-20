@@ -1,7 +1,4 @@
 @charset "ISO-8859-1";
-   table {
-    border:1px solid black;
-  }
   th,td {
   text-align:center;
   }
@@ -27,10 +24,10 @@
     color:white;
   }
   #donutchart{
-  width:1000px;
-  height:1000px;
-  align:center;
-  margin-left:20%;
+  width:450px;
+  height:280px;
+  background-color:none;
+  margin-left:30%;
   }
   #logout{
   border:none;

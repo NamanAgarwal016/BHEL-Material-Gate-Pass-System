@@ -136,7 +136,7 @@ security.enable(session, response);
     
     
       <div class="container">
-      <table align="center" class="table table-striped">
+      <table align="center" class="table table-striped table-primary">
       <%
 		try {
 		String driver = "com.mysql.jdbc.Driver";

@@ -142,7 +142,7 @@ security.enable(session, response);
     <!-- Creating the table for Closed Gatepasses -->
     
   <div class="container">
-<table align="center" class="table table-striped">
+<table align="center" class="table table-striped table-primary">
        <%
 		try {
 		String driver = "com.mysql.jdbc.Driver";
