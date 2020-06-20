@@ -27,8 +27,10 @@
     color:white;
   }
   #donutchart{
-  width:500px;
-  height:420px;
+  width:1000px;
+  height:1000px;
+  align:center;
+  margin-left:20%;
   }
   #logout{
   border:none;

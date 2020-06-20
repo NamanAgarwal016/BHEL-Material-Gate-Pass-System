@@ -181,14 +181,8 @@ security.enable(session, response);
         <%
 			}
 %>
-    <!-- Drawing Google Chart -->
-    
-    <div id="donutchart"></div>
-	
-    <div class="container"></div>
-      
-	<!-- Creating the table for displaying status of gatepass -->
-
+   
+   <!-- Creating the table for displaying status of gatepass -->
 	<div class="container table-holder">
 		<table align="center" class="table table-striped">
 		  <%		
@@ -231,6 +225,19 @@ security.enable(session, response);
 <%} %>
 		</table>
 	</div>
+   
+   
+   
+   
+   
+   
+    <!-- Drawing Google Chart -->
+    
+    <div id="donutchart"></div>
+	
+    <div class="container"></div>
+      
+	
 
 </div>
 </div>
@@ -261,7 +268,7 @@ String total = "select * from total_stats;";
 ResultSet rs3 = statement.executeQuery(total);
 while (rs3.next()) {
 %>
-<script type="text/javascript">
+<script type="text/javascript" align="center">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
