@@ -190,7 +190,7 @@ try {
 
 
 
-		<table align="center" class="table table-striped">
+		<table align="center" class="table table-striped table-primary">
 
 
 			<thead class="thead-dark">
