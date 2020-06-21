@@ -32,6 +32,7 @@ security.enable(session, response);
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     
+   <link rel="stylesheet" href="css/navbar-side.css">
    <link rel="stylesheet" href="css/admin.css"> 
    <!-- Font Awesome JS -->
     
@@ -57,14 +58,42 @@ security.enable(session, response);
 	%>
 
     
-    <div class="container-fluid header">
-     <h1 >Gate Pass Admin Portal
-     <form name="logout_button" action="<%=request.getContextPath()%>/logout"  method="get">
-     <input class="btn btn-sign-out" type="submit" value="Sign Out">
-    </form>
-     </h1>
-    </div>
-  <table border=1 align=center class="table table-striped">
+     <!-- Creating the Navigation Menu -->
+
+	<div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Gate Pass Admin Portal</h3>
+                <strong>GA</strong>
+            </div>
+
+           <ul class="list-unstyled components">
+            <li>
+                <a href="#" id="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+                </a>
+            </li>
+            </ul>
+        </nav>
+        
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-justify"></i>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                </div>
+            </nav>
+  <table border=1 align=center class="table table-striped table-primary">
 		<thead>
 			<tr>
 				<th>Gate Pass Number</th>
@@ -95,7 +124,10 @@ security.enable(session, response);
 				<td><%=rs1.getString("Date_of_Leaving")%></td>
 				<td><%=rs1.getString("Date_of_Returning")%></td>
 				<td><%=rs1.getString("Date_of_return")%></td>
-				<td><a href="<%=request.getContextPath()%>/SendMail?email=<%=rs1.getString("email")%>&date=<%=rs1.getString("Date_of_return")%>&Pass=<%=rs1.getString("GatePassNumber")%>" class="badge badge-primary"><i class="fas fa-envelope-open-text"></i>Send Email</a></td>
+				<td><a href="<%=request.getContextPath()%>
+				/SendMail?email=<%=rs1.getString("email")%>
+				&date=<%=rs1.getString("Date_of_return")%>&Pass=<%=rs1.getString("GatePassNumber")%>">
+				<span class="mail-button"><i class="fas fa-envelope-open-text"></i></span></a></td>
 			</tr>
 
 			<%
@@ -109,5 +141,36 @@ security.enable(session, response);
 		e.printStackTrace();
 	}
 	%>
+</div>
+</div>
+
+<!-- Importing tether,jQuery,Bootstrap javaScripts -->
+
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+		crossorigin="anonymous"></script>
+		
+		<!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" 
+        crossorigin="anonymous"></script>
 </body>
+<script>
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+});
+    $("#logout").on('click', function() {
+        	  window.location = "<%=request.getContextPath()%>/logout" 
+        	});
+</script>
 </html>
