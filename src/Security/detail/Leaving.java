@@ -26,7 +26,6 @@ public class Leaving extends HttpServlet {
 		String Date= request.getParameter("Date");
 		System.out.println(Date);
 		// MySQL Server Details
-
 		String driver = "com.mysql.jdbc.Driver";
 		String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
 		String database = "zvp0njb2yauy3fgk";
