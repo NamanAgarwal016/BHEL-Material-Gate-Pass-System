@@ -33,6 +33,9 @@ security.enable(session, response);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     
    <link rel="stylesheet" href="css/admin.css"> 
+   <!-- Font Awesome JS -->
+    
+<script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
     
     
     
@@ -66,15 +69,17 @@ security.enable(session, response);
 			<tr>
 				<th>Gate Pass Number</th>
 				<th>Issuing Officer</th>
+				<th>Initiating Officer</th>
 				<th>Status</th>
 				<th>Date Of Leaving </th>
 				<th>Date Of Closing</th>
 				<th>Date of Return</th>
+				<th>Send Email Reminder</th>
 			</tr>
 		</thead>
 		  <%
     String loggedInUser;
-	String insertTableSQL3 = "SELECT a.* ,b.status, b.Date_of_return from admin_view a, material b where a.GatePassNumber=b.PassNumber;";
+	String insertTableSQL3 = "SELECT a.* ,b.status, b.Date_of_return,b.InitiatingOfficer,c.email from admin_view a, material b, login c where a.GatePassNumber=b.PassNumber and b.staff_id=c.staff_id group by GatePassNumber;";
 	PreparedStatement st3 = connection.prepareStatement(insertTableSQL3);
 	ResultSet rs1 = st3.executeQuery();
 	int entry = 0;
@@ -85,10 +90,12 @@ security.enable(session, response);
 			<tr>
 				<td><%=rs1.getString("GatePassNumber")%></td>
 				<td><%=rs1.getString("Issuing Officer")%></td>
+				<td><%=rs1.getString("InitiatingOfficer")%></td>
 				<td><%=rs1.getString("status")%></td>
 				<td><%=rs1.getString("Date_of_Leaving")%></td>
 				<td><%=rs1.getString("Date_of_Returning")%></td>
 				<td><%=rs1.getString("Date_of_return")%></td>
+				<td><a href="<%=request.getContextPath()%>/SendMail?email=<%=rs1.getString("email")%>&date=<%=rs1.getString("Date_of_return")%>&Pass=<%=rs1.getString("GatePassNumber")%>" class="badge badge-primary"><i class="fas fa-envelope-open-text"></i>Send Email</a></td>
 			</tr>
 
 			<%
