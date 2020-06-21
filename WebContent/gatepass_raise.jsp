@@ -166,8 +166,8 @@ try {
             </ul>
         </nav>
          
-        <%
-		String user = (String) session.getAttribute("username");
+        1<%
+			String user = (String) session.getAttribute("username");
 		String pass = (String) session.getAttribute("password");
 		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
 		ResultSet rs1 = statement.executeQuery(loggedInUser);
@@ -191,10 +191,10 @@ try {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" ><%=rs1.getString("firstname")%></a>
+                            	<a class="nav-link" ><%=rs1.getString("firstname")%></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"><span style="color:black"><i class="fas fa-user"></i></span></a>
+                                <a class="nav-link"><span style="color:black"><i class="fas fa-user-circle"></i></span></a>
                             </li>
                         </ul>
                     </div>
@@ -203,13 +203,16 @@ try {
 
         <%
 			}
-		%>
+%>
 		<%
 				connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				%>
+				<h3 class="text-center">
+		<b>GATE PASS FORM</b>
+	</h3>
 				
 	<form method="post" id="gatepassMainForm" name="raiseForm">
 
@@ -363,30 +366,21 @@ function confirmSubmit() {
 	var answer = confirm("Must check if all the details are filled. Confirm Submit ??")
 
 	if (answer) {
-
-		var x = document
-				.getElementById("gatepassMainForm");
-
+		var x = document.getElementById("gatepassMainForm");
 		var i;
 		for (i = 0; i < x.length; i++) {
-
-			if (!x.elements[i].value.localeCompare("")) {
-
+				if (!x.elements[i].value.localeCompare("")) {
 				alert("One or more fields are empty. Please fill all the details !!");
 				return false;
-
 			}
 		}
-
 		document.getElementById("formStatus").value = "Pending";
+		
 		document.getElementById("gatepassMainForm").action="<%=request.getContextPath()%>/raisegatepass";           
 		document.getElementById("gatepassMainForm").method ="post";
-		document.getElementById("gatepassMainForm")
-				.submit();
-
+		document.getElementById("gatepassMainForm").submit();
 	} else {
 		return false;
-
 	}
 }			
 
@@ -399,6 +393,7 @@ function confirmSave() {
 	if (answer) {
 
 		document.getElementById("formStatus").value = "Draft";
+		
 		document.getElementById("gatepassMainForm").action = "<%=request.getContextPath()%>/raisegatepass";
 		document.getElementById("gatepassMainForm").method = "post";
 		document.getElementById("gatepassMainForm").submit();

@@ -157,7 +157,7 @@ public class raisegatepass extends HttpServlet {
 				System.out.println("Done non bhel person table");
 			}
 
-			// Inserting Custodian Details into table
+			// Inserting Custodian Details into materail_details table
 
 			String insertTableSQL5 = "INSERT INTO material_details VALUES(?, ?, ?);";
 			PreparedStatement st5 = connection.prepareStatement(insertTableSQL5);
