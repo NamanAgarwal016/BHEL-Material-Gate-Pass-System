@@ -27,6 +27,7 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String realPassword = request.getParameter("password");
 		String password = MD5.getMd5(username.concat(realPassword)) ; 
+		
 		LoginBean loginBean = new LoginBean();
 		loginBean.setUsername(username);
 		loginBean.setPassword(password);

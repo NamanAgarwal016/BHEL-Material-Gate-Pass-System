@@ -154,6 +154,15 @@ try {
             </ul>
         </nav>
         
+               
+        <%
+			String user = (String) session.getAttribute("username");
+		String pass = (String) session.getAttribute("password");
+		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
+		ResultSet rs1 = statement.executeQuery(loggedInUser);
+		while (rs1.next()) {
+		%>
+        
         <!-- Page Content  -->
         <div id="content">
 
@@ -167,33 +176,22 @@ try {
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" >Welcome, <%=rs1.getString("firstname")%></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><span style="color:black"><i class="fas fa-user-circle"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
-            
-	<div class="container-fluid">
-		<div class="row">
-			<%
-				String user = (String) session.getAttribute("username");
-			String pass = (String) session.getAttribute("password");
-			String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
-			ResultSet rs1 = statement.executeQuery(loggedInUser);
-			while (rs1.next()) {
-			%>
-			<div class="col text-left welcomeMessage">
-				<b><%=rs1.getString("firstname")%> <%=rs1.getString("lastname")%></b>
 
-			</div>
-			<div class="col text-right">
-				<b>Staff ID:<%=rs1.getString("staff_id")%>
-				</b>
-				<%
-					}
-				%>
-
-			</div>
-		</div>
-	</div>
-
+        <%
+			}
+%>
 	<h3 class="text-center">
 		<b>GATE PASS FORM</b>
 	</h3>
@@ -217,9 +215,9 @@ try {
 
 			<input type="radio" id="bhelPerson" name="personType"
 				value="bhelPerson" onclick="bhel()" /> <label for="bhelPerson">BHEL,
-				HPVP Person</label> <br> <input type="radio" id="nonBhelPerson"
+				HPVP</label> <br> <input type="radio" id="nonBhelPerson"
 				name="personType" value="nonBhelPerson" onclick="nonBhel()" /> <label
-				for="nonBhelPerson">Non BHEL, HPVP Person</label><br>
+				for="nonBhelPerson">Non BHEL, HPVP</label><br>
 
 		</div>
 
