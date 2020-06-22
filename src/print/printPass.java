@@ -85,8 +85,9 @@ public class printPass extends HttpServlet {
 			
 			document.open();
 			
-			Font f1 = new Font(Font.FontFamily.TIMES_ROMAN,15,Font.BOLD,BaseColor.BLACK);
-			Font f2 = new Font(Font.FontFamily.TIMES_ROMAN,10,Font.BOLD,BaseColor.BLACK);
+			Font f1 = new Font(Font.FontFamily.TIMES_ROMAN,10,Font.BOLD,BaseColor.BLACK);
+			Font f2 = new Font(Font.FontFamily.TIMES_ROMAN,8,Font.BOLD,BaseColor.BLACK);
+			Font f3 = new Font(Font.FontFamily.TIMES_ROMAN,8,Font.NORMAL,BaseColor.BLACK);
 			
 			
 			String passNum = "Gate Pass No. " + GatePassNumber;
@@ -101,18 +102,25 @@ public class printPass extends HttpServlet {
 			
 			Date dNow1 = new Date();
 	        SimpleDateFormat ft1 = 
-	        new SimpleDateFormat ("dd.MM.yyyy");
+	        new SimpleDateFormat ("dd-MM-yyyy");
 	        String presentDate = ft1.format(dNow1);
 			
 			
 			String strBHEL = "Bharat Heavy Electricals Limited\n" + "Heavy Plates and Vessels Plant\n" + "Visakhapatnam";
 			String gatePass = "\n MATERIAL GATE PASS\n" + "(RETURNABLE)\n" + "IN/OUT"; 
-			String gatePassNum = "GATE PASS NO.\n \n" + GatePassNumber + "\n";
+			String gatePassNum = "GATE PASS NO.\n" + GatePassNumber + "\n";
 			Image img = Image.getInstance("C:\\Users\\bhanu\\git\\BHEL-Material-Gate-Pass-System\\WebContent\\img_src\\Login_logo.jpg");
 			PdfPCell c1 = new PdfPCell( img , true);
+			c1.setVerticalAlignment(Element.ALIGN_MIDDLE);
 			PdfPCell c2 = new PdfPCell(new Paragraph(strBHEL,f2));
+			c2.setHorizontalAlignment(Element.ALIGN_CENTER);
+			c2.setVerticalAlignment(Element.ALIGN_MIDDLE);
 			PdfPCell c3 = new PdfPCell(new Paragraph(gatePass,f2));
+			c3.setHorizontalAlignment(Element.ALIGN_CENTER);
+			c3.setVerticalAlignment(Element.ALIGN_MIDDLE);
 			PdfPCell c4 = new PdfPCell(new Paragraph(gatePassNum,f2));
+			c4.setHorizontalAlignment(Element.ALIGN_CENTER);
+			c4.setVerticalAlignment(Element.ALIGN_MIDDLE);
 			PdfPCell sc1 = new PdfPCell(new Paragraph("PREVIEW",f2));
 			PdfPCell sc2 = new PdfPCell(new Paragraph("\nDate: \n"+ presentDate,f2));
 			tableHeaderSub.addCell(sc1);
@@ -134,10 +142,10 @@ public class printPass extends HttpServlet {
 			
 			
 			PdfPTable tableCompany = new PdfPTable(3);
-			tableCompany.setWidths(new float[] {1,2,2});
+			tableCompany.setWidths(new float[] {1,4,4});
 			
-			String stores = "Person\n Taking\n Stores";
-			
+			String stores = "Person\nTaking\nStores";
+			Paragraph person = new Paragraph(stores,f3);
 			String staffId = " ";
 			String designation = " ";
 			String department = " ";
@@ -159,7 +167,9 @@ public class printPass extends HttpServlet {
 			
 			String forBHEL = "\n BHEL Employee \n \nStaff No :  "+staffId+" \n" + "Designation :  "+designation+"\n" + "Department :  "+department+"\n" ;
 			String nonBHEL ="\n Non BHEL \n \n Company Name : "+ company+" \n" + "Address :"+ address +"\n" ;
-			 c1 = new PdfPCell(new Paragraph(stores));
+			 c1 = new PdfPCell(person);
+			 c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			 c1.setVerticalAlignment(Element.ALIGN_MIDDLE);
 		     c2 = new PdfPCell(new Paragraph(forBHEL,f2));
 			 c3 = new PdfPCell(new Paragraph(nonBHEL,f2));
 			 tableCompany.addCell(c1);
@@ -169,7 +179,7 @@ public class printPass extends HttpServlet {
 			 
 			 
 			 PdfPTable tableMaterial = new PdfPTable(2);
-			 tableMaterial.setWidths(new float[] {20,80});
+			 tableMaterial.setWidths(new float[] {1,(float)5.5});
 			 PdfPTable tableMaterialSub = new PdfPTable(5);
 			 
 				
@@ -181,9 +191,9 @@ public class printPass extends HttpServlet {
 			 String date = "Date of Return \n";
 			
 			 
-			 PdfPCell k1 = new PdfPCell(new Paragraph(particulars));
-			 
-			 
+			 PdfPCell k1 = new PdfPCell(new Paragraph(particulars,f3));
+			 k1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			 k1.setVerticalAlignment(Element.ALIGN_MIDDLE);
 			 PdfPCell k2 = new PdfPCell(new Paragraph(sNo,f2));
 			 PdfPCell k3 = new PdfPCell(new Paragraph(description,f2));
 			 PdfPCell k4 = new PdfPCell(new Paragraph(unit,f2));
@@ -207,11 +217,11 @@ public class printPass extends HttpServlet {
 				  date = rs5.getString("Date_of_return");
 				 
 				 
-				  k2 = new PdfPCell(new Paragraph(sNo));
-				  k3 = new PdfPCell(new Paragraph(description));
-				  k4 = new PdfPCell(new Paragraph(unit));
-				  k5 = new PdfPCell(new Paragraph(quantity));
-				  k6 = new PdfPCell(new Paragraph(date));
+				  k2 = new PdfPCell(new Paragraph(sNo,f3));
+				  k3 = new PdfPCell(new Paragraph(description,f3));
+				  k4 = new PdfPCell(new Paragraph(unit,f3));
+				  k5 = new PdfPCell(new Paragraph(quantity,f3));
+				  k6 = new PdfPCell(new Paragraph(date,f3));
 				 
 				 tableMaterialSub.addCell(k2);
 				 tableMaterialSub.addCell(k3);
@@ -228,8 +238,8 @@ public class printPass extends HttpServlet {
 
 			 
 			 PdfPTable tableReciever = new PdfPTable(3);
-			 tableReciever.setWidths(new float[] {1,3,3});
-				String recieve = "TO WHOM SENT\n     \n     \n     \n     \n";
+			 tableReciever.setWidths(new float[] {1,4,4});
+				String recieve = "TO WHOM SENT\n ";
 				String recName = rs22.getString("name");
 				String recdesg = rs22.getString("designation");
 				String recdept = rs22.getString("dept");
@@ -237,7 +247,9 @@ public class printPass extends HttpServlet {
 				String reciever = "Name:"+ recName +"\n" + "Designation: " + recdesg + "\n" + "Department" + recdept + "\n" + "Address" + recAddress ;
 				String purposeDetail = rs6.getString("Details");
 				String purpose = "Purpose:"+ purposeDetail +"\n";
-			    c1 = new PdfPCell(new Paragraph(recieve));
+			    c1 = new PdfPCell(new Paragraph(recieve,f3));
+			    c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+				c1.setVerticalAlignment(Element.ALIGN_MIDDLE);
 				c2 = new PdfPCell(new Paragraph(reciever,f2));
 				c3 = new PdfPCell(new Paragraph(purpose,f2));
 				tableReciever.addCell(c1);
@@ -253,16 +265,26 @@ public class printPass extends HttpServlet {
 			
 			PdfPTable tableSignature = new PdfPTable(5);
 			
-			String signatureReciever  = "\n\n\n"+ Name +"\n"+ "Signature of Reciever";
+			String signatureReciever  = "("+ Name +") \n"+ "Signature of Reciever";
 			String signatureIncharge = "\n\n\n\n Name & Signature of CISF Gate Incharge on Return of Materials";
-			String dateSignature = "Date : ";
+			String dateSignature = "Date";
 			String time = "TIME \n IN/OUT";
 			String register = "CISF Material Register Entry No." ;
 		     c1 = new PdfPCell(new Paragraph(signatureReciever,f2));
+		     c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			 c1.setVerticalAlignment(Element.ALIGN_BOTTOM);
 			 c2 = new PdfPCell(new Paragraph(signatureIncharge,f2));
+			 c2.setHorizontalAlignment(Element.ALIGN_CENTER);
+			 c2.setVerticalAlignment(Element.ALIGN_BOTTOM);
 			 c3 = new PdfPCell(new Paragraph(dateSignature,f2));
+			 c3.setHorizontalAlignment(Element.ALIGN_CENTER);
+			 c3.setVerticalAlignment(Element.ALIGN_TOP);
 			 c4 = new PdfPCell(new Paragraph(time,f2));
+			 c4.setHorizontalAlignment(Element.ALIGN_CENTER);
+			 c4.setVerticalAlignment(Element.ALIGN_TOP);
 			 PdfPCell c5 = new PdfPCell(new Paragraph(register,f2));
+			 c5.setHorizontalAlignment(Element.ALIGN_CENTER);
+			 c5.setVerticalAlignment(Element.ALIGN_TOP);
 			 tableSignature.addCell(c1);
 			 tableSignature.addCell(c2);
 			 tableSignature.addCell(c3);
@@ -276,9 +298,17 @@ public class printPass extends HttpServlet {
 				String vehicleNo = "Vehicle No.\n \n ";
 				String signatureIssue = "\n\n\n\n Signature and Designation of Issuing Officer\n";
 			     c1 = new PdfPCell(new Paragraph(signatureGateIncharge,f2));
+			     c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+				 c1.setVerticalAlignment(Element.ALIGN_BOTTOM);
 				 c2 = new PdfPCell(new Paragraph(signatureCustodian,f2));
+				 c2.setHorizontalAlignment(Element.ALIGN_CENTER);
+				 c2.setVerticalAlignment(Element.ALIGN_BOTTOM);
 				 c3 = new PdfPCell(new Paragraph(vehicleNo,f2));
+				 c3.setHorizontalAlignment(Element.ALIGN_CENTER);
+				 c3.setVerticalAlignment(Element.ALIGN_TOP);
 				 c4 = new PdfPCell(new Paragraph(signatureIssue,f2));
+				 c4.setHorizontalAlignment(Element.ALIGN_CENTER);
+				 c4.setVerticalAlignment(Element.ALIGN_BOTTOM);
 				 tableGate.addCell(c1);
 				 tableGate.addCell(c2);
 				 tableGate.addCell(c3);
