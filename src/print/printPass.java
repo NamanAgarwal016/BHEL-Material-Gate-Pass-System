@@ -108,8 +108,8 @@ public class printPass extends HttpServlet {
 			String strBHEL = "Bharat Heavy Electricals Limited\n" + "Heavy Plates and Vessels Plant\n" + "Visakhapatnam";
 			String gatePass = "\n MATERIAL GATE PASS\n" + "(RETURNABLE)\n" + "IN/OUT"; 
 			String gatePassNum = "GATE PASS NO.\n \n" + GatePassNumber + "\n";
-			
-			PdfPCell c1 = new PdfPCell(Image.getInstance("C:\\Users\\bhanu\\git\\BHEL-Material-Gate-Pass-System\\WebContent\\img_src\\Login_logo.jpg"), true);
+			Image img = Image.getInstance("C:\\Users\\bhanu\\git\\BHEL-Material-Gate-Pass-System\\WebContent\\img_src\\Login_logo.jpg");
+			PdfPCell c1 = new PdfPCell( img , true);
 			PdfPCell c2 = new PdfPCell(new Paragraph(strBHEL,f2));
 			PdfPCell c3 = new PdfPCell(new Paragraph(gatePass,f2));
 			PdfPCell c4 = new PdfPCell(new Paragraph(gatePassNum,f2));
@@ -134,8 +134,8 @@ public class printPass extends HttpServlet {
 			
 			
 			PdfPTable tableCompany = new PdfPTable(3);
+			tableCompany.setWidths(new float[] {1,2,2});
 			
-			String space = " ";
 			String stores = "Person\n Taking\n Stores";
 			
 			String staffId = " ";
@@ -169,6 +169,7 @@ public class printPass extends HttpServlet {
 			 
 			 
 			 PdfPTable tableMaterial = new PdfPTable(2);
+			 tableMaterial.setWidths(new float[] {20,80});
 			 PdfPTable tableMaterialSub = new PdfPTable(5);
 			 
 				
@@ -227,7 +228,7 @@ public class printPass extends HttpServlet {
 
 			 
 			 PdfPTable tableReciever = new PdfPTable(3);
-				
+			 tableReciever.setWidths(new float[] {1,3,3});
 				String recieve = "TO WHOM SENT\n     \n     \n     \n     \n";
 				String recName = rs22.getString("name");
 				String recdesg = rs22.getString("designation");
@@ -236,7 +237,7 @@ public class printPass extends HttpServlet {
 				String reciever = "Name:"+ recName +"\n" + "Designation: " + recdesg + "\n" + "Department" + recdept + "\n" + "Address" + recAddress ;
 				String purposeDetail = rs6.getString("Details");
 				String purpose = "Purpose:"+ purposeDetail +"\n";
-			    c1 = new PdfPCell(new Paragraph(recieve,f2));
+			    c1 = new PdfPCell(new Paragraph(recieve));
 				c2 = new PdfPCell(new Paragraph(reciever,f2));
 				c3 = new PdfPCell(new Paragraph(purpose,f2));
 				tableReciever.addCell(c1);
