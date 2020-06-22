@@ -142,9 +142,9 @@ security.enable(session, response);
       <tr>
       <td class="text-right">Select Gate Pass Number:</td>
       <td class="text-left">
-        <form action="preview.php">
-        <input type="number">
-        <button class="btn btn-print"><i class="fas fa-file-download"></i></button>
+        <form name="print_form" id="print_form" action="<%=request.getContextPath()%>/printPass" method="post">
+        <input type="text" name = "Gnumber">
+        <button class="btn btn-print" type = "submit" ><i class="fas fa-file-download"></i></button>
         </form>
       </td>
       </tr>
