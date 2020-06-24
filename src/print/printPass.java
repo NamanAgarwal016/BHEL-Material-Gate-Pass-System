@@ -79,7 +79,6 @@ public class printPass extends HttpServlet {
 			String details = "select Details from material_details WHERE gatepass='" + GatePassNumber + "'";
 			ResultSet rs6 = statement6.executeQuery(details);
 			rs6.next();
-//			 new FileOutputStream("C:\\Users\\bhanu\\Desktop\\PS 1\\page\\text.pdf");	
 			PdfWriter.getInstance(document,response.getOutputStream() );
 			
 			
@@ -109,7 +108,8 @@ public class printPass extends HttpServlet {
 			String strBHEL = "Bharat Heavy Electricals Limited\n" + "Heavy Plates and Vessels Plant\n" + "Visakhapatnam";
 			String gatePass = "\n MATERIAL GATE PASS\n" + "(RETURNABLE)\n" + "IN/OUT"; 
 			String gatePassNum = "GATE PASS NO.\n" + GatePassNumber + "\n";
-			Image img = Image.getInstance("C:\\Users\\bhanu\\git\\BHEL-Material-Gate-Pass-System\\WebContent\\img_src\\Login_logo.jpg");
+			String imgSource = this.getServletContext().getRealPath("/img_src/login_logo.jpg");
+			Image img = Image.getInstance(imgSource);
 			PdfPCell c1 = new PdfPCell( img , true);
 			c1.setVerticalAlignment(Element.ALIGN_MIDDLE);
 			PdfPCell c2 = new PdfPCell(new Paragraph(strBHEL,f2));
