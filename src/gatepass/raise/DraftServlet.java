@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
+import login.database.Database;
+
+
 @WebServlet("/DraftServlet")
 public class DraftServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -71,16 +74,16 @@ public class DraftServlet extends HttpServlet {
 
 		// MySQL Server Details
 
-		String driver = "com.mysql.jdbc.Driver";
-		String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
-		String database = "zvp0njb2yauy3fgk";
-		String userid = "pjyaoyeilkkbtjg8";
-		String passwordd = "ejzn69wchxp2bv6j";
+		String driver = Database.getdriver();
+		String connectionUrl = Database.getConnectionUrl();
+		String database = Database.getDatabase();
+		String userid = Database.getUserId();
+		String password = Database.getPassword();
 
 		try {
 			Class.forName(driver);
 
-			Connection connection = DriverManager.getConnection(connectionUrl + database, userid, passwordd);
+			Connection connection = DriverManager.getConnection(connectionUrl + database, userid, password);
 
 			// Inserting Material details
 			String insertTableSQL0 = "delete from material where PassNumber='"+ PassNumber +"' and status='"+ status +"'";

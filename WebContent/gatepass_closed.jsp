@@ -145,11 +145,11 @@ security.enable(session, response);
 <table align="center" class="table table-striped table-primary">
        <%
 		try {
-		String driver = "com.mysql.jdbc.Driver";
-		String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
-		String database = "zvp0njb2yauy3fgk";
-		String userid = "pjyaoyeilkkbtjg8";
-		String password = "ejzn69wchxp2bv6j";
+			String driver = Database.getdriver();
+			String connectionUrl = Database.getConnectionUrl();
+			String database = Database.getDatabase();
+			String userid = Database.getUserId();
+			String password = Database.getPassword();
 		Class.forName(driver);
 		Connection connection = null;
 		Statement statement = null;

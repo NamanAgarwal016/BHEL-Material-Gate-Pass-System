@@ -1,13 +1,12 @@
 package print;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +25,8 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import login.database.Database;
+
 @WebServlet("/printPass")
 public class printPass extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,11 +35,11 @@ public class printPass extends HttpServlet {
 		
 		String GatePassNumber = (String) request.getParameter("Gnumber"); // Gate Pass Number
 		
-		String driver = "com.mysql.cj.jdbc.Driver";
-		String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/";
-		String database = "zvp0njb2yauy3fgk";
-		String userid = "pjyaoyeilkkbtjg8";
-		String password = "ejzn69wchxp2bv6j";
+		String driver = Database.getdriver();
+		String connectionUrl = Database.getConnectionUrl();
+		String database = Database.getDatabase();
+		String userid = Database.getUserId();
+		String password = Database.getPassword();
 
 		try {
 			Class.forName(driver);
