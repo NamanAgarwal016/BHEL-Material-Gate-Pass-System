@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
 <%
@@ -46,7 +46,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 			align="right" height="90" class="logo-top">
 
 
-		<p class="text-white">
+		<p class="text-white" align="center" style="font-size:120%;">
 			Bharat Heavy Electricals Limited <br>Heavy Plates and Vessels
 			Plant <br>Visakhapatnam
 		</p>
@@ -55,7 +55,27 @@ response.setDateHeader("Expires", 0); // Proxies.
 
 	<div class="jumbotron text-center login-main">
 		<div class="container-fluid">
-			<img src="img_src\landing3.jpg" align="left" class="img-main">
+			<div align="left" id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+ 				 <div class="carousel-inner">
+    				<div class="carousel-item active">
+     					 <img class="d-block w-100" src="img_src\landing3.jpg">
+   				    </div>
+   				    <div class="carousel-item">
+      					 <img class="d-block w-100" src="img_src\abc.png">
+                    </div>
+                    <div class="carousel-item">
+                         <img class="d-block w-100" src="img_src\bhel.png">
+                    </div>
+                    <div class="carousel-item">
+                         <img class="d-block w-100" src="img_src\bhel2.png">
+                    </div>
+                    <div class="carousel-item">
+                         <img class="d-block w-100" src="img_src\bhel3.png">
+                    </div>
+                    
+   
+                </div>
+            </div>
 
 			<!-- Login Form -->
 

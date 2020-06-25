@@ -11,12 +11,9 @@
 
 <%@page import="login.web.Security"%>
 <%
-
 Security security = new Security();
 security.enable(session, response);
-
 Integer staffid = (Integer) session.getAttribute("staffid");
-
 if (staffid == 100|| staffid == 102 || staffid == 103 ) {
 	try {
 		response.sendRedirect("gatepass_invalidUser.jsp");
@@ -24,7 +21,6 @@ if (staffid == 100|| staffid == 102 || staffid == 103 ) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-
 }
 %>
 
@@ -34,7 +30,6 @@ String connectionUrl = "jdbc:mysql://dno6xji1n8fm828n.cbetxkdyhwsb.us-east-1.rds
 String database = "zvp0njb2yauy3fgk";
 String userid = "pjyaoyeilkkbtjg8";
 String password = "ejzn69wchxp2bv6j";
-
 try {
 	Class.forName(driver);
 } catch (ClassNotFoundException e) {
@@ -42,7 +37,6 @@ try {
 }
 Connection connection = null;
 Statement statement = null;
-
 try {
 	connection = DriverManager.getConnection(connectionUrl + database, userid, password);
 	statement = connection.createStatement();
@@ -338,8 +332,6 @@ try {
 		</div>
 <script>
 //function to clear the complete Gate Pass Form , after confirming from the User
-
-
 function confirmClear() {
 	var answer = confirm("Confirm to clear the Form??");
 	if (answer) {
@@ -357,14 +349,9 @@ function confirmClear() {
 	}
 	
 }
-
-
 // function to Register completed Gate Pass Form , after confirming from the User
-
-
 function confirmSubmit() {
 	var answer = confirm("Must check if all the details are filled. Confirm Submit ??")
-
 	if (answer) {
 		var x = document.getElementById("gatepassMainForm");
 		var i;
@@ -383,26 +370,19 @@ function confirmSubmit() {
 		return false;
 	}
 }			
-
-
 // function to save the Gate Pass Form as a Draft
-
-
 function confirmSave() {
 	var answer = confirm("Please note that this feature is only for bhel_person. Also you can use Save feature only once.. However you are free to fill & register it at anytime. Confirm to Save As Darft ?? ")
 	if (answer) {
-
 		document.getElementById("formStatus").value = "Draft";
 		
 		document.getElementById("gatepassMainForm").action = "<%=request.getContextPath()%>/raisegatepass";
 		document.getElementById("gatepassMainForm").method = "post";
 		document.getElementById("gatepassMainForm").submit();
-
 	} else {
 		return false;
 	}
 }
-
 </script>
 
 	</form>

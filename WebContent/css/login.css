@@ -28,11 +28,14 @@
   margin-top:10px;
   }
   .login-main{
-  width:100%;background-color:white;
+  width:100%;background-color:white;float:left;
   }
-  .img-main{
+  .carousel-inner{
+  margin-right:0px;
+  height:auto;
   width:60%;
-  padding:10px;
+  float:left;
+
   outline:solid 4px #342a5a;
   }
   input {
