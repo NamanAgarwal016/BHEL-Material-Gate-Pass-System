@@ -96,7 +96,7 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
                 <li class="active">
                     <a href="gatepass_raise.jsp">
                         <i class="fas fa-file-upload"></i>
-                        Help
+                        Raise
                     </a>
                     </li>
                     <li>
@@ -180,9 +180,7 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-                    <p class="page-heading">
-		           GATE PASS FORM
-	               </p>
+                  
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
@@ -195,6 +193,8 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
                     </div>
                 </div>
             </nav>
+            
+           
 
         <%
 			}
@@ -205,6 +205,10 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 					e.printStackTrace();
 				}
 				%>
+				
+				<h3 class="text-center" style="color:#6648b0;">
+		<b>GATE PASS FORM</b>
+	</h3>
 				
 	<form method="post" id="gatepassMainForm" name="raiseForm">
 
@@ -231,7 +235,7 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
 				name="bhelStaffNo" value="Enter Staff No."/> <br> <label
-				for="bhelName">Name:</label><input type="text" name="bhelName" value="Enter Name"
+				for="bhelName">Name:</label> <input type="text" name="bhelName" value="Enter Name"
  			 /> <br> <label for="bhelDeg">Designation:</label>
 			<input type="text" name="bhelDeg" value="Enter Designation" /> <br> <label
 				for="bhelDept">Department:</label> <input type="text"

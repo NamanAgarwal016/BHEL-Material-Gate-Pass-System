@@ -21,7 +21,7 @@ function nonBhel() {
 	content.style.display = "block";
 	var hide = document.getElementById("bhelInfo");
 	hide.style.display = "none";
-	var hideDraft = document.getElementById("draftBtn");
+	var hideDraft = document.getElementById("draftbutton");
 	hideDraft.style.display = "none";
 }
 
