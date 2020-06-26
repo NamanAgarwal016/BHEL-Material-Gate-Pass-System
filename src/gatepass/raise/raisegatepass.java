@@ -170,8 +170,15 @@ public class raisegatepass extends HttpServlet {
 			System.out.println("Done material detials custodian table");
 
 			request.setAttribute("printval", PassNumber);
-			RequestDispatcher view = request.getRequestDispatcher("RequestSuccess.jsp");
-			view.forward(request, response);
+			
+			if(status.equals("Draft")) {
+				RequestDispatcher view = request.getRequestDispatcher("RequestDraftSuccess.jsp");
+				view.forward(request, response);
+			}
+			else {
+				RequestDispatcher view = request.getRequestDispatcher("RequestSuccess.jsp");
+				view.forward(request, response);
+			}
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
