@@ -370,7 +370,7 @@ function confirmSubmit() {
 }			
 // function to save the Gate Pass Form as a Draft
 function confirmSave() {
-	var answer = confirm("Please note that this feature is only for bhel_person. Also you can use Save feature only once.. However you are free to fill & register it at anytime. Confirm to Save As Darft ?? ")
+	var answer = confirm("Please note that this feature is only for bhel_person. Also you can use Save feature only once.. However you are free to fill & register it at anytime. Confirm to Save As Draft ?? ")
 	if (answer) {
 		document.getElementById("formStatus").value = "Draft";
 		
