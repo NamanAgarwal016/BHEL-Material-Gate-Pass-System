@@ -1,8 +1,9 @@
 label {
 	width: 150px;
 }
-input:focus,select:focus,textarea:focus{
-	outline-color: #6648b0;
+input{
+	padding:2px;
+	margin:4px;
 }
 
 textarea {
@@ -77,4 +78,12 @@ th,td {
 
 #gatepassMainForm {
 	margin-top: 5%;
+}
+.page-heading{
+	font-weight:bold;
+	font-size:20px;
+	color:#6648b0;
+	margin-top:15px;
+	margin-left:320px;
+	
 }

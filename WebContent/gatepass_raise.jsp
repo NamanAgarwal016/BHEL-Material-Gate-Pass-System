@@ -180,6 +180,9 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
+                    <p class="page-heading">
+		           GATE PASS FORM
+	               </p>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
@@ -202,9 +205,6 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 					e.printStackTrace();
 				}
 				%>
-				<h3 class="text-center">
-		<b>GATE PASS FORM</b>
-	</h3>
 				
 	<form method="post" id="gatepassMainForm" name="raiseForm">
 
@@ -253,8 +253,8 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 		<div class="materialForm text-center">
 			<label for="noOfItems">Number of Items:</label> <input type="number"
 				name="noOfItems" id="noOfItems" value="0" /> 
-				 <input type="button"
-				value="Generate Form" onclick="generate()">
+				 <input type="button" class="btn btn-primary"
+				value=">" onclick="generate()">
 			<div id="wrapper" class="text-center"></div>
 		</div>
 
