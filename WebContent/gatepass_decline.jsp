@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 	
+<%@page import="login.web.Security"%>
 
+<%
+Security security = new Security();
+security.enable(session, response);
+%>
 
 
 <!DOCTYPE html>
@@ -96,7 +101,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="gatepass_contact.jsp">
                         <i class="fas fa-paper-plane"></i>
                    Contact
               </a>

@@ -141,7 +141,7 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="gatepass_contact.jsp">
                         <i class="fas fa-paper-plane"></i>
                    Contact
               </a>

@@ -122,7 +122,7 @@ if (staffid == 101|| staffid == 102 || staffid == 103 || staffid == 104 ) {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="gatepass_contact.jsp">
                         <i class="fas fa-paper-plane"></i>
                    Contact
               </a>

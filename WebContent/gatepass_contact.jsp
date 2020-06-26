@@ -1,48 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@page import="login.web.Security"%>
-<%@page import="login.database.*"%>
-<%@page import="login.web.*"%>
+	pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>	
-<%@page import="login.web.Security"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="login.database.*"%>
 
-	
-<%@page import="login.web.Security"%>
 <%
-Security security = new Security();
-security.enable(session, response);
+String driver = Database.getdriver();
+String connectionUrl = Database.getConnectionUrl();
+String database = Database.getDatabase();
+String userid = Database.getUserId();
+String password = Database.getPassword();
+
+try {
+	Class.forName(driver);
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+}
+Connection connection = null;
+Statement statement = null;
+
+try {
+	connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+	statement = connection.createStatement();
 %>
+
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="ISO-8859-1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Material Gate Pass - Pending</title>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Adding Bootstrap CSS -->
-    
-    <!-- Bootstrap CSS CDN -->
+<title>Contact</title>
+
+<!-- Adding Bootstrap CSS -->
+
+<!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+<!-- Adding Custom CSS -->
+
+<link rel="stylesheet" href="css/navbar-side.css">
+<link rel="stylesheet" href="css/response.css">
+
+<!-- Font Awesome JS -->
     
-    <!-- Adding Custom CSS -->
+<script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
     
-    <link rel="stylesheet" href="css/navbar-side.css">
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- Font Awesome JS -->
-    
-    <script src="https://kit.fontawesome.com/2828a76884.js" crossorigin="anonymous"></script>
-    
-  </head>
-  <body>
-  
-  <!-- Creating the Navigation Menu -->
+</head>
+<body>
+
+	<!-- Creating the Navigation Menu -->
 
 	<div class="wrapper">
         <!-- Sidebar  -->
@@ -65,7 +80,7 @@ security.enable(session, response);
                         Raise
                     </a>
                     </li>
-                    <li class="active">
+                        <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="far fa-eye"></i>
                         View
@@ -88,7 +103,7 @@ security.enable(session, response);
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="active">
                     <a href="gatepass_approval_home.jsp">
                     <i class="fas fa-check"></i>
                             Approve
@@ -124,6 +139,14 @@ security.enable(session, response);
             </ul>
         </nav>
         
+        <%
+			String user = (String) session.getAttribute("username");
+		String pass = (String) session.getAttribute("password");
+		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
+		ResultSet rs1 = statement.executeQuery(loggedInUser);
+		while (rs1.next()) {
+		%>
+        
         <!-- Page Content  -->
         <div id="content">
 
@@ -137,71 +160,41 @@ security.enable(session, response);
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" ><%=rs1.getString("firstname")%></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><span style="color:black"><i class="fas fa-user-circle"></i></span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
-            
-    <!-- Creating the table for Pending Gatepasses -->
-     <div class="container">
-<table align="center" class="table table-striped table-primary">
-       <%
-		try {
-			String driver = Database.getdriver();
-			String connectionUrl = Database.getConnectionUrl();
-			String database = Database.getDatabase();
-			String userid = Database.getUserId();
-			String password = Database.getPassword();
-		Class.forName(driver);
-		Connection connection = null;
-		Statement statement = null;
-		connection = DriverManager.getConnection(connectionUrl + database, userid, password);
-		statement = connection.createStatement();
-		
-		int staff_id = (Integer) session.getAttribute("ID");
-		String loggedInUser = "select * from PendingView where staff_id='" + staff_id + "'";
-		ResultSet rs = statement.executeQuery(loggedInUser);
-	%>
-    
-      
-      <thead class="thead-dark">
-        <tr>
-        <th scope="col" colspan="7" id="tableTitle">LIST OF PENDING GATE PASSES</th>
-        </tr>
-      </thead>
-      
-      
-<tbody>
-    <tr>
-    <th>Pass Number</th>
-    <th>Initiator</th>
-    <th>Staff ID</th>
-    <th>Date of Return</th>
-    <th>Status</th>
-    </tr>
-    	<%
-				while (rs.next()) {
-			%>
-    <tr>
-    <td><%=rs.getString("PassNumber")%></td>
-    <td><%=rs.getString("InitiatingOfficer")%></td>
-    <td><%=rs.getString("staff_id")%></td>
-    <td><%=rs.getString("Date_of_return")%></td>
-    <td><%=rs.getString("Status")%></td>
-    </tr>
-    	<%
+
+              <%
+			    }
+		       %>
+               <%
+		      connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-		connection.close();
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-   %>
-  </tbody>
-  </table>
-</div>
-   
-   
-   </div>
-   </div>
-   
+				%>
+	<div class="container text-center message-invalid">
+	
+	     <div class="container">
+	     <span class="fail" style="color:#64dd17;"><i class="fas fa-phone-square-alt"></i></span>
+	     
+	     </div>
+		  Contact details will be added in this page
+		</div>
+
+     </div>
+     </div>
+	<!-- Importing tether,jQuery,Bootstrap javaScript -->
+
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
 		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
 		crossorigin="anonymous"></script>
@@ -233,5 +226,6 @@ security.enable(session, response);
       	});
     </script>
     
-  </body>
+
+</body>
 </html>

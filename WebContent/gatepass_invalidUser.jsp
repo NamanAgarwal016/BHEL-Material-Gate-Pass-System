@@ -6,6 +6,11 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="login.database.*"%>
+<%@page import="login.web.Security"%>
+<%
+Security security = new Security();
+security.enable(session, response);
+%>
 
 <%
 String driver = Database.getdriver();
@@ -122,7 +127,7 @@ try {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="gatepass_contact.jsp">
                         <i class="fas fa-paper-plane"></i>
                    Contact
               </a>

@@ -136,7 +136,7 @@ try {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="gatepass_contact.jsp">
                         <i class="fas fa-paper-plane"></i>
                    Contact
               </a>
