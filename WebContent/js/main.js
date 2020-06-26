@@ -79,18 +79,3 @@ function clear(){
 function redirect(){
 	window.location = "gatepass_decline.jsp";
 }
-
-
-//function to approve the Pending Gate Pass
-
-
-function approve(){
-	var answer = confirm("Confirm to clear the Approve??");
-	if(answer)
-		{
-		    window.alert("Gatepass Approved Successfully");
-		}
-	else {
-		return false;
-	}
-}
