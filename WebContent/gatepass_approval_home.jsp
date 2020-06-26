@@ -41,7 +41,9 @@ if (staffid == 101|| staffid == 102 || staffid == 103 || staffid == 104 ) {
     
     <!-- Adding Bootstrap CSS -->
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     
     <!-- Adding Custom CSS -->
     
@@ -116,7 +118,7 @@ if (staffid == 101|| staffid == 102 || staffid == 103 || staffid == 104 ) {
                 <li>
                     <a href="gatepass_help.jsp">
                         <i class="fas fa-question"></i>
-                        FAQ
+                        Help
                     </a>
                 </li>
                 <li>

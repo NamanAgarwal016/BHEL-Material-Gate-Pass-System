@@ -57,10 +57,8 @@ try {
 <!--Importing Bootstrap css files from the cdn server,4.0.0-alpha.6 being the release Version-->
 
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
 
 <!--Importing custom css used for applying a theme to the page-->
@@ -98,7 +96,7 @@ try {
                 <li class="active">
                     <a href="gatepass_raise.jsp">
                         <i class="fas fa-file-upload"></i>
-                        Raise
+                        Help
                     </a>
                     </li>
                     <li>
@@ -139,7 +137,7 @@ try {
                 <li>
                     <a href="gatepass_help.jsp">
                         <i class="fas fa-question"></i>
-                        FAQ
+                        Help
                     </a>
                 </li>
                 <li>
@@ -160,7 +158,7 @@ try {
             </ul>
         </nav>
          
-        1<%
+        <%
 			String user = (String) session.getAttribute("username");
 		String pass = (String) session.getAttribute("password");
 		String loggedInUser = "select * from login where username='" + user + "' and password='" + pass + "'";
@@ -185,10 +183,10 @@ try {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                            	<a class="nav-link" ><%=rs1.getString("firstname")%></a>
+                                <a class="nav-link" ><%=rs1.getString("firstname")%></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"><span style="color:black"><i class="fas fa-user-circle"></i></span></a>
+                                <a class="nav-link"><span style="color:black;font-size:20px"><i class="fas fa-user-tie"></i></span></a>
                             </li>
                         </ul>
                     </div>

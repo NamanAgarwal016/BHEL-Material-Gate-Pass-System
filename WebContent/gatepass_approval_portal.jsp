@@ -118,7 +118,7 @@ if (staffid == 101|| staffid == 102 || staffid == 103 || staffid == 104 ) {
                 <li>
                     <a href="gatepass_help.jsp">
                         <i class="fas fa-question"></i>
-                        FAQ
+                        Help
                     </a>
                 </li>
                 <li>

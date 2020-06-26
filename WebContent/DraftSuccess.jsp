@@ -48,7 +48,9 @@ security.enable(session, response);
 
  <!-- Adding Bootstrap CSS -->
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css\navbar-side.css">
@@ -121,7 +123,7 @@ security.enable(session, response);
                 <li>
                     <a href="gatepass_help.jsp">
                         <i class="fas fa-question"></i>
-                        FAQ
+                        Help
                     </a>
                 </li>
                 <li>
@@ -154,6 +156,7 @@ security.enable(session, response);
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
+
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-justify"></i>
                         <span></span>
@@ -164,16 +167,15 @@ security.enable(session, response);
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" >Welcome, <%=rs1.getString("firstname")%></a>
+                                <a class="nav-link" ><%=rs1.getString("firstname")%></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"><span style="color:black"><i class="fas fa-user-circle"></i></span></a>
+                                <a class="nav-link"><span style="color:black;font-size:20px"><i class="fas fa-user-tie"></i></span></a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-
         <%
 			}
 		%>
