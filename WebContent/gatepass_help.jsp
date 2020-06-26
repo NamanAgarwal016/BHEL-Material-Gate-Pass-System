@@ -12,7 +12,7 @@ security.enable(session, response);
   <head>
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Help</title>
+    <title>Gate Pass - Help</title>
     
     <!-- Adding Bootstrap CSS -->
     
@@ -115,23 +115,16 @@ security.enable(session, response);
         </nav>
         
         
-        <!-- Page Content  -->
+       <!-- Page Content  -->
         <div id="content">
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-justify"></i>
-                        <span></span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
                 </div>
             </nav>
     
-    
+             <iframe src="gatepass_help.pdf" width="100%" height="500px"></iframe>
+             
     </div>
     </div>
 
