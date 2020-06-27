@@ -118,12 +118,8 @@ security.enable(session, response);
        <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                </div>
-            </nav>
     
-             <iframe src="gatepass_help.pdf" width="100%" height="500px"></iframe>
+             <iframe src="gatepass_help.pdf" width="100%" height="620px"></iframe>
              
     </div>
     </div>
