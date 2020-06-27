@@ -3,9 +3,7 @@ label {
 }
 input{
 	padding:2px;
-	margin:4px;
-	outline: 0;
-  border-width: 0 0 2px;
+	margin:4px;   
 }
 
 textarea {
@@ -29,7 +27,7 @@ th,td {
 .btn{
 	background-color: #6648b0;
 	border-color: #342a5a;
-	padding:8px;
+	
 }
 .tableEntry {
 	border: none;

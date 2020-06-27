@@ -234,23 +234,23 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
-				name="bhelStaffNo""/> <br> <label
-				for="bhelName">Name:</label> <input type="text" name="bhelName"
+				name="bhelStaffNo" value="Enter Staff No."/> <br> <label
+				for="bhelName">Name:</label> <input type="text" name="bhelName" value="Enter Name"
  			 /> <br> <label for="bhelDeg">Designation:</label>
-			<input type="text" name="bhelDeg" /> <br> <label
+			<input type="text" name="bhelDeg" value="Enter Designation" /> <br> <label
 				for="bhelDept">Department:</label> <input type="text"
-				name="bhelDept"  />
+				name="bhelDept" value="Enter Department"  />
 		</div>
 
 		<!--Extra Internal Form for a NON-BHEL Person-->
 
 		<div class="container" id="nonBhelInfo">
 			<label for="nonBhelName">Name:</label> <input type="text"
-				name="NbhelName"/> <br> <label
+				name="NbhelName" value="Enter Name"/> <br> <label
 				for="nonBhelCompany">Company Name:</label> <input type="text"
-				name="bhelCompany" /> <br> <label
+				name="bhelCompany" value="Enter Company Name" /> <br> <label
 			for="nonBhelAddress">Address:</label> <input type="text"
-				name="bhelAddress"/>
+				name="bhelAddress" value="Enter Address"/>
 		</div>
 
 		<div class="container form-group-header">MATERIAL DETAILS</div>
