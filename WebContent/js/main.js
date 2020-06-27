@@ -15,6 +15,8 @@ function bhel() {
 	content.style.display = "block";
 	var hide = document.getElementById("nonBhelInfo");
 	hide.style.display = "none";
+	var showDraft = document.getElementById("draftbutton");
+	showDraft.style.display = "inline-block";
 }
 function nonBhel() {
 	var content = document.getElementById("nonBhelInfo");

@@ -4,6 +4,8 @@ label {
 input{
 	padding:2px;
 	margin:4px;
+	outline: 0;
+  border-width: 0 0 2px;
 }
 
 textarea {
@@ -24,24 +26,11 @@ th,td {
 .container-naman div {
     display: inline;
   }
-.btn-primary {
+.btn{
 	background-color: #6648b0;
-	border-color: #6648b0;
+	border-color: #342a5a;
 	padding:8px;
 }
-.btn-primary:hover {
-	background-color: #342a5a;
-	border-color: #342a5a;
-}
-.btn-gen{
-	background-color:none;
-	color:#6648b0;
-	font-size:15px;
-}
-.btn-info,.btn-dark{
- background-color:#6648b0;
- }
-
 .tableEntry {
 	border: none;
 	background-color: transparent;
@@ -86,4 +75,7 @@ th,td {
 	margin-top:15px;
 	margin-left:320px;
 	
+}
+#draftbutton{
+	display:none;
 }

@@ -234,23 +234,23 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 
 		<div class="container" id="bhelInfo">
 			<label for="bhelStaffNo">Staff No:</label> <input type="text"
-				name="bhelStaffNo" value="Enter Staff No."/> <br> <label
-				for="bhelName">Name:</label> <input type="text" name="bhelName" value="Enter Name"
+				name="bhelStaffNo""/> <br> <label
+				for="bhelName">Name:</label> <input type="text" name="bhelName"
  			 /> <br> <label for="bhelDeg">Designation:</label>
-			<input type="text" name="bhelDeg" value="Enter Designation" /> <br> <label
+			<input type="text" name="bhelDeg" /> <br> <label
 				for="bhelDept">Department:</label> <input type="text"
-				name="bhelDept" value="Enter Department"  />
+				name="bhelDept"  />
 		</div>
 
 		<!--Extra Internal Form for a NON-BHEL Person-->
 
 		<div class="container" id="nonBhelInfo">
 			<label for="nonBhelName">Name:</label> <input type="text"
-				name="NbhelName" value="Enter Name"/> <br> <label
+				name="NbhelName"/> <br> <label
 				for="nonBhelCompany">Company Name:</label> <input type="text"
-				name="bhelCompany" value="Enter Company Name" /> <br> <label
+				name="bhelCompany" /> <br> <label
 			for="nonBhelAddress">Address:</label> <input type="text"
-				name="bhelAddress" value="Enter Address"/>
+				name="bhelAddress"/>
 		</div>
 
 		<div class="container form-group-header">MATERIAL DETAILS</div>
@@ -306,8 +306,8 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 				<div class="col">
 					<!--This button will save the gate pass as a draft-->
 
-						<button class="btn btn-primary" type="button" value="Save as Draft" id="draft-button" onclick="return confirmSave();">
-						<strong>Draft </strong><i class="far fa-save"></i>
+						<button class="btn btn-primary btn-draft" type="button"  id="draftbutton" onclick="return confirmSave();">
+						Draft <i class="far fa-save"></i>
 						</button>
 				
 				</div>
@@ -316,8 +316,8 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 
 					<!--This button will Register the gate pass provided none of the fields are invalid-->
 
-					<button class="btn btn-primary" type="button" value="Register" onclick="return confirmSubmit();">
-					<strong>Register </strong><i class="fas fa-clipboard-check"></i>
+					<button class="btn btn-primary btn-reg" type="button" value="Register" onclick="return confirmSubmit();">
+					Register <i class="fas fa-clipboard-check"></i>
 					</button>
 				</div>
 
@@ -326,8 +326,8 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 
 					<!--This button clears the current form and the gate pass will be cancelled-->
 
-					<button class="btn btn-primary" type="button" value="Clear" onclick="return confirmClear();">
-					<strong>Clear </strong><i class="fas fa-backspace"></i>
+					<button class="btn btn-primary btn-clear" type="button" value="Clear" onclick="return confirmClear();">
+					Clear <i class="fas fa-backspace"></i>
 					</button>
 				</div>
 			</div>
@@ -434,6 +434,6 @@ function confirmSave() {
 
 <!--JavaScript for dynamic content based on type of person BHEL/NON-BHEL -->
 
-<script type="text/javascript" src="js\main.js" defer></script>
+<script type="text/javascript" src="js\main.js"></script>
 
 </html>
