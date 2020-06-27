@@ -192,7 +192,7 @@ try {
 	     <div class="container">
 	     <span class="fail"><i class="fas fa-eye-slash"></i></span>
 	     </div>
-		  <b>ERROR:</b>You are not authorized to view this page
+		  <b>ERROR : </b>You are not authorized to view this page
 		<br> Contact system administrator for more info
 		</div>
 
