@@ -103,7 +103,7 @@ try {
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li >
                     <a href="gatepass_approval_home.jsp">
                     <i class="fas fa-check"></i>
                             Approve
@@ -121,7 +121,7 @@ try {
                         Help
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="gatepass_contact.jsp">
                         <i class="fas fa-paper-plane"></i>
                    Contact
