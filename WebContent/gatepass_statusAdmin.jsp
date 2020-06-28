@@ -25,7 +25,7 @@ security.enable(session, response);
   <head>
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link rel="shortcut icon" type="image/png" href="./img_src/favicon.jpg" />
     <title>Gate Pass - Admin</title>
     
     <!-- Adding Bootstrap CSS -->

@@ -37,6 +37,7 @@ try {
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="shortcut icon" type="image/png" href="./img_src/favicon.jpg" />
 <title>Material Gate Pass - In Draft</title>
 
 <!-- Adding Bootstrap CSS -->

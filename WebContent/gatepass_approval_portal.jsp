@@ -35,7 +35,7 @@ if (staffid == 101|| staffid == 102 || staffid == 103 || staffid == 104 ) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+<link rel="shortcut icon" type="image/png" href="./img_src/favicon.jpg" /> 
 <title>Material Gate Pass - Approval Portal</title>
 
 <!-- Adding Bootstrap CSS -->

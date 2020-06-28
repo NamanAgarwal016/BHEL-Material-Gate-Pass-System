@@ -43,6 +43,7 @@ try {
 <html ng-app>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset="ISO-8859-1">
+<link rel="shortcut icon" type="image/png" href="./img_src/favicon.jpg" />
 <title>Material Gate Pass</title>
 
 
