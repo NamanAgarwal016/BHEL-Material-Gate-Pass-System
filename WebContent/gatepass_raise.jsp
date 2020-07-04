@@ -307,7 +307,7 @@ integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJ
 				<div class="col">
 					<!--This button will save the gate pass as a draft-->
 
-						<button class="btn btn-primary btn-draft" type="button"  id="draftbutton" onclick="return confirmSave();">
+						<button class="btn btn-primary btn-draft" type="button" value="SaveAsDraft" id="draftbutton" onclick="return confirmSave();">
 						Draft <i class="far fa-save"></i>
 						</button>
 				
