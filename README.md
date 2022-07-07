@@ -1,13 +1,10 @@
 # BHEL-Material-Gate-Pass-System
 A web application to efficiently monitor and track the inward/outward movement of products from BHEL - HPVP Visakhapatnam (Internship Project)
 
-[View pages]
+[View pages][admin]
 
-<img src="https://user-images.githubusercontent.com/54075213/177551554-cbc0374c-d338-4aed-a52d-bb86dc0596de.png" width="600">
+ <img align="left" src="https://user-images.githubusercontent.com/54075213/177551554-cbc0374c-d338-4aed-a52d-bb86dc0596de.png" width="400">  <img align="centre" src="https://user-images.githubusercontent.com/54075213/177551561-66cce6f0-4d51-47a7-ae35-638b815c6c34.png" width="400">
 
-[admin]
-
-<img src="https://user-images.githubusercontent.com/54075213/177551561-66cce6f0-4d51-47a7-ae35-638b815c6c34.png" width="600">
 
 [approve2]
 
